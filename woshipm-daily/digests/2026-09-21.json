@@ -1,0 +1,297 @@
+{
+  "date": "2026-09-21",
+  "generatedAt": "2026-09-21T20:01:14.141+08:00",
+  "windowStart": "2026-09-20T20:01:14.141+08:00",
+  "title": "AI 产品从模型能力走向可编辑交付、真实任务评测与价值验收",
+  "intro": "截至北京时间 2026-09-21 20:01，本期精选 10 条未被历史简报收录的一手 AI 资讯。2 条有官方精确时间并严格落在最近 24 小时，8 条扩展至近 72 小时。今天最值得产品经理关注的变化是，模型和 Agent 正在进入更具体的产品环节：图像生成直接交付透明图层和多参考编辑，长任务模型强调反复执行与反馈，Coding Agent 补齐持久化重试与运行轨迹，企业评测开始把可靠性、风险和人工复核转成明确的扩展门槛。推荐标记只供浏览参考，不会自动代替你的选题。",
+  "coverageNotes": [
+    "本期于北京时间 2026-09-21 20:01 完成复核，严格窗口为 2026-09-20T20:01:14.141+08:00 至 2026-09-21T20:01:14.141+08:00。Qwen Code v0.24.2 与 NVIDIA 清洁能源案例有精确发布时间并进入该窗口。",
+    "Qwen-Image 2.1、Step 5 Preview 与 ZCode 的官方页面只提供日期或没有稳定的精确时间，因此按 72h 标注；没有把它们武断归入严格 24 小时。Step 5 Preview 官方页本身没有展示稳定日期，搜索索引与同期公开报道均指向 2026-09-20，故在条目中明确保留这一日期证据限制。",
+    "已与截至 2026-09-20 的 13 期、109 条历史简报按标题、URL 和事件去重。Qwen Code v0.24.2 是 v0.24.1 后的实质新版本；ZCode 将 9 月 19 日的 v3.14.0 功能与 9 月 21 日的 v3.14.1 修复合并为一条。",
+    "已复核 OpenAI、GitHub Changelog、AWS、Google AI、Microsoft 与 NVIDIA 官方 Feed，以及 Qwen、阶跃星辰、ZCode、Pydantic AI 和相关 GitHub Release。OpenAI、GitHub Changelog、Google AI 与 Microsoft 在严格窗口内没有强度相当的新正式发布；这些结论只覆盖本次检查的官方入口。",
+    "Qwen-Image 2.1 与 Step 5 Preview 的模型能力、参数和案例来自厂商官方材料；AWS HyperPod Inference Gateway 的延迟数字来自 AWS 自测；NVIDIA 清洁能源文章中的业务成效来自 NVIDIA 及其案例公司。均未被当作独立第三方验证。",
+    "Value-Sensitive Delegation、EnterpriseVal 与 RecreationWorld 均为 arXiv v1 预印本，尚未同行评审。它们分别使用 LLM 辅助标注的 Reddit 语料、单一全球银行的三类工作流试点，以及作者构建的跨平台 benchmark，外推时需保留样本和评测环境边界。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-21-01",
+      "title": "Qwen-Image 2.1 开源：7B 视觉生成组件统一生图、编辑与透明图层",
+      "source": "Qwen 官方博客",
+      "sourceUrl": "https://qwen.ai/blog?id=qwen-image-2.1",
+      "publishedAt": "2026-09-20",
+      "freshness": "72h",
+      "category": "图像生成与可编辑交付",
+      "summary": "Qwen 开源 Qwen-Image 2.1，把文生图和图像编辑放进同一模型；视觉生成组件为 7B 参数，并原生生成或编辑带透明通道的图像。模型最多接收 10 张参考图，支持局部修改、人物和产品一致性，并用混合粒度注意力与 KV cache 复用降低多图编辑的重复计算和内存占用。",
+      "whyItMatters": "图像产品的交付对象正在从一张扁平图片变成可继续组合的设计资产。产品经理可以围绕透明图层、主体提取、多参考合成和局部编辑重画工作流，并把人物、商品、Logo 一致性和后续可编辑性纳入验收，而不只比较审美评分。",
+      "angle": "从透明图层到 10 张参考图：AI 生图怎样从一次性结果变成可复用的设计生产线？",
+      "caveat": "官方页面标注 2026/09/20，但没有精确时间，故按 72h 收录。模型已提供 GitHub、Hugging Face 与 ModelScope 链接；官方对质量、效率和一致性的描述属于厂商自报，本期未把页面 benchmark 当作独立结论。7B 指视觉生成组件，不代表完整系统的全部参数或部署资源。",
+      "evidence": [
+        {
+          "url": "https://qwen.ai/blog?id=qwen-image-2.1",
+          "quote": "Qwen-Image-2.1 unifies text-to-image generation and image editing in a single model, with just 7B parameters in its visual generation component and native support for generating and editing transparent images."
+        },
+        {
+          "url": "https://qwen.ai/blog?id=qwen-image-2.1",
+          "quote": "Qwen-Image-2.1 supports up to 10 reference images, combining multiple subjects and assets into a coherent composition."
+        },
+        {
+          "url": "https://qwen.ai/blog?id=qwen-image-2.1",
+          "quote": "KV cache reuse allows input images and editing instructions to serve as static context, computed and cached in the first step to improve inference efficiency and reduce memory usage."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-21-02",
+      "title": "阶跃星辰发布 Step 5 Preview：面向长周期 Agent 任务，开放 API 后再开权重",
+      "source": "阶跃星辰官方发布页",
+      "sourceUrl": "https://www.stepfun.com/step-5-preview",
+      "publishedAt": "2026-09-20",
+      "freshness": "72h",
+      "category": "Agent 模型与开放策略",
+      "summary": "阶跃星辰发布 Step 5 Preview，定位于软件工程、专业知识工作和金融等 Agent 任务。官方称其采用稀疏 MoE 架构，总参数 600B、每 token 激活 27B，支持 100 万 token 上下文和视觉输入；当前已通过产品与 API 提供，完整开放权重计划在 10 月 15 日发布。官方还展示了连续 24 小时进行 GPU kernel 优化和自动后训练等长任务案例。",
+      "whyItMatters": "模型选型需要同时区分现在可用的托管 API、未来可下载的权重，以及长任务中的成本、状态保持和可验证反馈。产品团队应在真实流程中测试连续执行、失败恢复、工具调用和预算上限，并提前决定开放权重到来后是否需要私有部署或双轨迁移。",
+      "angle": "从 API 先行到权重后开：企业怎样评估长周期 Agent 模型并规划托管与私有部署双轨？",
+      "caveat": "官方发布页没有展示稳定的发布日期或精确时间；搜索索引与同期公开报道将发布置于 2026-09-20，因此按 72h 收录，不认定为严格 24 小时。参数、长任务案例和性能结果均为阶跃星辰自报；24 小时实验只代表指定任务、硬件和工具环境。开放权重日期仍可能调整。",
+      "evidence": [
+        {
+          "url": "https://www.stepfun.com/step-5-preview",
+          "quote": "Step 5 Preview has 600B total parameters, with 27B active per token, and supports a 1M-token context window and vision input."
+        },
+        {
+          "url": "https://www.stepfun.com/step-5-preview",
+          "quote": "Long-running tasks require the model to keep track of prior results, use feedback from execution, and decide what to try next."
+        },
+        {
+          "url": "https://www.stepfun.com/step-5-preview",
+          "quote": "Step 5 Preview is available today through our products and API. The model will be released with open weights on October 15."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-21-03",
+      "title": "Qwen Code v0.24.2 加入工作流重试、运行轨迹与 Linux 沙箱基础",
+      "source": "Qwen Code 官方 GitHub Release",
+      "sourceUrl": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.2",
+      "publishedAt": "2026-09-20",
+      "freshness": "24h",
+      "category": "Coding Agent 运行控制",
+      "summary": "Qwen Code v0.24.2 可以从持久化历史中重试或重新运行工作流，并把分页 transcript 事件投射为执行轨迹；运行快照改为原子写入。版本加入基于 bwrap 的 Linux 沙箱执行基础、并发会话共享 Chrome profile，以及每个上下文文件的来源和 token 成本说明；未决定信任的工作区现在必须显式授权。",
+      "whyItMatters": "长任务的产品体验需要同时回答发生了什么、能否从记录恢复，以及恢复会不会写坏状态。团队应把轨迹、快照、重试和权限判断设计为同一个运行对象，并展示上下文文件的来源与成本；沙箱也要区分已经提供的基础设施和真正覆盖的隔离场景。",
+      "angle": "Coding Agent 的运行记录怎样从聊天 transcript 升级为可恢复、可审计、可计费的任务轨迹？",
+      "caveat": "GitHub Release 时间为 2026-09-20T14:12:10Z，即北京时间 22:12:10，严格落在 24 小时窗口。bwrap 被描述为 internal foundation，不能据此认定所有 Linux 执行已经默认完整隔离；Release 也没有给出恢复成功率或沙箱安全测试数据。",
+      "evidence": [
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.2",
+          "quote": "feat(serve): retry and rerun workflow runs from persisted history"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.2",
+          "quote": "Adds an internal bwrap-based Linux sandbox execution foundation with structured process launching, supervision, and confined worker support."
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.2",
+          "quote": "fix(workflows): write run snapshots atomically"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-21-04",
+      "title": "ZCode v3.14 把动态工作流交给多子 Agent，并快速修复草稿与 Computer Control",
+      "source": "ZCode 官方 Changelog",
+      "sourceUrl": "https://zcode.z.ai/en/changelog",
+      "publishedAt": "2026-09-21",
+      "freshness": "72h",
+      "category": "多 Agent 工作流与可靠性",
+      "summary": "ZCode v3.14.0 新增动态工作流，可用单个脚本编排多个子 Agent 协作处理复杂任务，并支持从输入框加号菜单或 /workflow 启动；同时加入 Office 与 Coding 模式切换。9 月 21 日发布的 v3.14.1 随即修复插件选择后的草稿引用、折叠计划时草稿和思考文本丢失，以及 Computer Control 偶发无法启动等问题。",
+      "whyItMatters": "多 Agent 功能进入桌面产品后，工作流入口只是第一步。产品验收还要覆盖草稿、引用、计划折叠、模式切换和计算机控制等状态组合，确保用户在并发和恢复过程中不会丢失意图或证据；补丁速度也应成为升级策略的一部分。",
+      "angle": "多 Agent 工作流落地桌面端后，为什么草稿、引用和控制状态比“能调用几个 Agent”更决定可用性？",
+      "caveat": "官方 Changelog 只提供发布日期，没有精确时间，故标为 72h。v3.14.0 发布于 2026-09-19，v3.14.1 发布于 2026-09-21，本条合并连续版本；页面没有说明动态工作流的隔离边界、并发上限或失败恢复语义。",
+      "evidence": [
+        {
+          "url": "https://zcode.z.ai/en/changelog",
+          "quote": "Added dynamic workflows that use a single script to orchestrate multiple sub-agents collaborating on complex tasks"
+        },
+        {
+          "url": "https://zcode.z.ai/en/changelog",
+          "quote": "Draft content and thinking text are no longer lost when collapsing a plan or minimizing the input box."
+        },
+        {
+          "url": "https://zcode.z.ai/en/changelog",
+          "quote": "Fixed an issue where Computer Control might fail to start."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-21-05",
+      "title": "NVIDIA 汇总五个清洁能源 AI 案例：Agent 与数字孪生开始进入电网流程",
+      "source": "NVIDIA 官方博客",
+      "sourceUrl": "https://blogs.nvidia.com/blog/clean-energy-nvidia-ai/",
+      "publishedAt": "2026-09-21",
+      "freshness": "24h",
+      "category": "垂直行业 AI 产品",
+      "summary": "NVIDIA 在纽约气候周汇总五家把 AI 用于清洁能源的公司。ThinkLabs 用 CUDA 上的数字孪生与 Agent 运行电网仿真并处理并网障碍；文章称 Southern California Edison 把每份并网申请评估从 30—45 天缩短到 2 分钟。TerraPower 则连接 NVIDIA Omniverse 构建核电项目数字孪生，Redwood Materials 使用电池工程与控制软件为 AI 工厂提供离网电力。",
+      "whyItMatters": "垂直 AI 产品要把模型输出嵌入仿真、审批和现场资产，而不是停在问答。产品经理应先确定可被机器验证的业务环节、数字孪生和实时数据来源，再定义人工复核、失败回退和周期缩短指标；案例中的高收益数字也要拆解出基线、样本量和长期稳定性。",
+      "angle": "从 30 天到 2 分钟的并网评估：垂直 Agent 怎样与数字孪生、仿真和人工审批形成闭环？",
+      "caveat": "NVIDIA 官方 Feed 时间为 2026-09-21T10:00:35Z，即北京时间 18:00:35。文章是 NVIDIA 的行业案例汇编，30—45 天到 2 分钟等成效来自 NVIDIA 及案例参与方，未公开样本量、误差、异常处理或独立审计，不能直接外推到其他电网或监管环境。",
+      "evidence": [
+        {
+          "url": "https://blogs.nvidia.com/blog/clean-energy-nvidia-ai/",
+          "quote": "ThinkLabs AI is curating digital twins and agents — using the NVIDIA CUDA platform — to speed up interconnection timelines, seamlessly integrate clean energy sources and optimize the grid to handle ongoing variability."
+        },
+        {
+          "url": "https://blogs.nvidia.com/blog/clean-energy-nvidia-ai/",
+          "quote": "Southern California Edison used ThinkLabs software to reduce the time required to evaluate each grid interconnection application from 30-45 days to just two minutes."
+        },
+        {
+          "url": "https://blogs.nvidia.com/blog/clean-energy-nvidia-ai/",
+          "quote": "TerraPower is connecting an NVIDIA Omniverse-powered platform to create digital twin software that will support its efforts to accelerate the siting and delivery of future plants from years to months."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-21-06",
+      "title": "Pydantic AI 2.46 把实时会话成本、播放完成和 Temporal 事件流纳入框架",
+      "source": "Pydantic AI 官方 GitHub Release",
+      "sourceUrl": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0",
+      "publishedAt": "2026-09-18",
+      "freshness": "72h",
+      "category": "实时 Agent 会话与成本",
+      "summary": "Pydantic AI 2.46.0 为实时会话加入 wait_for_playback，允许应用在关闭前等待回复播放完成；实时响应现在会计入 usage.cost，并可受 UsageLimits.cost_limit 约束。版本还为 TemporalDurability 增加 event_stream_topic，将 Agent 事件通过 Workflow Streams 发送，并修复实时工具报错和迟到输入 transcript 的归属。",
+      "whyItMatters": "语音和实时 Agent 需要把播放完成、工具错误、输入归属和成本上限统一到会话状态机。产品团队应明确用户打断、迟到转写、工具失败和超预算时的界面反馈，并确保可观测事件与账单口径对应同一轮会话。",
+      "angle": "实时语音 Agent 为什么需要“播放完成、工具错误、输入归属、成本上限”四件套？",
+      "caveat": "Release 名称标注 2026-09-18，GitHub published_at 为 2026-09-19T03:51:40Z，即北京时间 11:51:40，属近 72 小时。版本说明确认了框架接口和修复，但没有提供端到端延迟、成本准确率或生产规模数据。",
+      "evidence": [
+        {
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0",
+          "quote": "Add RealtimeSession.wait_for_playback() and let the docs examples finish the reply before closing"
+        },
+        {
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0",
+          "quote": "Add event_stream_topic to TemporalDurability to stream agent events via Workflow Streams"
+        },
+        {
+          "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.46.0",
+          "quote": "Price realtime responses so usage.cost and UsageLimits.cost_limit work in a session"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-21-07",
+      "title": "AWS 推出 GPU 感知推理网关：按 KV cache、队列与 LoRA 驻留路由",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-inference-gateway/",
+      "publishedAt": "2026-09-18",
+      "freshness": "72h",
+      "category": "模型推理路由与成本",
+      "summary": "Amazon SageMaker HyperPod Inference Gateway 作为 EKS managed addon 部署在现有 HyperPod 上，通过实时 GPU 信号选择后端。路由评分可使用 KV cache 占用、队列深度、LoRA adapter 是否已驻留、prefix cache 命中率和运行中请求；请求体按 OpenAI 兼容 schema 的 model 字段进入对应模型池。当前提供单集群 Tier 1，全局跨集群与跨区域 Tier 2 仍为 coming soon。",
+      "whyItMatters": "多模型推理的体验与成本不仅由模型决定，也受请求是否命中缓存、是否触发 LoRA 换入和是否排在繁忙 GPU 后面影响。产品和平台团队应按业务类型给延迟、吞吐和缓存权重，暴露 429、重试和降级策略，并把单集群可用与未来全局能力区分清楚。",
+      "angle": "为什么大模型网关必须理解 KV cache、LoRA 和队列，而不能继续做普通轮询？",
+      "caveat": "AWS 官方 Feed 时间为 2026-09-18T13:08:34Z，即北京时间 21:08:34，距离本期截止约 70 小时 53 分。4.4 秒降至 800 毫秒以下以及详细 P95/P99 改善均为 AWS 自测，使用指定模型、GPU、内部负载均衡和默认路由配置；统一硬件与稳定流量下官方称结果与轮询相当。全局路由、跨区故障转移和成本感知流量整形尚未正式提供。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-inference-gateway/",
+          "quote": "It uses real-time GPU signals to place every inference request on the best-suited pod, delivering lower latency with no changes to your model servers or client applications."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-inference-gateway/",
+          "quote": "EPP consumes real-time Prometheus metrics from every model-serving pod and uses a weighted scoring algorithm to select the best-suited backend."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-amazon-sagemaker-hyperpod-inference-gateway/",
+          "quote": "Tier 2 — Global Inference Router (GIR) (coming soon)"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-21-08",
+      "title": "7.3 万条 OpenClaw 使用帖显示：用户价值更常在监督环节落空",
+      "source": "arXiv 预印本",
+      "sourceUrl": "https://arxiv.org/abs/2609.22067",
+      "publishedAt": "2026-09-18",
+      "freshness": "72h",
+      "category": "Agent 委派与用户价值",
+      "summary": "研究者使用价值敏感设计，并借助 LLM 分析 73,093 条第一人称 Reddit 帖子，把 21 类价值归纳为自主、可靠与可负担运行、边界、可审阅和公平访问等六组。论文称，在五组价值中，用户描述 Agent 交付结果时通常认为价值被满足；但在全部六组中，描述监督 Agent 时价值大多未被满足。作者把这种差异称为 value-sensitive delegation。",
+      "whyItMatters": "Agent 产品的价值问题往往发生在任务外围：预算能否控制、权限能否收回、过程能否审阅、失败后谁接管。产品经理应同时测交付满意度与监督负担，把成本、范围、复核和介入点作为委派配置，而不能只用任务完成率代表用户价值。",
+      "angle": "为什么 Agent 做完任务还不够：产品价值更可能在成本、边界与监督体验中丢失？",
+      "caveat": "arXiv v1 时间为 2026-09-18T17:55:09Z，即北京时间 9 月 19 日 01:55:09，属近 72 小时。这是未同行评审预印本；语料来自 Reddit 中关于 OpenClaw 的自述，并由 LLM 辅助分类，存在平台人群、发帖动机和标注误差，不能直接代表全部 Agent 用户或因果关系。",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2609.22067",
+          "quote": "Using Value Sensitive Design, we analyzed, with LLM assistance, 73,093 first-person Reddit posts about using OpenClaw."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.22067",
+          "quote": "Values were usually met where users described what the agent delivered, in five of six groups, and mostly unmet where users described supervising it, in all six groups."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.22067",
+          "quote": "Supporting human values requires attention not only to what an agent accomplishes, but to the conditions users set around delegation, including cost, access, and oversight."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-21-09",
+      "title": "EnterpriseVal 把企业 GenAI 评测变成 REJECT、CONDITIONAL、SCALE 门槛",
+      "source": "arXiv 预印本",
+      "sourceUrl": "https://arxiv.org/abs/2609.21841",
+      "publishedAt": "2026-09-18",
+      "freshness": "72h",
+      "category": "企业 AI 价值评测",
+      "summary": "EnterpriseVal 提出以具体用例为单位冻结模型、提示、检索、工具、护栏和人工监督配置，再从真实性、效用、效率、可靠性、保障和监督六类指标评估。其两级阈值门把带置信区间的指标映射到 REJECT、CONDITIONAL 或 SCALE。论文报告一家全球银行的三类工作流试点：最佳信用备忘录模型的人工评审引用精度为 88%、幻觉率 1.6%；流程文档转换的分析师精修时间估算从每份 27.4 小时降至 2.9 小时。",
+      "whyItMatters": "企业 AI 验收应回答某个冻结工作流是否值得扩展，而不是只比较模型榜单。产品经理可以按后果等级设不同证据门槛，把业务价值、可靠性、人工捕获错误的能力和置信区间放在同一决策表中，并为 CONDITIONAL 明确补救条件与复测时间。",
+      "angle": "从模型榜单到扩展决策：企业如何建立一套能真正决定停、试、扩的 AI 验收门？",
+      "caveat": "arXiv v1 时间为 2026-09-18T14:39:26Z，即北京时间 22:39:26，属近 72 小时。这是未同行评审预印本，试点只来自一家全球银行的三类工作流；部分工时为估算，摘要没有给出完整样本量和长期运行结果。框架和案例证据需要与作者的开放假设区分。",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2609.21841",
+          "quote": "We present EnterpriseVal, a use-case-level evaluation system that closes this gap."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.21841",
+          "quote": "a two-tier threshold gate, stated as an executable algorithm, that maps metric vectors with confidence bounds to REJECT/CONDITIONAL/SCALE decisions"
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.21841",
+          "quote": "In credit-memo drafting, human-graded citation precision reached 88% and hallucination rate 1.6% for the best model against gates of 70% and 5%; in procedure transformation, analyst refinement effort fell from an estimated 27.4 to 2.9 hours per document."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-21-10",
+      "title": "RecreationWorld 用五个平台和隐藏行为测试检验 GUI 与代码混合 Agent",
+      "source": "arXiv 预印本",
+      "sourceUrl": "https://arxiv.org/abs/2609.22000",
+      "publishedAt": "2026-09-18",
+      "freshness": "72h",
+      "category": "Computer Use Agent 评测",
+      "summary": "RecreationWorld 要求 Agent 先探索一个正在运行的参考应用，再自行编码并通过视觉方式验证复制结果，覆盖 Ubuntu、macOS、Windows、Android 和 Web。其 RecreationBench 包含 250 个跨领域任务，用参考应用生成的隐藏行为测试和视觉断言评分。论文称 GPT-6 Astra 总体得分最高为 58.1%，但只有 2.8% 的任务通过全部程序化测试。",
+      "whyItMatters": "GUI Agent 的验收不能停在截图相似或流程能跑一次。产品团队需要把交互后状态、计算结果、跨页面行为和视觉结构分层验证，并保留一个可重放的参考环境；总体平均分也不能掩盖只有极少任务完整通过全部关键断言。",
+      "angle": "为什么 Computer Use Agent 看起来会操作，却仍很难交付完整产品：从隐藏行为测试谈验收设计？",
+      "caveat": "arXiv v1 时间为 2026-09-18T17:00:56Z，即北京时间 9 月 19 日 01:00:56，属近 72 小时。这是未同行评审预印本；benchmark、训练轨迹和测试套件由作者团队构建，模型结果依赖具体 harness、工具、预算和版本。58.1% 是总体指标，2.8% 是通过全部程序化测试的任务比例，两者不能混用。",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2609.22000",
+          "quote": "RecreationWorld provides reproducible environments on Ubuntu, macOS, Windows, Android, and Web, plus a unified harness with native GUI control and coding tools."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.22000",
+          "quote": "For held-out evaluation, we introduce RecreationBench, comprising 250 diverse tasks across domains and platforms."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.22000",
+          "quote": "GPT-6 Astra leads at 58.1% overall, but passes all programmatic tests on just 2.8% of tasks."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

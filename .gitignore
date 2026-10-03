@@ -1,0 +1,13 @@
+node_modules/
+.next/
+data/
+.env*
+!.env.example
+*.tsbuildinfo
+coverage/
+*.log
+.qa/
+woshipm-daily/selections/
+/.qa-*
+woshipm-daily/articles/**/evidence/publication-*.txt
+woshipm-daily/deletions/

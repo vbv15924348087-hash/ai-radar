@@ -1,0 +1,275 @@
+{
+  "date": "2026-09-14",
+  "generatedAt": "2026-09-14T20:01:02+08:00",
+  "windowStart": "2026-09-13T20:01:02+08:00",
+  "title": "手机与生产 Agent 进入可运营阶段：权限审计、端到端验证、结果成本和额度成为控制面",
+  "intro": "截至北京时间 2026-09-14 20:01，本期精选 9 条未被此前简报收录的一手 AI 资讯。严格 24 小时窗口内确认了豆包手机助手消费者版、百炼 Model Studio CLI v1.25.0，以及 Perplexity 使用 GPT‑6 Astra 验证端到端系统三项高质量更新；其余内容明确标注为近 72 小时或最近 7 天补充。今天最值得产品经理关注的是：手机 Agent 如何把跨应用权限、指纹鉴权和全链路审计写进产品；生产 Agent 如何用可复核证据建立信任；模型选型、语音交互和套餐额度如何从单价比较走向单位成功结果成本。推荐标记只供浏览参考，不会自动代替你的选题。",
+  "coverageNotes": [
+    "本期于北京时间 2026-09-14 20:01 完成复核，优先窗口为 2026-09-13T20:01:02+08:00 至 2026-09-14T20:01:02+08:00。主窗口内确认 3 条高质量发布；因周末信息量较少，另补充 5 条近 72 小时内容和 1 条最近 7 天的重要产品发布。",
+    "本期共 9 条：豆包手机助手消费者版、百炼 Model Studio CLI v1.25.0、Perplexity 使用 GPT‑6 Astra、AWS Agent 双层监控、AWS MCP Apps、AWS 单位成功结果成本评测、Cognition Devin 测试证据、GPT‑Live‑1 API、腾讯混元 SAS。每条均核对官方公告、官方仓库、论文或厂商技术博客；媒体只用于补足豆包官网未标注的发布时间。",
+    "豆包手机助手首批范围依赖努比亚合作机型；跨应用“操作手机”、连续对话和部分智能服务仍标注 Beta。SAEP 的访问声明、用户授权与审计框架值得研究，但不能外推为所有 Android 手机或豆包用户已全量开放。",
+    "Perplexity 与 Cognition 两条材料都是 OpenAI 客户案例，适合观察产品与验收方法，不等同于独立评测。页面没有公布样本量、准确率、失败率、事故数据或人工审查减少幅度。",
+    "AWS 三篇文章分别讨论生产监控、MCP Apps 和模型经济性，属于不同产品问题。它们是参考架构或部署配置比较；LLM-as-a-Judge、No Auth 示例入口、非对称 reasoning 设置和有限样本都要求团队在自己的任务与安全环境中复测。",
+    "GPT‑Live‑1 的每分钟 0.05 美元只覆盖前端语音层，后端模型、工具调用和 Agent 基础设施需另计。腾讯混元 SAS 是研究代码与论文成果，不是线上模型或 API 发布。",
+    "已与截至 2026-09-13 的 7 期、54 条历史简报按标题与 URL 去重。百炼 v1.25.0 的套餐额度可观测性是 v1.24.0 沙箱生命周期之后的新功能；SAS 与前一期腾讯混元 AuK 处理的是不同模型方向。",
+    "已定向检查 OpenAI、Anthropic、Google/DeepMind、Microsoft、Meta、NVIDIA、GitHub、AWS 及中国主要模型厂商。除本期收录内容外，未发现主窗口内尚未收录且具有同等强度的官方更新；这表示本次覆盖结果，不代表全网不存在其他发布。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-14-01",
+      "title": "豆包手机助手消费者版发布：把跨 App 操作、指纹鉴权与全链路审计带到手机 Agent",
+      "source": "豆包手机助手官网与科技日报",
+      "sourceUrl": "https://o.doubao.com/",
+      "publishedAt": "2026-09-14",
+      "freshness": "24h",
+      "category": "手机 Agent",
+      "summary": "豆包与努比亚合作推出搭载 NaviX Ultra 的消费者版手机助手，并向 M153 老用户推送。AI 键支持指纹鉴权和锁屏调用；助手可读取屏幕形成任务输入、检索本地数据、保存用户主动要求记忆的信息，并通过模拟点击和工具调用执行跨应用任务。配套 SAEP 安全体系覆盖应用访问策略声明、用户授权管控和全链路审计。",
+      "whyItMatters": "手机 Agent 的产品竞争正在从问答效果转向身份、权限和执行治理。产品团队需要把每项跨应用能力拆成触发方式、数据范围、授权时机、执行反馈、失败恢复和审计记录，并让用户能区分系统工具调用与界面模拟点击。SAEP 提供了可落到权限矩阵、应用接入规则和风险处置流程的参考。",
+      "angle": "手机 Agent 真正落地后，产品经理该如何设计跨 App 权限、指纹鉴权、执行确认、失败恢复与全链路审计？",
+      "caveat": "豆包官网页面未单列准确发布时间；科技日报于 2026 年 9 月 14 日 16:53:19 报道正式发布，因此按主窗口收录。首批范围依赖努比亚合作机型；“操作手机”、连续对话及部分智能服务仍标注 Beta，不能表述为所有手机或豆包用户已全量开放。",
+      "evidence": [
+        {
+          "url": "https://o.doubao.com/",
+          "quote": "豆包手机助手正式发布"
+        },
+        {
+          "url": "https://o.doubao.com/",
+          "quote": "「操作手机」通过模拟点击和调用工具的方式，帮助用户操作手机完成各类任务。"
+        },
+        {
+          "url": "https://o.doubao.com/",
+          "quote": "针对图形界面智能体的跨应用操作，搭建 应用访问策略声明、用户授权管控、全链路审计的安全体系，防范越权访问与信息泄露，实现操作可追溯、风险可管控。"
+        },
+        {
+          "url": "https://www.stdaily.com/web/gdxw/2026-09/14/content_580572.html",
+          "quote": "豆包手机助手消费者版正式发布"
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-14-02",
+      "title": "百炼 CLI v1.25.0 开放套餐额度查询：用量、占比与重置时间可进入 Agent 成本控制",
+      "source": "阿里云百炼 Model Studio CLI 官方 Release",
+      "sourceUrl": "https://github.com/modelstudioai/cli/releases/tag/v1.25.0",
+      "publishedAt": "2026-09-14",
+      "freshness": "24h",
+      "category": "Agent 成本与额度",
+      "summary": "Model Studio CLI v1.25.0 新增 `bl token-plan harness-quota`，把 harness 列表与已发放 entitlement 联接，展示 used/total quota、使用比例和重置时间；待发放 entitlement 显示为 issuing。命令支持按 official_tool 或 infrastructure 筛选，并可输出适合人工查看的 quota box 或供自动化读取的 JSON。",
+      "whyItMatters": "AI 编程套餐的额度从后台黑盒变成可查询的产品对象。团队可以在 CLI 内做剩余额度提示，在成本看板中按 harness 聚合用量，在阈值到达前触发告警或降级路由，并把重置时间纳入任务调度。JSON 输出也使额度治理能进入自动化策略，而不是依靠人工登录控制台。",
+      "angle": "当 AI 编程套餐额度可以被 CLI 和脚本读取，产品该如何设计阈值提醒、成本看板、降级路由和重置周期？",
+      "caveat": "GitHub Release 的 published_at 为 2026-09-14T11:24:02Z，即北京时间 19:24:02，落在主窗口。此次更新提供额度可观测性，不代表模型能力提升、套餐总量增加或价格变化；命令需要 Console auth，且不能把 v1.24.0 的沙箱生命周期能力算作本次新增。",
+      "evidence": [
+        {
+          "url": "https://github.com/modelstudioai/cli/releases/tag/v1.25.0",
+          "quote": "Token Plan harness quota — `bl token-plan harness-quota` shows Token Plan harness entitlement quota usage (Console auth)"
+        },
+        {
+          "url": "https://github.com/modelstudioai/cli/releases/tag/v1.25.0",
+          "quote": "display used/total quota, usage ratio, and reset time"
+        },
+        {
+          "url": "https://github.com/modelstudioai/cli/releases/tag/v1.25.0",
+          "quote": "harnesses with a pending entitlement are listed as issuing."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-14-03",
+      "title": "Perplexity 用 GPT‑6 Astra 验证端到端系统：Agent 交付物开始包含模拟服务与完整工作流证据",
+      "source": "OpenAI 客户案例",
+      "sourceUrl": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+      "publishedAt": "2026-09-14",
+      "freshness": "24h",
+      "category": "Agent 验证",
+      "summary": "Perplexity 表示已让 GPT‑6 Astra 生成对外沟通、修改真实软件系统并监控生产软件。在测试场景中，模型会构造模拟外部服务响应的小型程序，用来检查应用如何响应，并验证完整工作流，而不是只检查某个函数或代码片段。",
+      "whyItMatters": "高自主 Agent 的验收对象应从代码或答案升级为执行证据。产品可以要求 Agent 同时提交测试环境、模拟依赖、运行记录、异常分支与未覆盖范围，并跟踪人工介入频率、端到端测试通过率、生产回退率和证据可复核性，用结果建立逐级授权。",
+      "angle": "从“会写代码”到“能证明完整系统可运行”，Agent 产品应如何设计端到端验收、信任指标和授权升级？",
+      "caveat": "OpenAI RSS 给出的发布时间为 2026-09-14 00:00 UTC，即北京时间 08:00，落在主窗口。这是 OpenAI 发布的客户案例，不是独立评测；页面没有公布测试样本量、准确率、失败率或生产事故数据，效果主要来自 Perplexity 管理者陈述。",
+      "evidence": [
+        {
+          "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+          "quote": "We can have the model craft communications, edit real-world systems, and monitor our production software."
+        },
+        {
+          "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+          "quote": "We’re actually able to trust it with full end-to-end systems."
+        },
+        {
+          "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+          "quote": "The model generates realistic responses like those another service would send."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-14-04",
+      "title": "AWS 给生产 Agent 增加质量与基础设施双层监控：同时回答“能不能跑”和“有没有完成目标”",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/monitoring-production-agent-lifecycle-with-aws-devops-agent-and-agentcore-evaluations/",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "Agent 生产监控",
+      "summary": "AWS 用四 Agent 航空预订样例演示两层监控：AgentCore Evaluations 持续抽样并评估 helpfulness、correctness 和 goal completion；AWS DevOps Agent 关联 CloudWatch、IAM、调用日志与编排轨迹调查基础设施故障。配套 CDK、看板和集成代码已开源。",
+      "whyItMatters": "接口成功只能说明系统完成调用，不能证明用户目标完成。生产 Agent 看板应同时呈现基础设施健康与任务质量，并把会话、轨迹、工具调用、错误、评价分数和评价理由关联起来。发生问题时，运营人员才能判断是模型决策、工具权限、编排逻辑还是基础设施导致失败。",
+      "angle": "生产 Agent 的看板怎样同时覆盖基础设施健康、任务完成率、评价理由和人工接管？",
+      "caveat": "AWS RSS 时间为 2026-09-11 18:26 UTC，即北京时间 9 月 12 日 02:26，按近 72 小时收录。这是 AWS 参考架构和示例系统；质量评分包含 LLM-as-a-Judge，需要校准抽样率、评分一致性和误判，实际部署还依赖 AWS 权限与日志配置。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/monitoring-production-agent-lifecycle-with-aws-devops-agent-and-agentcore-evaluations/",
+          "quote": "Infrastructure monitoring and agent effectiveness monitoring require different approaches."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/monitoring-production-agent-lifecycle-with-aws-devops-agent-and-agentcore-evaluations/",
+          "quote": "AgentCore Evaluations scores live agent interactions on helpfulness, correctness, and goal completion."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/monitoring-production-agent-lifecycle-with-aws-devops-agent-and-agentcore-evaluations/",
+          "quote": "The monitoring architecture answers two questions: Is the agent working well? Is the infrastructure healthy?"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-14-05",
+      "title": "AWS 用 MCP Apps 把交互式 HTML 组件嵌入 AI host：MCP server 变成协议适配层",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/build-interactive-mcp-apps-using-amazon-bedrock-agentcore/",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "MCP 交互界面",
+      "summary": "AWS 发布教程与开源样例，通过 MCP Apps 返回自包含 HTML widget，由兼容的 AI host 在沙箱 iframe 中渲染。参考架构把 MCP 协议层部署在 AgentCore Runtime，经 Gateway 暴露，业务逻辑继续留在 Lambda、DynamoDB 或既有后端，使同一服务能向不同 host 交付卡片、确认状态和操作结果。",
+      "whyItMatters": "企业服务可以把结构化交互作为 Agent 原生界面交付，减少为每个 AI host 单独开发前端的成本。产品设计需要明确哪些步骤适合富组件，如何表示加载、成功、失败与撤销，以及组件能调用哪些工具、读取哪些上下文。协议层越薄，既有业务规则越容易复用。",
+      "angle": "MCP Apps 让 Agent 回答变成可操作界面后，产品经理该如何设计组件状态、权限边界和跨 host 一致性？",
+      "caveat": "AWS RSS 时间为 2026-09-11 18:23 UTC，即北京时间 9 月 12 日 02:23，按近 72 小时收录。只有支持 MCP Apps 扩展的 host 才能渲染；文章是参考实现，不代表所有 ChatGPT 或 Claude 账号已默认开放。示例入站端点使用 No Auth，并依赖 WAF、IP allowlist 和限流，生产环境需重新设计认证与参数校验。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/build-interactive-mcp-apps-using-amazon-bedrock-agentcore/",
+          "quote": "MCP Apps extends the Model Context Protocol (MCP) with interactive HTML widgets rendered directly inside AI hosts."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/build-interactive-mcp-apps-using-amazon-bedrock-agentcore/",
+          "quote": "The host renders the HTML in a sandboxed `iframe`."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/build-interactive-mcp-apps-using-amazon-bedrock-agentcore/",
+          "quote": "The key point is that the MCP server acts as a thin protocol adapter."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-14-06",
+      "title": "AWS 把模型成本从 token 单价改算为每次成功结果：多轮 Agent 要按完整轨迹核算",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/beyond-the-price-per-token-choosing-the-right-openai-model-on-amazon-bedrock-for-your-workload/",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "模型经济性",
+      "summary": "AWS 开源统一 Responses API 评测工具，对比 Bedrock 上的 GPT‑5.6 Luna、Terra、Sol 与 OpenAI API 的 GPT‑5.4 mini、nano。评测覆盖正确答案成本、Agent 多轮轨迹成本和专业交付物通过率，并指出多轮任务反复传入增长中的上下文，累计输入成本可能随轮数近似二次增长。",
+      "whyItMatters": "模型选型表应加入任务成功率、平均轮数、失败重试、人工复核和单位合格成果成本。对 Agent 而言，便宜的 token 可能因更多搜索、上下文重传和重试产生更高总成本。产品团队需要以完整任务轨迹为计量单位，同时记录准确性、延迟和成本。",
+      "angle": "为什么“每百万 token 价格”正在失效：AI 产品如何核算每次成功结果、完整轨迹和人工复核成本？",
+      "caveat": "AWS RSS 时间为 2026-09-11 18:24 UTC，即北京时间 9 月 12 日 02:24，按近 72 小时收录。作者明确说明这是实际部署配置比较，不是模型内在能力的严格对照；Bedrock 模型关闭 reasoning，而 OpenAI API 基线使用默认设置。样本为 48 至 198 条，较小差距只能视为方向性结果，价格也需在采购时重查。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/beyond-the-price-per-token-choosing-the-right-openai-model-on-amazon-bedrock-for-your-workload/",
+          "quote": "But production workloads don’t buy tokens. They buy outcomes."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/beyond-the-price-per-token-choosing-the-right-openai-model-on-amazon-bedrock-for-your-workload/",
+          "quote": "This is a comparison of practical deployment configurations, not a controlled estimate of intrinsic model capability."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/beyond-the-price-per-token-choosing-the-right-openai-model-on-amazon-bedrock-for-your-workload/",
+          "quote": "Treat small gaps as directional unless accompanied by uncertainty estimates."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-14-07",
+      "title": "Cognition 让 Devin 用录像和测试报告证明代码可运行：交付开始包含已测与未测范围",
+      "source": "OpenAI 客户案例",
+      "sourceUrl": "https://openai.com/index/cognition-devin-testing-with-astra",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "Coding Agent 验收",
+      "summary": "Cognition 将 GPT‑6 Astra 用于 Devin 核心云 Agent、CLI 和桌面产品。案例中 Devin 测试一款 iPhone 游戏，返回模拟器运行录像，以及已通过检查和未测试范围报告；收到客户 bug 截图后，也可完成修复并返回结果截图，帮助审阅者快速复核。",
+      "whyItMatters": "编码 Agent 的验收可以设计成“修改内容、运行证据、已测范围、未测范围”四件套。录像和截图降低了审阅者自行复现的成本，未覆盖范围则防止视觉证据制造过度信任。客服问题也可以把原始截图、修复提交、验证结果和回归范围连成一条可追溯记录。",
+      "angle": "Coding Agent 怎样用录像、截图和测试范围报告交付可复核结果，并避免视觉证据造成过度信任？",
+      "caveat": "OpenAI RSS 时间为 2026-09-11 16:00 UTC，即北京时间 9 月 12 日 00:00，按近 72 小时收录。这是客户案例，没有公布测试集、失败率或人工审查减少幅度；“减少看代码、增加发布量”是 Cognition 的未来预期，不能写成已经实现的成效。",
+      "evidence": [
+        {
+          "url": "https://openai.com/index/cognition-devin-testing-with-astra",
+          "quote": "One of the big pieces that Astra improves on is its ability to test and prove that its work actually functions."
+        },
+        {
+          "url": "https://openai.com/index/cognition-devin-testing-with-astra",
+          "quote": "The report documents the scope of the testing."
+        },
+        {
+          "url": "https://openai.com/index/cognition-devin-testing-with-astra",
+          "quote": "We expect over time that we have to manually look at less code."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-14-08",
+      "title": "GPT‑Live‑1 API 将语音层与后端推理解耦：实时对话按分钟计费，复杂任务交给其他模型",
+      "source": "OpenAI 官方发布",
+      "sourceUrl": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
+      "publishedAt": "2026-09-10",
+      "freshness": "7d",
+      "category": "实时语音 Agent",
+      "summary": "GPT‑Live‑1 在单一模型中同时监听和说话，支持中断、静默、背景噪声、长会话和电话场景，并可把复杂推理及工具调用委派给 Astra、第三方文本模型或 Agent harness。API 已开放，前端语音层价格为每分钟 0.05 美元。",
+      "whyItMatters": "语音 Agent 可以分别选择低延迟对话层与后端任务模型，独立优化打断体验、推理深度、工具可靠性、延迟和成本。产品架构需要定义何时升级到后端模型、等待期间怎样保持自然对话，以及前端语音分钟数、后端 token、工具和基础设施如何合并计费。",
+      "angle": "语音层与推理层解耦后，产品如何设计任务升级、打断体验、等待反馈和完整成本模型？",
+      "caveat": "官方页面标注 2026 年 9 月 10 日，作为最近 7 天补充。每分钟 0.05 美元只覆盖前端语音层；自定义声音需联系销售。OpenAI 自报 Full Duplex Bench 提升 30 个百分点，Speak 自报中断减少近 80%，都需要在自己的语言、噪声和电话线路上复测。",
+      "evidence": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
+          "quote": "GPT‑Live‑1 handles listening and speaking in a single model."
+        },
+        {
+          "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
+          "quote": "Developers choose the models, tools, and agent harness behind the conversation."
+        },
+        {
+          "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
+          "quote": "GPT‑Live‑1 is available in the API today at $0.05 per minute for the front-end voice layer."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-14-09",
+      "title": "腾讯混元开源 SAS 完整训练与评测代码：让长上下文 Agent 的注意力预算可以被训练",
+      "source": "腾讯混元官方仓库与 arXiv 论文",
+      "sourceUrl": "https://github.com/Tencent-Hunyuan/Simple-Attention-Sparsification",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "稀疏注意力研究",
+      "summary": "Simple Attention Sparsification（SAS）用连续 soft gate 在保留离散 Top-K 的同时，让语言建模损失可以反向训练 selector。项目开放 Qwen3-4B、8B、14B 的训练 recipe、评测脚本和基于 SGLang 的稀疏注意力后端，评测覆盖推理、长上下文、BFCL 与 VitaBench Agent 任务；仓库说明 8 张 NVIDIA H20 可完成训练。",
+      "whyItMatters": "对长上下文与工具调用 Agent，注意力预算可以成为显式产品约束。团队可在延迟或成本固定的条件下测试保留哪些历史块会影响工具调用成功率、恢复能力和答案可追溯性，并把上下文选择错误纳入失败分析，而不是只看通用困惑度。",
+      "angle": "当模型可以学习“该看哪些历史上下文”，Agent 产品应如何评估注意力预算、工具调用成功率和上下文遗漏风险？",
+      "caveat": "论文 v1 于 2026-09-11 17:58:06 UTC 提交，关键训练与评测代码在 9 月 13 日补齐，按近 72 小时收录；publishedAt 保留论文首发日。这是研究代码与论文结果，不是腾讯线上模型或 API 发布。仓库主要面向 Qwen3 三种尺寸，VitaBench 还依赖外部云端用户模拟器、裁判和 API key；厂商报告的效果需独立复现。",
+      "evidence": [
+        {
+          "url": "https://github.com/Tencent-Hunyuan/Simple-Attention-Sparsification",
+          "quote": "SAS is a gated sparse-attention mechanism that learns, per query, which blocks to attend to — optimizing the context ranking end-to-end with the language modeling loss"
+        },
+        {
+          "url": "https://github.com/Tencent-Hunyuan/Simple-Attention-Sparsification",
+          "quote": "We open-source the complete training and evaluation pipeline, including training recipes, evaluation scripts, and the SGLang-based sparse attention backend"
+        },
+        {
+          "url": "https://github.com/Tencent-Hunyuan/Simple-Attention-Sparsification",
+          "quote": "SAS has relatively low resource requirements and can be trained on 8 NVIDIA H20 GPUs."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

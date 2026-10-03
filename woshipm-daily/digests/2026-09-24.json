@@ -1,0 +1,240 @@
+{
+  "date": "2026-09-24",
+  "generatedAt": "2026-09-24T20:00:35.795+08:00",
+  "windowStart": "2026-09-23T20:00:35.795+08:00",
+  "title": "从可控声音到可控 Agent：AI 产品竞争转向权限、证据链与完整工作流",
+  "intro": "截至北京时间 2026-09-24 20:00，本期精选 8 条未被历史简报收录的一手 AI 资讯，均有官方页面、官方 Feed 或 GitHub published_at 支撑，严格落在最近 24 小时。今天的共同信号是：新模型仍在扩大生成边界，但真正决定产品能否上线的，越来越是声音授权、资料引用、执行权限、审批审计、跨设备记忆和多端交付。推荐标记只供浏览参考，不会自动代替你的选题。",
+  "coverageNotes": [
+    "本期严格窗口为 2026-09-23T20:00:35.795+08:00 至 2026-09-24T20:00:35.795+08:00。8 条均有精确时间：Amazon Seller Assistant 为北京时间 9 月 23 日 21:00:08，GitHub 本地沙箱为 23:00:57，Google TTS 为 23:15，DeepMind 私有记忆为 9 月 24 日 00:00:57，Google Docs/Notebook 为 02:26:49，Google Vids 为 03:00，GitHub 代码审查配置为 05:25:58，腾讯 Hy 翻译官方公告为 14:04:32。",
+    "已与截至 2026-09-23 的 16 期、136 条历史简报按来源 URL、标题和实际事件核对。GitHub 本地沙箱与昨日 OpenTelemetry 分别对应限制行为和观察行为；代码审查配置则新增个人自动触发范围与企业、组织、仓库的默认值继承，区别于此前已经报道的审查界面和结果呈现。DeepSeek Harness 0.1.7-rc.1 主要重述已报道的 alpha 能力，复核后未收录。",
+    "已实际打开并核对 Google/DeepMind、Google Workspace、GitHub、Amazon、腾讯混元官方公众号原文及腾讯 Hy 翻译 App Store 产品页；同时检查 OpenAI、Anthropic、Microsoft、Meta、NVIDIA、DeepSeek、阿里通义、MiniMax、字节等公开更新入口。AnySearch 匿名额度结束后只返回自动注册提示，本轮未使用或保存所给凭据，因此微信、微博及部分动态页面的检索仍有覆盖缺口，未收录不代表相关团队完全没有更新。",
+    "Google、Amazon、DeepMind 与腾讯对质量、隐私、覆盖范围或产品能力的描述均按官方口径转述；其中 TTS 排名、长音频一致性与隐私架构保证未做独立复现。正式接入前仍需按实际账户、地区、套餐、配额、操作系统、模型版本和权限设置复核。",
+    "本期未把只标 9 月 23 日而无精确时间的 OpenAI Ads 亚洲扩区和 Anthropic 酶系统预印本挤入主列表；也未把 Meta Muse 眼镜的场景细节再次包装成新发布，因为 9 月 9 日简报已覆盖其进入 AI 眼镜的计划。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-24-01",
+      "title": "Gemini 3.8 TTS 把声音设计、复刻与逐句导演带进 API",
+      "source": "Google 官方发布",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+      "publishedAt": "2026-09-23",
+      "freshness": "24h",
+      "category": "语音生成与声音产品",
+      "summary": "Google 发布 Gemini 3.8 Flash TTS 与 Flash-Lite TTS：前者支持用自然语言设计声音、从 30 秒样本复刻获授权声音并逐句控制表演，后者面向高吞吐生成。两款已进入 Gemini API 和 Google AI Studio；Flash 用于 Gemini Notebook，Flash-Lite 计划进入 Google Vids，Gemini Enterprise API 仍为即将开放。",
+      "whyItMatters": "TTS 的产品指标不再只看音色自然度。产品经理需要把声音创建、授权证明、角色一致性、长音频漂移、逐句控制、生成成本和地区可用性放在同一条生产流程验收，尤其适合配音、播客、游戏角色和语音 Agent。",
+      "angle": "语音产品如何从“选一个音色”升级为可控声音生产线：声音设计、复刻授权、逐句导演和规模化成本怎样一起验收？",
+      "caveat": "Google 页面元数据时间为 2026-09-23T15:15:00Z，即北京时间 23:15。Voice Design Benchmark、Voice Arena 排名和长音频表现均为 Google 引用或自报，未作独立复现；企业 API 尚未上线。AI Studio 的声音复刻暂不在 Illinois、Texas、EEA、英国、瑞士和印度开放，复刻还要求声音所有者的口头同意录音。",
+      "evidence": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+          "quote": "Gemini 3.8 Flash TTS: Built for deep creative direction and character design. Create entirely new voices from scratch using natural language prompts to bring characters to life across gaming, immersive audiobooks, podcasts, and interactive media."
+        },
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+          "quote": "Voice replication: Recreate consistent vocal profiles from just a 30-second audio sample of your voice or a voice you have the rights to use, backed by built-in consent verification, SynthID watermarking, and C2PA credentials"
+        },
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+          "quote": "For enterprises: Coming soon via API in Gemini Enterprise"
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-24-02",
+      "title": "Google Docs 可直接引用 Gemini Notebook 资料并生成行内出处",
+      "source": "Google Workspace Updates",
+      "sourceUrl": "https://workspaceupdates.googleblog.com/2026/09/ground-ai-prompts-in-google-docs-on-existing-sources-from-Gemini-Notebook.html",
+      "publishedAt": "2026-09-23",
+      "freshness": "24h",
+      "category": "知识工作与办公协作",
+      "summary": "Google Docs 现在可把已有 Gemini Notebook 作为提示上下文：用户在侧栏或底部输入 @ 引用 Notebook，Gemini 会基于其中资料起草内容并给出行内引用。Rapid Release 与 Scheduled Release 均已开放，但需管理员启用 Drive 中的 Gemini、用户启用 Workspace smart features，并属于指定 Business、Enterprise、Education 或 Google AI 套餐。",
+      "whyItMatters": "资料库到文档的检索、写作和核验被放进同一界面，减少复制粘贴和来源丢失。B2B 产品经理应把引用可追溯、资料新鲜度、Notebook 权限继承、管理员开关和最终人工核验一起设计，行内引用本身不等于事实已经正确。",
+      "angle": "从资料库直接写进文档之后，AI 办公产品如何用引用、权限和资料新鲜度建立可信工作流？",
+      "caveat": "官方 Atom 的 published 时间为 2026-09-23T11:26:49.229-07:00，即北京时间 9 月 24 日 02:26:49。功能只对公告列出的套餐开放，并依赖管理员与用户两层开关；公告没有说明 Notebook 内容变化后的引用刷新机制，也不能据此保证生成结论无误。",
+      "evidence": [
+        {
+          "url": "https://workspaceupdates.googleblog.com/2026/09/ground-ai-prompts-in-google-docs-on-existing-sources-from-Gemini-Notebook.html",
+          "quote": "We are introducing the ability to use Gemini Notebook as a context source in Google Docs."
+        },
+        {
+          "url": "https://workspaceupdates.googleblog.com/2026/09/ground-ai-prompts-in-google-docs-on-existing-sources-from-Gemini-Notebook.html",
+          "quote": "simply type \"@\" in the side panel or bottom bar to reference an existing Notebook. Gemini will ground its output in your sources and provide inline citations"
+        },
+        {
+          "url": "https://workspaceupdates.googleblog.com/2026/09/ground-ai-prompts-in-google-docs-on-existing-sources-from-Gemini-Notebook.html",
+          "quote": "These features are available by default if Gemini for Workspace in Drive is enabled."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-24-03",
+      "title": "GitHub Copilot app 用项目级沙箱限制本地 Agent 的文件、网络与凭证",
+      "source": "GitHub Changelog",
+      "sourceUrl": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+      "publishedAt": "2026-09-23",
+      "freshness": "24h",
+      "category": "Coding Agent 权限治理",
+      "summary": "GitHub Copilot app 为本地仓库和工作树会话增加项目级沙箱，可配置额外读写、只读和拒绝目录，控制外网与本地网络，并限定 Git 与 GitHub CLI 凭证。若操作系统无法执行所请求的策略，沙箱 shell 会直接报错；企业托管设置还可把最终策略收得更紧。",
+      "whyItMatters": "Coding Agent 的权限边界开始成为用户可见的产品设置。验收时应逐项验证允许与拒绝路径、网络出口、凭证暴露、策略继承和失败方式，并把昨日的运行轨迹观测与今天的权限限制组合成企业上线证据。",
+      "angle": "Coding Agent 的沙箱怎样成为真正可验收的产品能力：文件、网络、凭证、企业继承和失败关闭五个检查面",
+      "caveat": "GitHub Feed 时间为 2026-09-23T15:00:57Z，即北京时间 23:00:57。功能默认关闭、处于 public preview；项目默认开关作用于新会话，运行中的本地会话可用 /sandbox on 当场启用，文件、网络与凭证配置变更则在新会话或重启后生效。不适用于云沙箱与远程主机，Copilot app 和 Copilot CLI 也需分别配置。",
+      "evidence": [
+        {
+          "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+          "quote": "Local sandboxing helps reduce the potential impact of unintended commands by limiting access to files, network resources, and credentials on your machine."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+          "quote": "If your operating system cannot enforce the requested policy, the sandboxed shell fails with an error rather than running without a sandbox."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/",
+          "quote": "Local sandboxing is off by default."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-24-04",
+      "title": "Amazon Seller Assistant 从问答走向持续监控、审批与审计",
+      "source": "Amazon Newsroom 官方发布",
+      "sourceUrl": "https://www.aboutamazon.com/news/innovation-at-amazon/seller-assistant-plugin-amazon-quick-claude",
+      "publishedAt": "2026-09-23",
+      "freshness": "24h",
+      "category": "运营 Agent 与人机审批",
+      "summary": "Amazon 为 Seller Assistant 增加持续运行的自定义工作流，可监控库存、价格与账户健康等条件并按卖家定义的护栏响应，每个动作保留审计轨迹。卖家可选择只接收建议或让系统代为执行，执行前仍可审阅批准；Selling Partner 插件率先接入 Amazon Quick，并以 beta 接入 Claude。",
+      "whyItMatters": "Agent 从“被问时回答”进入后台常驻后，触发条件、动作边界、审批节点、暂停入口和审计记录都会变成核心产品能力。运营类 Agent 的成功指标也应从回答满意度转向预警及时性、批准率、误操作率和可追回性。",
+      "angle": "卖家 Agent 如何从问答走到 24/7 运营：用护栏、审批和审计把自动化做成可控产品",
+      "caveat": "Amazon 页面时间为 2026-09-23T13:00:08.829Z，即北京时间 21:00:08。插件当前只对 Amazon 美国站卖家开放 beta，国际扩展时间和费用未明确；90% 第三方 AI 工具使用率、90% 建议采纳率等数字均为 Amazon 自报。",
+      "evidence": [
+        {
+          "url": "https://www.aboutamazon.com/news/innovation-at-amazon/seller-assistant-plugin-amazon-quick-claude",
+          "quote": "Today, we’re introducing Seller Assistant workflows: custom automations that run continuously, monitoring conditions, interpreting changes, and responding dynamically, even when the seller isn’t logged in to Seller Central."
+        },
+        {
+          "url": "https://www.aboutamazon.com/news/innovation-at-amazon/seller-assistant-plugin-amazon-quick-claude",
+          "quote": "Every action is logged with a complete audit trail."
+        },
+        {
+          "url": "https://www.aboutamazon.com/news/innovation-at-amazon/seller-assistant-plugin-amazon-quick-claude",
+          "quote": "When it takes actions, sellers stay in control, reviewing and approving them before they’re carried out."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-24-05",
+      "title": "DeepMind 公布私有云端持久记忆架构，设备保管解密密钥",
+      "source": "Google DeepMind 官方技术更新",
+      "sourceUrl": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+      "publishedAt": "2026-09-23",
+      "freshness": "24h",
+      "category": "AI 记忆与隐私架构",
+      "summary": "Google DeepMind 说明 Private AI Compute 的服务器端持久记忆方案：每用户数据存放在加密存储中，解密密钥由个人设备持有；模型需要上下文时，通过端到端加密通道在云端 secure enclave 的隔离内存中临时解密，完成后再加密保存。Google 还发布更新技术简报、服务器软件公开记录和第三方审计信息。",
+      "whyItMatters": "跨设备个人助理若要连续记忆，就必须同时解决密钥归属、隔离计算、软件真实性、删除纠正和设备丢失等产品问题。架构说明可以转化为用户可理解的记忆开关、查看与清除入口，以及安全团队可验证的上线条件。",
+      "angle": "云端记忆如何赢得用户信任：把密钥、隔离计算、软件可验证性和记忆删除做成产品机制",
+      "caveat": "页面元数据时间为 2026-09-23T16:00:57.674Z，即北京时间 9 月 24 日 00:00:57。正文使用“will enable”“will be able to”等将来时，是技术架构更新，并未宣布普通用户全面上线；“连 Google 也无法访问”等隐私保证属于 Google 对自身架构的陈述，独立审计机构未在正文点名。",
+      "evidence": [
+        {
+          "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+          "quote": "the cryptographic keys required to unlock it are held exclusively on your personal devices — ensuring your data is inaccessible to anyone else, even Google."
+        },
+        {
+          "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+          "quote": "That space, or “secure enclave,” temporarily decrypts your data in isolated memory to handle the request, saves any new context, and immediately encrypts it, keeping your information private as if it never left your device."
+        },
+        {
+          "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+          "quote": "we’re publishing a tamper-proof public record of our server software."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-24-06",
+      "title": "Google Vids 向所有 Google 账号免费开放 Omni 1.1 视频生成",
+      "source": "Google 官方发布",
+      "sourceUrl": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-in-google-vids/",
+      "publishedAt": "2026-09-23",
+      "freshness": "24h",
+      "category": "AI 视频创作与开放范围",
+      "summary": "Google Vids 允许任何 Google 或 Google Workspace 账号免费使用 Gemini Omni 1.1 Flash 生成视频，新增延长场景、指定精确片段时长、生成或放大到 1080p 等控制。每个生成片段嵌入 SynthID；更多个人生成额度需 Google AI 方案，团队更大容量和集中管理则依赖 Workspace Business 或 Enterprise。",
+      "whyItMatters": "视频生成从专业套餐功能变成大众入口后，差异会更多落在可编辑控制、可用成片率、品牌一致性和额度管理。产品经理应按一次可发布视频所需的生成轮次、人工剪辑时间、清晰度、可追溯标识和团队权限核算真实成本。",
+      "angle": "免费 1080p 视频生成会如何改变内容产品：用可用成片率、控制力、额度和人工返工算真实价值",
+      "caveat": "Google 页面元数据时间为 2026-09-23T19:00:00Z，即北京时间 9 月 24 日 03:00。免费代表账号可开始生成，不等于无限额度；公告没有给出免费池具体数量。Gemini 3.8 Flash-Lite TTS 在 Vids 中仍是 coming soon，不能写成已经开放。",
+      "evidence": [
+        {
+          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-in-google-vids/",
+          "quote": "Now anyone with a Google or Google Workspace account can generate high-quality videos at no cost using our latest Gemini Omni 1.1 Flash model and new creative controls."
+        },
+        {
+          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-in-google-vids/",
+          "quote": "Create brand-new AI video scenes in full 1080p HD, or upscale existing AI clips to blend seamlessly across your timeline."
+        },
+        {
+          "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-in-google-vids/",
+          "quote": "Every clip generated with Omni 1.1 in Google Vids includes an imperceptible SynthID digital watermark embedded into the video frames."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-24-07",
+      "title": "GitHub Copilot 代码审查增加自动触发与企业默认力度",
+      "source": "GitHub Changelog",
+      "sourceUrl": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
+      "publishedAt": "2026-09-23",
+      "freshness": "24h",
+      "category": "代码审查与企业策略",
+      "summary": "GitHub Copilot Code Review 的个人设置页现向所有 Copilot 套餐开放，包括 Business 与 Enterprise；用户可分别为新建 PR、草稿 PR 和新 push 开启自动审查，并设置 Lite 或 Balanced 默认力度。企业管理员可为组织仓库指定企业默认力度，组织和仓库仍能覆盖该默认值，功能已 GA。",
+      "whyItMatters": "代码审查 Agent 从个人功能进入企业策略层后，产品需要把自动触发范围、审查力度、继承优先级和仓库风险等级连起来。高风险仓库可覆盖企业默认值，团队也应分别观察漏报、误报、延迟与人工采纳率。",
+      "angle": "代码审查 Agent 如何分层配置：个人自动触发、审查力度、企业默认值与组织仓库覆盖怎样设计？",
+      "caveat": "GitHub 页面时间为 2026-09-23T21:25:58Z，即北京时间 9 月 24 日 05:25:58。Lite 与 Balanced 只是力度选项，公告没有给出质量、延迟或计费的量化对照；可覆盖的继承规则也意味着企业仍需制定仓库级策略，默认值不构成统一质量保证。",
+      "evidence": [
+        {
+          "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
+          "quote": "a dedicated “code review” page under Copilot is now available on every Copilot plan, including Copilot Business and Copilot Enterprise."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
+          "quote": "Turn on automatic review for new pushes and for draft pull requests you create or coauthor."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
+          "quote": "Organizations and repositories can still set their own overrides."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-24-08",
+      "title": "腾讯混元介绍 Hy 翻译 App：本地模型支持离线、拍照与翻译记忆",
+      "source": "腾讯混元官方公告与 App Store 产品页",
+      "sourceUrl": "https://apps.apple.com/cn/app/id6768870541",
+      "publishedAt": "2026-09-24",
+      "freshness": "24h",
+      "category": "翻译产品与端侧 AI",
+      "summary": "腾讯混元在 9 月 24 日的官方公告中介绍腾讯 Hy 翻译。腾讯开发者的 App Store 产品页显示，它基于 Hy-MT2，支持 33 种语言互译和 5 种中国少数民族语言或方言，并提供文本、语音、对话、拍照和离线翻译；用户还可切换场景风格、设置偏好并积累翻译记忆。",
+      "whyItMatters": "模型发布之后，离线模型、拍照识别、对话模式、风格控制和翻译记忆把基础能力包装成可持续使用的消费产品。翻译产品应按术语一致性、弱网可用性、离线包体积、图片识别链路和隐私边界做验收。",
+      "angle": "从开源模型到旅行工具：Hy-MT2 如何用离线模型、拍照、对话和翻译记忆完成产品化？",
+      "caveat": "腾讯混元公众号原文 ct=1790229872，即北京时间 2026-09-24 14:04:32；主链接改用永久的官方 App Store 产品页，避免微信搜索签名链接过期。App Store 版本史显示产品此前已有版本，因此本条是官方集中介绍与产品化观察，不称为 APP 首次发布。离线包体积、独立质量对比和其他平台下载状态仍需另行核验。",
+      "evidence": [
+        {
+          "url": "https://apps.apple.com/cn/app/id6768870541",
+          "quote": "腾讯 Hy 翻译是一款基于 Hy-MT2 混元翻译模型打造的 AI 翻译 App，支持 33 种语言互译，并覆盖 5 种中国少数民族语言或方言"
+        },
+        {
+          "url": "https://apps.apple.com/cn/app/id6768870541",
+          "quote": "你可以用它进行文本翻译、语音翻译、对话翻译、拍照翻译，也可以根据不同场景切换翻译风格，设置自定义翻译偏好，沉淀常用术语和翻译记忆"
+        },
+        {
+          "url": "https://apps.apple.com/cn/app/id6768870541",
+          "quote": "在无网络、弱网络或海外出行场景中，你也可以提前下载本地翻译模型，继续使用离线翻译能力。"
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

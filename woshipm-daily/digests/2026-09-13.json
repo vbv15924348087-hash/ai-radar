@@ -1,0 +1,307 @@
+{
+  "date": "2026-09-13",
+  "generatedAt": "2026-09-13T20:00:34+08:00",
+  "windowStart": "2026-09-12T20:00:34+08:00",
+  "title": "Agent 产品进入运营层：多模型准入、结果指标、沙箱与跨 Agent 委派成为新控制面",
+  "intro": "截至北京时间 2026-09-13 20:00，本期精选 10 条未被前六期收录的一手 AI 资讯。周末严格 24 小时窗口内没有找到足够多且能确认精确发布时间的强发布，因此按工作流扩展至 72 小时，并加入两条最近 7 天的重要补充。重点看企业多模型如何把管理员开关、地区和数据处理方写入准入流程，代码与后台 Agent 如何从使用量走向结果、审批和恢复，以及国内开发平台如何把模型别名、沙箱生命周期与跨 Agent 委派变成可运营能力。推荐标记只供浏览参考，不会自动代替你的选题。",
+  "coverageNotes": [
+    "本期于北京时间 2026-09-13 20:00 完成复核，优先窗口为 2026-09-12T20:00:34+08:00 至 2026-09-13T20:00:34+08:00。该窗口内没有找到足够多且带精确时刻的强发布；微软 Grok 公告只标注 9 月 12 日，因此也按 72h 处理，不武断标为严格 24h。",
+    "本期共 10 条：Microsoft Copilot Grok 预览、Gemini Windows、GitHub Copilot code review、VS Code Agents 使用指标、AWS Pizza Bot、Google Research ToolGrad、Kimi K2.8 Preview、百炼 Model Studio CLI v1.24.0、Qwen Code v0.23.3、腾讯混元 AuK。每条均核对官方公告、更新日志、论文博客或官方开源仓库；搜索摘要只用于发现线索。",
+    "针对 OpenAI、Anthropic、Google/DeepMind、Microsoft、Meta、NVIDIA、GitHub、AWS 及中国主要模型厂商进行定向检索；未发现 OpenAI、Anthropic 或 Meta 在优先窗口内尚未被 9 月 12 日简报覆盖的同等强度发布。周末覆盖存在官方页面只给日期、不提供时分的限制。",
+    "Microsoft Grok 只在 Frontier Program 的 Word、Excel、PowerPoint 中预览，默认由管理员关闭，欧盟、EFTA 与英国暂不可用。公告没有公布价格、具体 Grok 版本、正式开放日期或扩展到其他 Copilot 入口的计划。",
+    "Gemini Windows 的 Workspace Updates 页面标注 2026 年 9 月 11 日；Google 主博客 RSS 对同一桌面应用文章显示 9 月 10 日，可能源于发布渠道与时区差异。本期以功能范围更明确的 Workspace Updates 日期为 publishedAt，并在条目中保留该日期边界。",
+    "GitHub code review 的 47% 高严重度已处理评论提升和约 8% 成本下降来自 GitHub 实验，不代表所有仓库。VS Code Agents 指标只覆盖独立 Agents 窗口，衡量的是采用和活动，不能直接代表任务成功、代码质量或节省工时。",
+    "Pizza Bot 是 AWS 员工发布的社区开源项目，不是 AWS 服务，也没有 AWS 支持或 SLA。它适合作为后台 Agent 收件箱与审批队列的产品参考，不应被描述为托管商业能力。",
+    "ToolGrad 论文收录于 ACL 2026 Findings，并提供 arXiv 与代码。99.8% 数据生成通过率和 BFCL 83.1 等数字为作者在限定数据集、模型与基准上的报告，尚不能直接外推到动态企业 API 和真实权限错误。",
+    "Kimi K2.8 Preview 在 Kimi Code 中沿用 kimi-for-coding 别名完成全量替换；综合性能接近 K3、思考效率提升属于厂商表述。模型别名不变会降低迁移成本，也要求团队保留实际版本、回归结果和回退记录。",
+    "百炼 Model Studio CLI v1.24.0 与 Qwen Code v0.23.3 的发布日期来自 GitHub release published_at。两条分别关注沙箱控制面和 ACP 外部 Agent 委派；本期未实际开通百炼沙箱，也未完成 Claude Code 等外部 Agent 的端到端兼容测试。",
+    "腾讯混元 AuK 标为 7 天补充。代码和权重以 MIT License 开放，但数百万小时训练数据、性能图和质量结论来自项目方；README 没有细化训练数据组成，本期也未做真实音频质量、说话人一致性或部署成本测试。",
+    "已与 2026-09-06 至 2026-09-12 的 44 条历史材料去重。Qwen Code 曾在 9 月 6 日和 7 日出现，本期只因 v0.23.3 新增 ACP 外部 Agent 委派与 Responses API 适配这一实质进展再次收录，并保留新版本号和新链接。",
+    "推荐主题一（01＋02）：企业多模型与桌面入口如何灰度上线。可从默认关闭、管理员授权、地区准入、数据处理方、跨应用上下文和功能回滚设计一套发布清单，适合企业 AI 与办公产品经理。",
+    "推荐主题二（03＋04＋05）：Agent 运营不能只看调用量。可把已解决高严重度问题、验证工具、窗口日活、审批队列、后台完成率、失败恢复和人工接管串成结果指标，适合开发工具与 Agent 平台负责人。",
+    "推荐主题三（07＋08＋09）：国内开发 Agent 的控制面正在成形。可从稳定模型别名、effort、1M 上下文、沙箱模板、异步构建、ACP 委派、版本留痕和回退机制拆解平台责任，适合 AI 平台与 coding 产品经理。",
+    "生成本期简报不会创建或改写 selections/2026-09-13.json。请在 AI Radar 勾选并保存选题后，再在当前任务说明写作方向。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-13-01",
+      "title": "Microsoft Copilot 预览 Grok：多模型准入从模型按钮扩展到管理员、地区与数据处理方",
+      "source": "Microsoft Copilot 官方博客",
+      "sourceUrl": "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/expanding-model-choice-in-copilot-with-grok/4555749",
+      "publishedAt": "2026-09-12",
+      "freshness": "72h",
+      "category": "企业多模型治理",
+      "summary": "Microsoft 将 SpaceXAI 的 Grok 模型加入 Copilot 多模型策略，首批通过 Microsoft Frontier Program 在 Word、Excel 和 PowerPoint 中预览。管理员必须显式开启专用设置，SpaceXAI 同时被列为 Microsoft Online Services 的子处理方；欧盟、EFTA 和英国暂不在预览范围。",
+      "whyItMatters": "企业产品的模型选择不能只做成前台下拉框。产品经理需要把管理员授权、适用应用、地区准入、数据处理方披露、用户资格、反馈收集和撤回路径连成同一灰度流程，并记录每次模型调用对应的供应商与策略版本。",
+      "angle": "Copilot 引入 Grok 后，企业多模型产品怎样设计默认关闭、管理员授权、地区限制和数据责任链？",
+      "caveat": "官方页面只标注 2026 年 9 月 12 日，没有精确时刻，因此按 72h 标注。预览仅面向符合条件的 Frontier 客户和三个 Office 应用，且暂不覆盖欧盟、EFTA 与英国；公告没有公布价格、具体模型版本、正式开放时间或扩展计划。",
+      "evidence": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/expanding-model-choice-in-copilot-with-grok/4555749",
+          "quote": "Access to SpaceXAI models is managed through a dedicated administrative setting that is disabled by default."
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/expanding-model-choice-in-copilot-with-grok/4555749",
+          "quote": "Access to Grok models is rolling out through the Microsoft Frontier Program in Microsoft Word, Excel, and PowerPoint."
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/expanding-model-choice-in-copilot-with-grok/4555749",
+          "quote": "Grok is not available to Frontier customers in the European Union (EU), European Free Trade Association (EFTA), and the United Kingdom during the preview."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-13-02",
+      "title": "Gemini 原生 Windows 应用开放：系统级快捷入口把跨应用权限和打断成本推到前台",
+      "source": "Google Workspace Updates 官方博客",
+      "sourceUrl": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "桌面 AI 助手",
+      "summary": "Google 为 Windows 10 和 11 推出 Gemini 原生桌面应用，用户可用 Alt + Space 在当前工作界面上呼出助手。应用能从 Gmail、Google Drive 获取信息生成项目摘要，并调用 Nano Banana 生成图片；Rapid Release 与 Scheduled Release 域均已开放。",
+      "whyItMatters": "助手进入系统级入口后，体验指标会从网页访问量转向快捷键调用频率、跨应用任务完成率、前台打断率和管理员采用率。产品还要让用户看清邮件、文件与当前桌面上下文何时被读取，并为企业管理员提供可关闭、可审计的控制。",
+      "angle": "AI 助手进入 Windows 桌面后，产品经理该如何衡量跨应用价值、工作打断和上下文授权？",
+      "caveat": "Workspace Updates 页面标注 2026 年 9 月 11 日，无精确时刻，按 72h 标注；Google 主博客 RSS 对同一主题显示 9 月 10 日，可能源于发布渠道或时区差异。本期以功能与管理范围更明确的 Workspace Updates 页面为准。功能面向所有 Workspace 客户、Workspace Individual 和个人账号，组织已启用 Gemini 时默认开启，当前只明确支持 Windows 10 和 11。",
+      "evidence": [
+        {
+          "url": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html",
+          "quote": "Today, we’re launching the Gemini desktop app for Windows 10 and 11."
+        },
+        {
+          "url": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html",
+          "quote": "Users can ask Gemini to draft project summaries using information pulled directly from Google Workspace apps like Gmail and Google Drive."
+        },
+        {
+          "url": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html",
+          "quote": "This feature is ON by default for all organizations with Gemini enabled."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-13-03",
+      "title": "GitHub Copilot Code Review 增加自动结帖、Shell 验证与多 Agent 审查",
+      "source": "GitHub Changelog",
+      "sourceUrl": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review/",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "AI 代码审查",
+      "summary": "Copilot 重新审查 pull request 时，会自动关闭已被后续提交解决的评论，并为自动修复建议生成对应提交信息。审查 Agent 可在 Copilot agent firewall 后使用 Copilot SDK 的完整 Shell 工具，Lite effort 则改为多个 Agent 汇总审查。",
+      "whyItMatters": "代码审查 Agent 的核心指标应从评论数量转向高严重度问题被解决、遗留评论准确率、验证工具覆盖、单位审查成本和误结帖率。自动关闭评论还需要让开发者看到判断依据，并能快速恢复被错误关闭的讨论。",
+      "angle": "Copilot Code Review 开始自动验证和结帖后，团队该用哪些结果指标替代评论数量？",
+      "caveat": "官方页面标注 2026 年 9 月 11 日，RSS 给出 UTC 时刻，按 72h 标注。多 Agent 变更只明确用于 Lite effort；GitHub 报告的高严重度已处理评论提升 47% 和成本约下降 8% 属于厂商实验，不能直接外推到所有代码库。",
+      "evidence": [
+        {
+          "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review/",
+          "quote": "When you push a commit that addresses a Copilot code review comment, Copilot now resolves that comment during its rereview."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review/",
+          "quote": "Copilot code review now uses the full set of shell tools from the Copilot SDK, running behind the Copilot agent firewall."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review/",
+          "quote": "The Lite effort level now uses an ensemble of agents to produce a review rather than one agent working alone."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-13-04",
+      "title": "GitHub 将 VS Code Agents 纳入 Copilot 使用指标：采用率可见，任务结果仍需补齐",
+      "source": "GitHub Changelog",
+      "sourceUrl": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "Agent 运营指标",
+      "summary": "GitHub Copilot 的企业、组织和用户级 1 日与 28 日报告新增 VS Code Agents 窗口的日活用户数、会话数、用户消息数和是否使用过该窗口等字段，这些字段已正式可用。管理员可据此按团队观察采用和活跃趋势。",
+      "whyItMatters": "这组指标解决了 Agent 入口是否被使用的问题，但还不能回答任务是否完成、代码是否更好或时间是否真正节省。产品经理应把活跃数据与任务结果、审查通过率、返工、成本和人工接管事件关联，避免把消息量误当成价值。",
+      "angle": "企业推广 coding Agent 时，怎样把日活、会话和消息量升级成任务成功与代码质量指标？",
+      "caveat": "官方页面标注 2026 年 9 月 11 日，RSS 给出 UTC 时刻，按 72h 标注。指标只覆盖独立的 VS Code Agents 窗口，不包含编辑器窗口 Agent Mode，也不并入通用汇总；需启用 Copilot usage metrics policy，并由具备权限的管理员访问，无数据时字段可能缺失或为 null。",
+      "evidence": [
+        {
+          "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
+          "quote": "GitHub Copilot usage metrics reports now include generally available metrics for activity in the dedicated VS Code Agents window."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
+          "quote": "These metrics cover the dedicated VS Code Agents window only."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
+          "quote": "Missing-data behavior is backward compatible — optional fields remain absent or null when corresponding VS Code Agents-window data is unavailable."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-13-05",
+      "title": "AWS 开源 Pizza Bot：用收件箱承载后台 Agent 的完成结果、审批与恢复",
+      "source": "AWS Open Source Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/opensource/introducing-pizza-bot-an-open-source-inbox-for-ai-agents-that-work-in-the-background/",
+      "publishedAt": "2026-09-10",
+      "freshness": "7d",
+      "category": "后台 Agent 交互",
+      "summary": "AWS 发布社区开源应用 Pizza Bot，以类似邮件客户端的 All、Unread 和 Action 队列承载后台 Agent 任务、完成结果及待审批动作。它支持本地自托管、定时任务、Webhook、MCP、Agent Skills 和多家模型提供商，并把线程、检查点与记忆保存在本地文件和 SQLite 中。",
+      "whyItMatters": "长任务需要一个比持续聊天更合适的交互容器：用户离开后任务继续，只有完成或需要决定时才回到收件箱。产品可以把通知、审批、运行记录、断点恢复和失败重试做成一等对象，并区分需要关注与仅供归档的事件。",
+      "angle": "为什么后台 Agent 更需要收件箱：如何设计完成通知、待审批队列、断点恢复和人工接管？",
+      "caveat": "官方文章标注 2026 年 9 月 10 日，无精确时刻，作为 7 天补充。Pizza Bot 是社区项目而非 AWS 服务，没有 AWS 支持或 SLA；目前只有 macOS 构建签名，桌面应用退出时内置服务器会停止，长期调度需要独立常驻部署。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/opensource/introducing-pizza-bot-an-open-source-inbox-for-ai-agents-that-work-in-the-background/",
+          "quote": "Today we’re releasing Pizza Bot, an open source application that runs AI agents in the background and gives their work an inbox."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/opensource/introducing-pizza-bot-an-open-source-inbox-for-ai-agents-that-work-in-the-background/",
+          "quote": "Pizza Bot is self-hosted and has no telemetry."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/opensource/introducing-pizza-bot-an-open-source-inbox-for-ai-agents-that-work-in-the-background/",
+          "quote": "Pizza Bot is a community project rather than an AWS service, so there’s no AWS support or service-level agreement behind it."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-13-06",
+      "title": "Google Research ToolGrad：先生成可执行工具链，再反向构造用户问题",
+      "source": "Google Research 官方博客与 ACL 2026 Findings 论文",
+      "sourceUrl": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+      "publishedAt": "2026-09-10",
+      "freshness": "7d",
+      "category": "Agent 数据与评测",
+      "summary": "ToolGrad 反转常见的先生成问题、再搜索工具调用解法的流程：先生成并执行验证 API 链，再反向生成匹配的用户问题和回答。作者使用 ToolBench 的 1.6 万多个 API，并用 500 条生成数据微调 Gemma 3；论文收录于 ACL 2026 Findings，博客同时链接 arXiv 和开源代码。",
+      "whyItMatters": "工具型 Agent 的训练与评测数据可以从可验证的成功路径开始设计，再生成自然语言任务表达，从源头减少无效轨迹。产品团队仍要加入真实权限错误、动态接口、长链失败、恢复动作和未见工具，才能接近生产条件。",
+      "angle": "先验证工具链再生成问题，能否成为企业 Agent 训练数据与任务评测的新方法？",
+      "caveat": "Google Research 博客标注 2026 年 9 月 10 日，无精确时刻，作为 7 天补充。99.8% 数据生成通过率和 ToolGrad-12B 在 BFCL 得分 83.1 为作者在限定数据、模型和基准上的报告；500 条微调实验不能证明动态企业 API、权限错误和真实用户表达下的生产效果。",
+      "evidence": [
+        {
+          "url": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+          "quote": "ToolGrad is a data generation framework that reverses the traditional paradigm by first generating tool-use answers before user queries."
+        },
+        {
+          "url": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+          "quote": "ToolGrad first generates a ground-truth tool-use chain and then annotates its corresponding user prompt."
+        },
+        {
+          "url": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+          "quote": "Our design achieves almost 100% pass rate in data generation, enables relatively compact models to perform exceptionally well, and shows that student LLMs can even surpass their teachers."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-13-07",
+      "title": "Kimi K2.8 Preview 全量替换 coding 别名：无感升级更需要版本留痕与回退",
+      "source": "Kimi Code 官方更新日志",
+      "sourceUrl": "https://www.kimi.com/code/docs/kimi-code/whats-new.html#k2-8-preview-2026-%E5%B9%B4-9-%E6%9C%88-11-%E6%97%A5",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "Coding 模型发布",
+      "summary": "Kimi K2.8 Preview 已在 Kimi Code 全量替换 kimi-for-coding，客户端和第三方工具无需修改 Model ID。官方称编码与 Agent 能力提升、思考效率较 K2.7 Code 改善，并开放 low、high、max 三档 effort；所有会员档位均支持最高 1M 上下文。",
+      "whyItMatters": "稳定别名下原地换模能降低迁移成本，也会让能力变化更难追踪。产品应为每次请求保留实际模型版本、effort、上下文长度、缓存状态与评测结果，并准备按租户或任务回退；上线验收要同时看成功率、总时长、缓存命中和额度消耗。",
+      "angle": "模型 ID 不变却完成全量换模，AI 产品怎样做版本留痕、任务回归、缓存成本和异常回退？",
+      "caveat": "官方更新日志只标注 2026 年 9 月 11 日，无精确时刻，按 72h 标注。开放范围是 Kimi Code 及其 coding API，不代表通用 Kimi API、模型权重或开源发布；接近 K3、思考效率提升为厂商表述，页面未给对应评测表。切换模型或 effort 会使缓存失效并增加重新 prefill 消耗。",
+      "evidence": [
+        {
+          "url": "https://www.kimi.com/code/docs/kimi-code/whats-new.html#k2-8-preview-2026-%E5%B9%B4-9-%E6%9C%88-11-%E6%97%A5",
+          "quote": "K2.8 Preview 现已全量上线 Kimi Code！Model ID 不变，仍为 kimi-for-coding，客户端与第三方工具无需修改配置即可使用。"
+        },
+        {
+          "url": "https://www.kimi.com/code/docs/kimi-code/whats-new.html#k2-8-preview-2026-%E5%B9%B4-9-%E6%9C%88-11-%E6%97%A5",
+          "quote": "编码与智能体能力全面提升，思考（thinking）效率较 K2.7 Code 显著改善。"
+        },
+        {
+          "url": "https://www.kimi.com/code/docs/kimi-code/whats-new.html#k2-8-preview-2026-%E5%B9%B4-9-%E6%9C%88-11-%E6%97%A5",
+          "quote": "全部会员档位均开放最高 1M 上下文窗口。"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-13-08",
+      "title": "百炼 Model Studio CLI 增加沙箱完整生命周期：模板、构建、实例和连接成为控制面",
+      "source": "阿里云百炼 Model Studio CLI 官方 Release",
+      "sourceUrl": "https://github.com/modelstudioai/cli/releases/tag/v1.24.0",
+      "publishedAt": "2026-09-11",
+      "freshness": "72h",
+      "category": "Agent 沙箱平台",
+      "summary": "Model Studio CLI v1.24.0 新增沙箱实例和模板生命周期命令，自动轮询构建状态并支持 --async 提交。CLI 提供 Code Interpreter、Browser、All-in-One 官方镜像预设，支持模板挂载文件上传，并新增 bailian-sandbox Skill；连接凭据与 dry-run 环境值默认脱敏。",
+      "whyItMatters": "Agent 沙箱正在从一次运行能力变成可配置、可轮询、可异步提交的产品对象。平台产品经理应把模板、构建、实例、连接、文件挂载、凭据和销毁拆成明确状态，为异步失败提供恢复入口，并把区域、配额和计费放进创建前的决策。",
+      "angle": "Agent 沙箱产品如何设计模板、异步构建、实例连接、文件挂载、凭据保护和失败恢复？",
+      "caveat": "GitHub Release published_at 为 2026-09-11T07:59:57Z，即北京时间 15:59:57，按 72h 标注。这是 CLI v1.24.0 的控制面能力，不代表所有地域或账户免费开放，也不能证明已有生产 SLA；具体账号、区域、计费与配额需另查，本期未实际开通沙箱。",
+      "evidence": [
+        {
+          "url": "https://github.com/modelstudioai/cli/releases/tag/v1.24.0",
+          "quote": "Sandbox instance and template lifecycle commands, with automatic build polling and --async submission."
+        },
+        {
+          "url": "https://github.com/modelstudioai/cli/releases/tag/v1.24.0",
+          "quote": "bl sandbox official-images and template --image presets for Code Interpreter, Browser, and All-in-One."
+        },
+        {
+          "url": "https://github.com/modelstudioai/cli/releases/tag/v1.24.0",
+          "quote": "Sandbox REST calls use Bailian Bearer authentication without an E2B SDK or E2B API key. Connection credentials and dry-run environment values are redacted by default."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-13-09",
+      "title": "Qwen Code v0.23.3 支持 ACP 外部 Agent 委派：coding 工具走向协议化调度层",
+      "source": "Qwen Code 官方 Release",
+      "sourceUrl": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.3",
+      "publishedAt": "2026-09-10",
+      "freshness": "72h",
+      "category": "跨 Agent 互操作",
+      "summary": "Qwen Code v0.23.3 是无已知 breaking changes 的稳定版，新增 OpenAI Responses API content generator，并允许通过 ACP 把一次 subagent turn 委派给外部 Agent，首个目标是 Claude Code。autofix 还会在提交 address-review commit 前执行一次有边界的自审。",
+      "whyItMatters": "外部 Agent 委派把 coding 产品从单模型工具推向协议化调度层。产品需要明确谁选择后端、哪些上下文会传递、如何展示来源、失败归属于哪一层、外部 Agent 能获得哪些工具权限，以及最终 diff 由谁复核。",
+      "angle": "当 coding Agent 可以把子任务委派给另一个 Agent，产品怎样定义上下文、权限、失败归因和结果复核？",
+      "caveat": "GitHub Release published_at 为 2026-09-10T14:56:46Z，即北京时间 22:56:46，仍在 72 小时内。9 月 6 日和 7 日简报已收录 Qwen Code 的其他版本，本期仅因 ACP 委派和 Responses API 适配这一实质新增再次出现。发行说明未提供默认开关和完整兼容矩阵，本期未做外部 Agent 端到端实测。",
+      "evidence": [
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.3",
+          "quote": "feat(core): add OpenAI Responses API content generator"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.3",
+          "quote": "feat: delegate a subagent turn to an external agent over ACP (Claude Code first)"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.3",
+          "quote": "feat(autofix): run one bounded self-review before an address-review commit (A/B)"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-13-10",
+      "title": "腾讯混元开源 AuK：一个 1.5B 模型统一语音生成、编辑、增强与分离",
+      "source": "腾讯混元 AuK 官方开源仓库",
+      "sourceUrl": "https://github.com/Tencent-Hunyuan/AuK",
+      "publishedAt": "2026-09-09",
+      "freshness": "7d",
+      "category": "开源语音模型",
+      "summary": "腾讯混元开源 1.5B 语音基础模型 AuK，用统一自然语言接口处理零样本与指令 TTS、内容和声学编辑、副语言编辑、语音增强及声源分离。AuK Base 注重质量，AuK-Flash 使用固定四步蒸馏推理；代码和权重公开，采用 MIT License，并提供 Hugging Face 与 ModelScope Demo。",
+      "whyItMatters": "一个模型覆盖生成、改词、改音色或情绪、降噪和分离，可以减少音频产品中的多模型编排与中间格式转换。产品团队可围绕播客后期、客服录音修复和语音本地化测试完整流程，同时保留说话人授权、原音追溯与编辑日志。",
+      "angle": "统一语音生成与编辑模型能否减少音频工作流编排，它又会把哪些同意和溯源责任推给产品？",
+      "caveat": "官方仓库 News 标注 2026 年 9 月 9 日，作为 7 天补充。数百万小时训练数据、性能图和质量结论来自项目方，README 没有细化训练数据组成；A800 bf16 峰值显存约 25 GiB，开启 CPU offload 仍约 16.75 至 16.98 GiB，小参数量不等于低部署门槛。本期未做真实音频质量与说话人一致性评测。",
+      "evidence": [
+        {
+          "url": "https://github.com/Tencent-Hunyuan/AuK",
+          "quote": "AuK is a 1.5B foundation model for speech generation and editing."
+        },
+        {
+          "url": "https://github.com/Tencent-Hunyuan/AuK",
+          "quote": "AuK exposes every task through the same natural-language instruction interface."
+        },
+        {
+          "url": "https://github.com/Tencent-Hunyuan/AuK",
+          "quote": "We open-source AuK. Code and model weights are publicly available."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

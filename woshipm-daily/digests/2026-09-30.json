@@ -1,0 +1,184 @@
+{
+  "date": "2026-09-30",
+  "generatedAt": "2026-09-30T20:47:38+08:00",
+  "windowStart": "2026-09-29T20:00:40.642+08:00",
+  "title": "从模型上线到生产治理：任务成本、版本迁移、区域边界与 Agent 验证",
+  "intro": "截至北京时间 2026-09-30 20:00，本期精选 6 条已打开官方原文、且未被历史简报收录的资讯：5 条在严格 24 小时窗口内，1 条为近 72 小时的重要补充。国际侧关注 GPT-6.1 Sol 的渠道开放、Visual Studio 多模型 Agent、Claude 的亚洲推理区域和合同 Agent 验证；中国侧关注腾讯云旧版 DeepSeek 模型的下线与条件性迁移。事实与产品建议分别标注，推荐只供浏览，不代替你的选题。",
+  "coverageNotes": [
+    "严格窗口为北京时间 2026-09-29 20:00:40 至 2026-09-30 20:00:40。定时触发后继续完成原文核验和导入，但本期只收录能确认在上述截止前已发布的材料。AWS/GitHub 的 GPT-6.1 Sol 分发、Visual Studio 更新、腾讯云迁移公告、AWS Claude 亚洲区域推理与 AWS 合同 Agent 架构有精确时间，均在严格窗口；Meta 企业平台公告位于近 72 小时窗口。",
+    "已与此前 20 期、168 条历史简报比较来源 URL、标题、版本及事件。9 月 29 日已收录的 Claude Sonnet 5.5、Muse for Small Business、Qwen Code 0.24.7、MiniMax M Plan 等不重复报道；NVIDIA Open Agent Safety Platform 已于 9 月 28 日收录。两篇 AWS Claude 亚洲区域文章属同一数据驻留主题，合并为一条。",
+    "已打开并核对 AWS、GitHub、Microsoft Visual Studio、腾讯云及 Meta 的官方正文，辅以 OpenAI 官方 RSS 和重点厂商公开入口。OpenAI 的 GPT-6.1 Sol 首发、DevDay Recap 与 Dots 正文直接访问返回 403，AnySearch 对相关正文抽取失败，因此本期 GPT-6.1 条目只根据可读取的 AWS 与 GitHub 官方发布页写分发事实，OpenAI 首发页及无法核实的 DevDay/Dots 细节不作主列表依据。GitHub 公共 API 触发限流；部分检索批次超时，未收录不等于全网无更新。",
+    "AWS 转引 OpenAI 的 DeepSWE 成绩与任务成本、GitHub 的早期测试、AWS 合同参考架构效果及 Meta 的安全隐私承诺均属厂商或项目方表述，未独立复现。BYOM 与新 Agent 是预览；Meta 企业平台公告未给产品价格和全面开放时间；区域推理、迁移资格和外部模型计费需按实际账户及所在区域复核。",
+    "最值得考虑的写作方向：一是模型价格之外，如何用完成任务的步骤数、质量和人工返工比较新模型；二是模型退役时，如何设计资格检查、迁移验证、计费提示与失败回退；三是合同 Agent 如何把结构化提取、独立核验、确定性校验和人工复核串成可审计流程。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-30-01",
+      "title": "GPT-6.1 Sol 进入 Amazon Bedrock 与 GitHub Copilot，模型竞争转向每任务成本和渠道控制",
+      "source": "AWS Machine Learning Blog 与 GitHub Changelog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/bring-near-astra-intelligence-to-everyday-work-with-gpt-6-1-sol-on-amazon-bedrock/",
+      "publishedAt": "2026-09-29",
+      "freshness": "24h",
+      "category": "模型分发与任务经济性",
+      "summary": "AWS 宣布 GPT-6.1 Sol 已在 Amazon Bedrock 一般可用，面向编程、计算机操作和专业工作流，可通过 Bedrock 控制模型访问并审计调用。GitHub 同日宣布该模型进入 Copilot，向 Pro+、Max、Business 和 Enterprise 用户逐步开放，企业管理员可用模型策略控制准入，调用按供应商标价采用用量计费。",
+      "whyItMatters": "模型是否值得切换，不能只看每 Token 价格或单次基准分数。产品团队应比较完成率、工具调用次数、推理步骤、总时延、人工返工和每个合格任务的费用，同时把分发渠道、管理员准入与云数据边界纳入上线决策。",
+      "angle": "GPT-6.1 Sol 跨云平台与开发入口上线：产品经理如何用每任务成本和渠道约束重新做模型选型？",
+      "caveat": "OpenAI 官方 RSS 列出首发于 2026-09-29T10:00:00Z，但首发正文访问受阻；本条依据已打开的 AWS 与 GitHub 官方发布。AWS 页面时间 2026-09-29T11:34:14-08:00，即北京时间 9 月 30 日 03:34:14；GitHub 发布时间 2026-09-29T17:02:27Z，即北京时间 9 月 30 日 01:02:27，均在严格窗口。AWS 引用的 DeepSWE 任务成本约为 Astra 五分之一是 OpenAI 自报，不是独立复现；GitHub 虽称一般可用，仍逐步推送。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/bring-near-astra-intelligence-to-everyday-work-with-gpt-6-1-sol-on-amazon-bedrock/",
+          "quote": "GPT-6.1 Sol is now generally available on Amazon Bedrock, bringing stronger reasoning to coding, computer use, and professional workloads that run frequently."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/",
+          "quote": "GPT-6.1 Sol is available to Copilot Pro+, Max, Business, and Enterprise users."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/",
+          "quote": "This model is billed at provider list pricing under usage-based billing."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-30-02",
+      "title": "腾讯云将下线 DeepSeek-V4-Flash 0731，只有符合条件的账户会自动迁移",
+      "source": "腾讯云官方公告",
+      "sourceUrl": "https://cloud.tencent.com/announce/detail/2496",
+      "publishedAt": "2026-09-30",
+      "freshness": "24h",
+      "category": "模型退役与自动迁移",
+      "summary": "腾讯云公告称，TokenHub、智能体开发平台 ADP 和云开发 CloudBase 将于北京时间 10 月 31 日 00:00 下线 DeepSeek-V4-Flash 0731，并为符合条件的账户自动切换到届时平台可用的最新 DeepSeek 系列非原厂直供模型。后付费 API 用户须已对目标模型开启按量付费；使用企业版 Token Plan 调用旧型号的账户也符合条件。不满足条件的请求在下线后将失败。",
+      "whyItMatters": "自动迁移并不等于无感升级。产品经理应提前盘点模型 ID、资格和计费开关，固定回归任务集验证新旧输出与时延，设置超时重试，并向用户解释目标模型可能变化、价格可能不同及无法自动切换的失败路径。",
+      "angle": "AI 模型退役如何不让业务掉线：资格检查、自动迁移、效果回归、计费告知和失败回退五步法",
+      "caveat": "腾讯云公告列表与详情页显示发布时间为北京时间 2026-09-30 11:17:53，处于严格窗口。公告发布时平台最新版是 V4.1-Flash，但实际自动切换目标可能随之后的新版本变化；切换时可能有数秒请求超时，目标模型的效果和计费均可能不同。本条是腾讯云托管渠道的模型下线公告，并非 DeepSeek 官方发布新模型。",
+      "evidence": [
+        {
+          "url": "https://cloud.tencent.com/announce/detail/2496",
+          "quote": "随着模型版本升级与迭代，大模型服务平台 TokenHub、智能体开发平台 ADP、云开发 CloudBase 将下线 DeepSeek-V4-Flash 0731 模型，并为符合条件的用户提供自动切换。"
+        },
+        {
+          "url": "https://cloud.tencent.com/announce/detail/2496",
+          "quote": "不满足上述条件的用户，系统不会自动切换。模型下线后，继续使用 DeepSeek-V4-Flash 0731 模型发起的请求将调用失败，请务必提前完成迁移。"
+        },
+        {
+          "url": "https://cloud.tencent.com/announce/detail/2496",
+          "quote": "切换后的调用将按目标模型对应的计费规则执行，费用可能与原模型不同。"
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-30-03",
+      "title": "Visual Studio 2026 更新 BYOM 预览：多模型接入新 Agent，旧模式需要迁移",
+      "source": "Microsoft Visual Studio Blog",
+      "sourceUrl": "https://devblogs.microsoft.com/visualstudio/visual-studio-september-update-power-your-workflow-with-your-model/",
+      "publishedAt": "2026-09-29",
+      "freshness": "24h",
+      "category": "Coding Agent 与多模型工作流",
+      "summary": "Visual Studio 2026 的九月更新把 Bring Your Own Model（BYOM）预览接入新 Agent（Preview），在 Community、Professional、Enterprise 版本默认启用 BYOM。它支持 Microsoft Foundry、OpenAI、Anthropic 和 Ollama，其中 OpenAI 与 Ollama 可配置自定义端点；同次更新还把 NuGet Audit 漏洞警告连接到 Copilot Agent 修复流程，并让 Git Agent 从 PR 中提供可导航的评论和文件链接。",
+      "whyItMatters": "多模型 Agent 的体验不能只停在模型选择器。团队需要明确不同模型能完成哪些工具动作、哪些能力降级，保留旧模式迁移提示，并将漏洞修复、代码审查等任务的输入、执行和最终人工复核连起来。",
+      "angle": "多模型代码助手怎样维持一套可靠工作流：从 BYOM 兼容、能力提示到旧会话迁移",
+      "caveat": "官方页面时间为 2026-09-29T16:00:04Z，即北京时间 9 月 30 日 00:00:04，处于严格窗口。BYOM 和新 Agent 均是 Preview，不是所有模型都支持全部 Agent 能力；旧 Ask/Agent 模式不再支持 BYOM，原有 Ollama 模型需重新添加。NuGet 自动修复需登录 GitHub Copilot 并启用内置 NuGet MCP server。",
+      "evidence": [
+        {
+          "url": "https://devblogs.microsoft.com/visualstudio/visual-studio-september-update-power-your-workflow-with-your-model/",
+          "quote": "BYOM is available in preview and enabled by default across the Community, Professional, and Enterprise SKUs."
+        },
+        {
+          "url": "https://devblogs.microsoft.com/visualstudio/visual-studio-september-update-power-your-workflow-with-your-model/",
+          "quote": "BYOM now works with the new Agent (Preview), which is built on the GitHub Copilot SDK-powered harness. The earlier BYOM experience in the previous Ask and Agent modes is no longer supported."
+        },
+        {
+          "url": "https://devblogs.microsoft.com/visualstudio/visual-studio-september-update-power-your-workflow-with-your-model/",
+          "quote": "You’ll need to be signed in to GitHub Copilot, and automated fixes also require the NuGet MCP server, which is built into Visual Studio and can be enabled from the Copilot Chat tools menu."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-30-04",
+      "title": "AWS 为 Claude 增加印度国境内跨区推理与首尔、新加坡单区推理",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/introducing-anthropic-models-on-amazon-bedrock-for-in-region-inference-in-seoul-and-singapore/",
+      "publishedAt": "2026-09-29",
+      "freshness": "24h",
+      "category": "模型部署与数据驻留",
+      "summary": "AWS 同时公布两种 Claude 亚洲推理路径：印度地理档案让 Opus 5、Sonnet 5、Haiku 4.5 在孟买与海得拉巴之间路由，但处理仍留在印度；首尔提供 Opus 5 和 Sonnet 5、新加坡提供 Sonnet 5 的单一区域推理，处理不离开所选区域。两类方案分别面向国家级数据边界和严格单区处理要求。",
+      "whyItMatters": "“数据留在一个国家”和“数据留在一个云区域”是不同的产品承诺。产品团队应在接入前写明允许的推理区域、容量与延迟折中、区域配额、日志地点和数据保留例外，避免把跨区路由包装成单区驻留。",
+      "angle": "企业 AI 部署如何把国家边界、单区驻留、吞吐和故障恢复变成可审核的模型路由策略？",
+      "caveat": "两篇 AWS 文章页面时间分别为 2026-09-29T17:13:14-08:00 和 17:13:12-08:00，即北京时间 9 月 30 日 09:13 左右，均在严格窗口。印度档案仅在 ap-south-1 与 ap-south-2 间路由，不等于单区域处理；首尔和新加坡单区推理受所在区域容量和配额限制。AWS 描述的默认不存储输入输出仍有安全分类命中后的流量处理例外，需阅读当前数据保留条款。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-expands-claude-model-availability-to-india-cross-region-inference/",
+          "quote": "The India geographic profile keeps inference within India. Requests route only between ap-south-1 and ap-south-2. Your input prompts and output results might move between those two Regions."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-anthropic-models-on-amazon-bedrock-for-in-region-inference-in-seoul-and-singapore/",
+          "quote": "Your request is processed entirely within the single AWS Region you specify, and it does not leave that Region."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-anthropic-models-on-amazon-bedrock-for-in-region-inference-in-seoul-and-singapore/",
+          "quote": "Unlike cross-Region inference profiles, there is no routing layer."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-30-05",
+      "title": "AWS 合同 Agent 参考架构：双模型核验、确定性签名检测与人工复核",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/building-an-ai-powered-contract-intelligence-platform-with-amazon-quick-and-amazon-bedrock-agentcore/",
+      "publishedAt": "2026-09-29",
+      "freshness": "24h",
+      "category": "企业 Agent 质量与证据链",
+      "summary": "AWS 发布合同资料处理参考架构，先让 Agent 抽取结构化字段，再用第二种模型核验；对签名字段的模型分歧，引入 Amazon Textract 的视觉签名检测作为确定性裁决，仍无法确定时转交人工。方案把结构化记录用于聚合统计，把原始 PDF 接入知识库支持条款查询，并用 AgentCore Policy 把授权限制放在 Agent 代码之外。",
+      "whyItMatters": "合同 Agent 不能只凭一次自然语言回答交付结果。产品经理可把字段置信度、第二模型异议、确定性规则、人工复核、原文定位和跨文档统计分层设计，再分别衡量误提取、漏提取、复核量与每份合格合同的处理成本。",
+      "angle": "合同 Agent 怎样从能读 PDF 走向可验收：结构化提取、独立核验、确定性校验与人工复核",
+      "caveat": "AWS 页面元数据时间为 2026-09-29T08:14:24-08:00，即北京时间 9 月 30 日 00:14:24，处于严格窗口。这是 AWS 的参考架构与演示场景，不能写成已在特定企业规模化部署，也没有跨场景独立准确率。文中所用模型为方案构建时可用版本，接入前须重新核对现行型号、区域和费用。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/building-an-ai-powered-contract-intelligence-platform-with-amazon-quick-and-amazon-bedrock-agentcore/",
+          "quote": "Two independent models disagreeing is a strong signal that human review is needed."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/building-an-ai-powered-contract-intelligence-platform-with-amazon-quick-and-amazon-bedrock-agentcore/",
+          "quote": "Cedar-based policies exist outside agent code, and you can validate them with automated reasoning before enforcement."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/building-an-ai-powered-contract-intelligence-platform-with-amazon-quick-and-amazon-bedrock-agentcore/",
+          "quote": "The pattern is straightforward: use LLMs for text-based analysis and a database for numerical queries."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-30-06",
+      "title": "Meta 启动 Enterprise Platform，计划把 Muse、业务 Agent、API 与代码工具提供给企业",
+      "source": "Meta Newsroom",
+      "sourceUrl": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/",
+      "publishedAt": "2026-09-28",
+      "freshness": "72h",
+      "category": "企业 AI 平台战略",
+      "summary": "Meta 宣布启动 Enterprise Platform 业务，表示初期将把 Muse agent、Meta Business Agent、Muse API、Muse Code 等技术栈提供给企业和开发者，并任命 CJ Desai 为企业平台负责人。公告主要描述业务方向和组织安排，没有提供完整产品开放日期、价格、部署方式或权限配置。",
+      "whyItMatters": "Meta 把消费者与广告业务积累的 Agent、接口和基础设施转向企业市场；产品经理可据此观察连接器、身份权限、数据治理和部署控制能否形成一致的企业产品面。但现阶段更适合列为战略信号，不宜按可采购的成熟平台评估。",
+      "angle": "Meta 企业平台从愿景走向可采购产品，还需要补齐哪些身份、数据、部署和审计能力？",
+      "caveat": "Meta 页面元数据发布时间为 2026-09-28T12:36:14Z，即北京时间 9 月 28 日 20:36:14，落在近 72 小时而非严格 24 小时内。9 月 29 日简报中的 Muse for Small Business 是不同的连接器与审批功能公告；此处只记录企业平台方向，不把 Muse 功能重复算作新发布。安全和隐私从设计开始纳入的表述属于 Meta 自述，具体控制未在本页验证。",
+      "evidence": [
+        {
+          "url": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/",
+          "quote": "Today we are starting the next major pillar of our business, Meta Enterprise Platform, to help businesses use AI to grow and transform in new ways as well."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/",
+          "quote": "Initially, we will focus on bringing our full technology stack, including the Muse agent, Meta Business Agent, Muse API, Muse Code, and more to businesses and developers to help them grow."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/",
+          "quote": "Meta Enterprise Platform will focus on turning its AI stack into products and services that companies can deploy for their own businesses."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

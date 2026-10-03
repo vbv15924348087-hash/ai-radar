@@ -1,0 +1,211 @@
+{
+  "date": "2026-09-09",
+  "generatedAt": "2026-09-09T20:13:35+08:00",
+  "windowStart": "2026-09-08T20:13:35+08:00",
+  "title": "个人 Agent 开始代办和付款，AI 突破的权限与验证链成为产品重点",
+  "intro": "截至北京时间 2026-09-09 20:13，本期精选 7 条与 AI 产品实战相关的可靠材料：1 条近 24 小时更新，6 条近 72 小时发布。重点看个人 Agent 如何把长期任务、外部操作和付款装进可审计的授权链，生成式产品如何用局部编辑与多轮一致性定义体验，以及 AI 科研成果怎样区分模型预测、形式化验证、同行审查和机构确认。已与 9 月 6 日至 8 日简报去重；推荐标记只供阅读参考。",
+  "coverageNotes": [
+    "本期在北京时间 2026-09-09 20:13 完成复核，优先检索窗口为 2026-09-08T20:13:35+08:00 至 2026-09-09T20:13:35+08:00；对只提供日期而无精确时间的 9 月 8 日材料保守标为近 72 小时。微软案例页为 9 月 9 日发布，标为近 24 小时；MiniCPM5-2B 为 9 月 7 日发布，仍在近 72 小时范围内。",
+    "本期共 7 条：ChatGPT Images 2.5、Meta Muse、AlphaGenome Atlas、OpenAI Navier–Stokes 解答、Google GTIG 威胁追踪、OpenBMB MiniCPM5-2B 和 Microsoft × Cognizant 企业案例。OpenAI 的两条分别是产品发布与科研结果，事件和产品影响不同，未合并计数。",
+    "时间与开放范围已从官方原文核对：Images 2.5 与 Navier–Stokes 页面均标 9 月 8 日；Meta Newsroom 与 DeepMind 博客标 9 月 8 日；GTIG 报告标 9 月 8 日；MiniCPM 官方仓库变更记录标 9 月 7 日；Microsoft Source Asia 搜索页和页面元信息标 9 月 9 日。",
+    "事实与分析分开处理：厂商页面中的模型性能、生成延迟、采用规模、推荐接受率和安全评测均作为发布方数据，本期没有复现实验或独立审计。微软案例由平台方和客户共同叙述；MiniCPM 榜单多数由团队内部复现；OpenAI Images 安全评测使用固定对抗测试集，不能直接外推到真实流量。",
+    "OpenAI Navier–Stokes 条目按‘OpenAI 公布解答’表述。OpenAI 同时发布论文和 Lean 形式化证明，并明确不申领奖项；截至本期核验，Clay Mathematics Institute 尚未正式认定该问题已解决。Lean 能验证形式系统中的证明，仍需数学界确认形式化命题与原问题等价，并继续审查证明、优先权和数据来源争议。",
+    "AlphaGenome Atlas 提供的是模型预计算的分子影响预测。DeepMind 明确说明它没有获批用于临床，也不能替代医疗诊断；网页面向非商业使用，商业使用将通过 Google Cloud 提供。产品设计中应把候选筛选、实验验证与临床决策分层。",
+    "国内来源方面，本期收录 OpenBMB MiniCPM5-2B。另检查了 Qwen、DeepSeek、智谱、MiniMax、百度、腾讯和字节 Seed 的公开新闻、更新日志、模型页或仓库，未找到可在本期公开一手页面上确认且未被前几期收录的同等优先级发布。查询范围不代表全网完整覆盖。",
+    "已与 9 月 8 日的 MiMo Desktop、小度家庭 Agent、Mastercard 购物 Agent、WorkBuddy/Hy4、英国开源 AI 安全研究、Project Zenith、OpenAI Daybreak 和 Viggle-Animate 去重。DeepSeek V4.1 Flash 的公开线索仍以官方群转述和二手报道为主，缺少可公开核验的一手页面，本期没有收录。",
+    "推荐主题一（02＋05）：个人 Agent 真正执行外部动作后，产品经理如何设计最小权限、敏感动作确认、审计轨迹、凭证隔离和紧急停用。适合 Agent、效率工具与企业安全产品经理。",
+    "推荐主题二（01＋06）：生成式 AI 的产品评测怎样从一次性效果转向任务级验收。可比较局部编辑保真、多轮一致性、端侧部署、首次可用结果时间和每个合格成果的总成本。适合创作工具与端侧 AI 产品经理。",
+    "推荐主题三（03＋04＋07）：AI 科研与企业案例怎样避免把预测、形式化验证和采用数据写成最终结论。可建立‘发布方声明—可复现证据—领域专家审查—机构确认—业务结果’证据阶梯。适合 AI 平台、科研产品和企业数字化负责人。",
+    "在 AI Radar 勾选并保存后，再在当前任务说明选题和写作方向。生成简报没有创建或改写 selections/2026-09-09.json，也不会据推荐自动成文或投稿。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-09-01",
+      "title": "ChatGPT Images 2.5 上线：局部编辑、多轮一致性和交付速度成为可量化体验",
+      "source": "OpenAI 官方产品公告与部署安全说明",
+      "sourceUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+      "publishedAt": "2026-09-08",
+      "freshness": "72h",
+      "category": "AI 创作工具",
+      "summary": "OpenAI 发布 ChatGPT Images 2.5，称其改善参考图主体保真、局部编辑、多轮修改一致性、复杂布局与真实信息呈现，并把生成延迟相对 Images 2.0 最多降低 50%。ChatGPT 新增 Sketch、模板、图片评论和共享提示词；Images 2.5 面向 ChatGPT、ChatGPT Work 与 Codex 全层级用户在桌面、移动和网页端推出，API 同时提供偏速度的 Flare 与偏精度的 Sunburst。",
+      "whyItMatters": "图片产品可以把‘更好看’拆成可验收指标：参考主体保留率、只改目标区域的成功率、连续修改后的漂移、首次可用图片时间和人工返修次数。两档 API 模型也适合按任务价值路由，并以每张验收通过图片的总成本判断是否真的提效。",
+      "angle": "AI 图片功能怎样从单次出图走向可控生产：用局部编辑、多轮一致性和验收成本重做评测。",
+      "caveat": "官方页面只给出 2026 年 9 月 8 日而无本期可复核的精确发布时间，因此保守标为近 72 小时。‘最多降低 50% 延迟’和能力提升来自 OpenAI 自报，本期没有做模型对照测试。系统卡的安全结果来自固定对抗提示集，官方也说明标签可能出错、样本量影响统计精度；更高写实度仍增加深度伪造风险。开放范围不保证每个账号已在同一时刻看到全部功能。",
+      "evidence": [
+        {
+          "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+          "quote": "Images 2.5 is available to all ChatGPT, ChatGPT Work, and Codex users across desktop, mobile, and web."
+        },
+        {
+          "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+          "quote": "We’ve also reduced image generation latency by up to 50% compared with Images 2.0, so you can generate images and refine your concepts more quickly."
+        },
+        {
+          "url": "https://deploymentsafety.openai.com/chatgpt-images-2-5",
+          "quote": "ChatGPT Images 2.5 allows for heightened realism that could, absent safeguards, allow more convincing deepfakes, including political, sexual, or otherwise sensitive imagery of real people, places or events."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-09-02",
+      "title": "Meta Muse 开始替用户发邮件、订行程和付款：个人 Agent 把授权链推到产品中心",
+      "source": "Meta Newsroom 官方公告",
+      "sourceUrl": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+      "publishedAt": "2026-09-08",
+      "freshness": "72h",
+      "category": "个人 Agent",
+      "summary": "Meta 发布个人 Agent Muse，可在独立云端虚拟机中打开浏览器、填写表单、发邮件、预订旅行、协助购物与付款，并在用户关闭应用后继续处理长期任务。Muse 在美国通过 iOS、Android、网页和 WhatsApp 逐步推出，大部分功能免费，重度使用提供订阅；付款支持 Stripe Link，一次性卡隐藏真实卡号，Shop Pay 与 1Password 支持仍在后续计划中。",
+      "whyItMatters": "当 Agent 可以跨应用行动，体验核心从回答质量转向授权质量。产品需要按服务和动作拆分读写权限，在发送、购买等敏感节点展示即将发生的操作，保存完整审计轨迹，并允许用户随时撤销连接、删除记忆和停止后台任务。凭证应与 Agent 推理隔离，异常时能一键冻结外部动作。",
+      "angle": "个人 Agent 终于能代办和付款，产品经理如何画出最小权限、二次确认、审计与撤销的完整流程？",
+      "caveat": "Meta 官方页只给出 2026 年 9 月 8 日而无精确时刻，因此按近 72 小时标注。当前仅在美国逐步推出，功能、订阅额度与第三方连接可能按账号变化；Shop Pay、1Password 和 Confidential VM 尚未全部上线。‘安全、私密’及使用效果属于 Meta 自述，本期未独立审计 Secure VM、Sentinel 或数据训练退出机制。长期记忆和主动建议仍需要清晰的数据查看、纠正与删除入口。",
+      "evidence": [
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+          "quote": "For tasks that take more time, Muse keeps working after people close the app, and comes back when something changes or when it needs approval, like before it sends an email or makes a purchase."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+          "quote": "Nothing Muse does reaches the internet unless the Sentinel approves it, and it asks the person for permission when needed."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+          "quote": "Muse is rolling out in the US on iOS, Android, and muse.ai, and coming soon to AI glasses."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-09-03",
+      "title": "DeepMind 发布 AlphaGenome Atlas：90 亿种 DNA 单字母变化预测进入可检索产品",
+      "source": "Google DeepMind 官方博客与 Atlas 说明",
+      "sourceUrl": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+      "publishedAt": "2026-09-08",
+      "freshness": "72h",
+      "category": "AI for Science",
+      "summary": "Google DeepMind 发布 AlphaGenome Atlas，预计算约 90 亿种人类基因组单核苷酸变异的分子影响，数据规模约 1 PB，并提供 AlphaGenome Variant Impact 分数、特征归因与 2500 多种 DNA 序列基序。学术研究者可通过免费网页、API 和 Google Antigravity skill 使用；网页当前面向非商业使用，商业使用计划通过 Google Cloud 提供。",
+      "whyItMatters": "把科研模型做成产品，关键不只是提供一个总分，而是让用户追溯分数由哪些分子特征贡献、覆盖哪些组织与细胞类型，并把预测送入后续实验。产品流程应明确区分候选排序、机制解释、实验验证和临床判断，避免用户把高分直接理解为疾病诊断。",
+      "angle": "科研 AI 怎样从模型变成可用工具：用可检索数据、特征归因和验证闭环拆解 AlphaGenome Atlas。",
+      "caveat": "官方页面只给出 2026 年 9 月 8 日而无精确时刻，按近 72 小时标注。90 亿项是模型预计算结果，不是逐项实验验证；‘最佳表现’、多发现 22% 关联等来自 DeepMind 及合作案例，本期没有独立复算。官方明确说明 AlphaGenome 未获批用于任何临床用途，也不能替代专业医疗建议、诊断或治疗。网页和商业云服务的许可范围不同。",
+      "evidence": [
+        {
+          "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+          "quote": "Today, we are introducing AlphaGenome Atlas: a platform containing predictions for the effects of 9 billion single-nucleotide variants — every single-letter change possible — in the human genome."
+        },
+        {
+          "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+          "quote": "The information provided by AlphaGenome Atlas is not intended to be a substitute for professional medical advice, diagnosis, or treatment, and does not constitute medical or other professional advice."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-09-04",
+      "title": "OpenAI 公布 Navier–Stokes 解答与 Lean 证明：重大结论仍需要机构与学界确认",
+      "source": "OpenAI 官方论文说明，Nature、CNBC 与 Quanta 交叉核验",
+      "sourceUrl": "https://openai.com/index/navier-stokes-solution/",
+      "publishedAt": "2026-09-08",
+      "freshness": "72h",
+      "category": "AI 科研",
+      "summary": "OpenAI 公布一个关于三维 Navier–Stokes 方程有限时间奇点的解析解答及 Lean 形式化证明，称约 1 万个并发 Agent 在 88 小时内得到结果，之后由 GPT-6 Astra 用 17 小时完成形式化。官方称该项目使用约 1300 亿输出 token 和 270 万条 Agent 消息，并明确不打算申领千禧年大奖。Nature、CNBC 与 Quanta 报道确认了发布与数学界关注，同时记录了优先权、数据来源和进一步审查争议。",
+      "whyItMatters": "重大 AI 结论需要一条可见的证据链：发布方声明、论文、形式化证明、领域专家审查和权威机构确认应分别展示。产品也应记录任务起因、外部资料来源、Agent 间信息流和计算投入，给引用与优先权争议留下可审计材料，避免营销页面提前把‘已提交证明’写成‘已被认定解决’。",
+      "angle": "AI 说自己解决了百年数学难题，产品和内容团队应该怎样设计证据阶梯与发布口径？",
+      "caveat": "OpenAI 页面标 2026 年 9 月 8 日，未给出精确时间，按近 72 小时标注。截至本期核验，Clay Mathematics Institute 尚未正式认定该问题已解决。Lean 形式化可以检查形式系统中的证明，但仍需人类确认被形式化的命题与原问题等价，并审查数学细节。Buckmaster 对研究优先权和数据来源提出疑问；他同时明确说自己没有看过 OpenAI 的证明，也不知道其数据是否被使用。相关争议尚无最终结论。",
+      "evidence": [
+        {
+          "url": "https://openai.com/index/navier-stokes-solution/",
+          "quote": "We’re sharing both a writeup of the proof and a formalization in Lean."
+        },
+        {
+          "url": "https://openai.com/index/navier-stokes-solution/",
+          "quote": "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result."
+        },
+        {
+          "url": "https://www.cnbc.com/2026/09/09/openai-navier-stokes-math-problem-solved.html",
+          "quote": "The Clay Mathematics Institute of Cambridge, Massachusetts, which founded the Prize Problems, has not yet commented on OpenAI's proposed solution."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-09-05",
+      "title": "Google GTIG 追踪对抗性 AI：攻击者把 Agent 用到凭证窃取和供应链攻击",
+      "source": "Google Threat Intelligence Group 官方威胁报告",
+      "sourceUrl": "https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai",
+      "publishedAt": "2026-09-08",
+      "freshness": "72h",
+      "category": "Agent 安全",
+      "summary": "Google Threat Intelligence Group 报告称，对手正在从简单提示转向 Agent 工作流和自动化。GTIG 在 2026 年第二季度观察到攻击者攻陷云资源后，在不到 6 小时内规划、构建并执行大规模凭证收集；报告还记录了恶意开源 AI 资源、针对编码助手与 LLM 扫描器的欺骗，以及模型、代码、提示词、API 凭证和云算力成为攻击目标。",
+      "whyItMatters": "Agent 产品需要把权限、凭证和供应链作为核心需求。每个工具调用应使用最小权限和短期凭证，外部依赖要固定来源与完整性，敏感动作保留人审和审计日志；异常扫描量、凭证读取、并发任务和算力消耗应设阈值，触发自动降权、隔离与紧急停用。",
+      "angle": "Agent 被攻击者用来提速后，产品经理应补齐哪五道控制：权限、凭证、依赖、监控与停用。",
+      "caveat": "官方报告日期为 2026 年 9 月 8 日但没有本期可复核的精确时刻，因此按近 72 小时标注。报告基于 Mandiant 事件响应、Google 平台防御和威胁追踪，覆盖面强但仍以 Google 可见样本为主；个案不能直接推断所有 Agent 产品或所有开源包都已被攻陷。Google 同时销售安全产品，防御建议应结合组织自己的威胁模型和独立测试。",
+      "evidence": [
+        {
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai",
+          "quote": "In Q2 2026, GTIG observed threat actors compromise a cloud resource, then plan, build, and execute an agent-enabled mass credential harvesting campaign in under six hours."
+        },
+        {
+          "url": "https://cloud.google.com/blog/topics/threat-intelligence/from-prompting-to-autonomy-the-evolution-of-adversarial-ai",
+          "quote": "Threat actors are also increasingly targeting AI assets."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-09-06",
+      "title": "OpenBMB 发布 MiniCPM5-2B：端侧模型同时开放多种权重、训练数据和 Agent 样本",
+      "source": "OpenBMB 官方 GitHub 仓库与 Hugging Face 模型卡",
+      "sourceUrl": "https://huggingface.co/openbmb/MiniCPM5-2B",
+      "publishedAt": "2026-09-07",
+      "freshness": "72h",
+      "category": "端侧模型",
+      "summary": "OpenBMB 发布 MiniCPM5-2B，一款面向端侧、本地和资源受限场景的稠密 2B 级模型，原生上下文长度为 131072。官方同时提供 BF16、SFT、Base、GGUF、MLX、GPTQ、LiteRT 等版本，以及 UltraX、代码数据、50 万条 Agent 训练样本和 8 万多条强化学习样本；仓库和模型权重使用 Apache 2.0。",
+      "whyItMatters": "端侧产品选型应先按设备内存、首 token 延迟、持续生成速度、工具调用成功率和隐私要求筛选版本，再用自己的真实任务测量质量。多种量化格式与开放训练数据降低部署和复现门槛，但也要求产品明确模型版本、量化损失、运行时兼容性以及上线前的安全补偿。",
+      "angle": "2B 级模型能否承担端侧 Agent？用设备约束、任务质量、工具调用和运维成本做选型表。",
+      "caveat": "官方仓库变更记录显示 2026 年 9 月 7 日发布，属于近 72 小时。平均 53.9、同级 SOTA 及超过部分更大模型等数字主要来自团队选择的比较集和内部复现，模型卡只有带 † 的部分来自 Artificial Analysis，本期没有复测。Hugging Face 页面顶部显示的‘3B params’与模型卡详细参数口径存在差异，本文按官方命名‘2B 级’表述。开放权重不等于所有设备都可直接达到官方速度或安全水平。",
+      "evidence": [
+        {
+          "url": "https://github.com/OpenBMB/MiniCPM",
+          "quote": "[2026.09.07] MiniCPM5-2B is released: a compact 2B-class dense model for on-device and resource-constrained use, paired with deployment / fine-tuning Agent Skills."
+        },
+        {
+          "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
+          "quote": "Alongside the model, we are releasing the high-quality training datasets behind it as part of the UltraData family."
+        },
+        {
+          "url": "https://huggingface.co/openbmb/MiniCPM5-2B",
+          "quote": "This repository and MiniCPM model weights are released under the Apache-2.0 License."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-09-07",
+      "title": "Cognizant 用多层 Agent 管理 1 万个项目：42% 推荐接受率被当成治理信号",
+      "source": "Microsoft Source Asia 官方客户案例",
+      "sourceUrl": "https://news.microsoft.com/source/asia/features/how-microsoft-ai-is-helping-cognizant-scale-delivery-excellence-across-10000-projects/",
+      "publishedAt": "2026-09-09",
+      "freshness": "24h",
+      "category": "企业 Agent",
+      "summary": "Microsoft 案例称，Cognizant 使用 Microsoft AI Foundry、Azure AI 服务与 Microsoft 365 Copilot，把交付、审计和知识工作拆成多层 Agent，覆盖超过 1 万个项目和 2000 多个客户。平台用户从早期 6700 人增至 2026 年 6 月的 8000 多人；知识成熟度评估 Agent 的建议接受率为 42%，案例将其解释为人类仍承担最终判断的治理表现。",
+      "whyItMatters": "企业 Agent 的成功指标不应只有建议采纳率。产品应同时看建议是否被正确拒绝、审批者是否理解理由、合同义务是否漏检、风险是否更早暴露，以及最终决定由谁负责。对 42% 这类数字要保留任务类型、基线、样本量和拒绝原因，才能区分谨慎治理与低质量推荐。",
+      "angle": "Agent 建议只被接受 42%，到底是失败还是治理生效？重做企业 AI 的指标体系。",
+      "caveat": "Microsoft Source Asia 页面标 2026 年 9 月 9 日，属于近 24 小时。本文是平台方发布的客户故事，采用规模、接受率和工作效果来自 Cognizant 与 Microsoft 自述，本期没有独立审计，也没有公开完整基线、样本量或统计口径。覆盖 1 万个项目描述的是组织规模和应用范围，不等于每个项目都由 Agent 自动管理；最终决策仍由人员负责。",
+      "evidence": [
+        {
+          "url": "https://news.microsoft.com/source/asia/features/how-microsoft-ai-is-helping-cognizant-scale-delivery-excellence-across-10000-projects/",
+          "quote": "Guardrails are built into every workflow: zero-trust access, fine-grained permissions, and full auditability within a controlled Azure environment, with continuous feedback loops improving output quality."
+        },
+        {
+          "url": "https://news.microsoft.com/source/asia/features/how-microsoft-ai-is-helping-cognizant-scale-delivery-excellence-across-10000-projects/",
+          "quote": "The knowledge maturity assessment agent, for instance, has a 42 percent recommendation acceptance rate."
+        },
+        {
+          "url": "https://news.microsoft.com/source/asia/features/how-microsoft-ai-is-helping-cognizant-scale-delivery-excellence-across-10000-projects/",
+          "quote": "The debate reinforced human accountability for final decisions."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

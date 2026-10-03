@@ -1,0 +1,189 @@
+{
+  "date": "2026-09-06",
+  "generatedAt": "2026-09-06T16:16:01+08:00",
+  "windowStart": "2026-09-05T16:16:01+08:00",
+  "title": "从模型升级到任务交付，AI 产品该关注什么",
+  "intro": "本期筛出 8 条官方来源，优先关注能改变产品体验、任务交付和成本决策的更新。已核验的最新条目发布于 9 月 5 日，但只提供日期，无法确认严格处于近 24 小时内；其余按近 72 小时或本周补充标注。建议先读 02 的任务控制、03 的本地 Agent，再把 06 与 07 组合成一篇成本分析。",
+  "coverageNotes": [
+    "检索截至北京时间 2026-09-06 16:16，优先窗口为过去 24 小时。本期在所覆盖官方渠道中，未确认带充分时间证据的近 24 小时重大新消息；首期采用近 72 小时更新与最近 7 日的重要补充。这里的原文日期不等同于今天发布。",
+    "已核验 OpenAI API/Codex 更新日志，Google/Gemini/DeepMind、Anthropic、NVIDIA、Microsoft 官方文章，以及 Qwen、阿里云、ComfyUI 等官方资料；只收录实际打开原文核对过的材料。厂商公告适合确认发布事实，性能和收益仍需独立验证。",
+    "国内渠道还检查了 DeepSeek、MiniMax 与智谱。可见 DeepSeek 最新日志为 8 月 21 日，MiniMax 投资者新闻最新为 8 月 26 日，均不作为本周新品；智谱夜间优惠偏促销，未纳主稿。字节 Seed / Moonshot 未找到本轮可核验的 7 日内高价值新品，Seed 页面提取也有缺口，不代表这些公司没有其他更新。",
+    "Qwen Code 的首发日期是 9 月 3 日，页面最后更新为 9 月 4 日，因此列入近期更新但保留首发日期。NVIDIA 公告日期为 9 月 3 日，元数据时间 16:00:59 UTC 对应北京时间 9 月 4 日 00:00:59。",
+    "首期没有进行模型跑分、实际生成、商业版权或账户可用性测试。原文事实与产品经理视角分开展示；引文用于定位原始依据，成文时需重新核对关键价格和开放范围。",
+    "选题建议：02+05 可讨论“长任务 AI 如何让用户保持控制”；06+07 可讨论“一次成功任务的真实成本”；01+04 可讨论“生成工具如何围绕实际创作场景设计”。勾选只是保存你的写作素材。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-06-01",
+      "title": "ComfyUI 接入云端精选工作流，覆盖 MiniMax H3 等生成任务",
+      "source": "ComfyUI 官方更新日志 / 官方 PR",
+      "sourceUrl": "https://docs.comfy.org/changelog#v0-34-5",
+      "publishedAt": "2026-09-05",
+      "freshness": "72h",
+      "category": "AI 创作工具",
+      "summary": "ComfyUI v0.34.5 新增测试版 Comfy Cloud 节点，让工作流调用云端 GPU 运行精选图像、视频和音乐生成任务。对应 PR 列出 MiniMax H3 的文生视频、图生视频、首尾帧及参考图等节点。",
+      "whyItMatters": "创作体验的关键开始从安装模型和准备显卡，延伸到选择任务、了解预算、查看进度、处理失败与拿到结果。可以把首次成功出片时间作为产品指标。",
+      "angle": "AI 创作工具下一步：怎样把复杂工作流做成用户能直接使用的功能？",
+      "caveat": "仅确认 9 月 5 日更新，没有精确时刻，因此保守归入近 72 小时。这是 ComfyUI 的接入更新，不是 MiniMax 当天发布新模型。节点为 BETA，PR 涉及生产开关和 credits 计费；不能推断所有用户已经可用，价格说明存在不一致，暂不引用固定单价。",
+      "evidence": [
+        {
+          "url": "https://docs.comfy.org/changelog#v0-34-5",
+          "quote": "Added beta nodes that run curated Flux 2, Z-Image Turbo, Mage Flow, MiniMax H3, and Music 3 workflows on Comfy Cloud GPUs."
+        },
+        {
+          "url": "https://github.com/Comfy-Org/ComfyUI/pull/15935",
+          "quote": "Comfy Cloud"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-06-02",
+      "title": "Qwen Code 周更：把沟通风格、任务控制和成果交付一起改进",
+      "source": "Qwen Code 官方博客",
+      "sourceUrl": "https://qwenlm.github.io/qwen-code-docs/en/blog/updates/weekly-update-2026-09-03/",
+      "publishedAt": "2026-09-03",
+      "freshness": "72h",
+      "category": "Agent 体验",
+      "summary": "本次周更包含 Concise、Proactive、Explanatory、Learning 四种输出风格；钉钉机器人可以将报告等作为附件交付；Web Shell 内置终端，工作流支持进度查看、暂停、继续、取消及重跑。Goal 可由 AI 草拟，再由用户确认并设置 token 预算。",
+      "whyItMatters": "用户的控制感来自具体功能：能判断 AI 是否理解目标、知道任务进展、及时改变方向，并且能直接使用交付物。适合转化为长任务产品的设计检查表。",
+      "angle": "用户为什么嫌 AI 不好用？从 Qwen Code 更新看沟通、控制与交付设计。",
+      "caveat": "文章首发 9 月 3 日，页面最后更新 9 月 4 日；近期标签依据更新日期。Goal 的这项确认流程目前用于交互式终端，Web Shell 支持仍在推进。320+ PR 为项目方披露，未独立统计或实测功能。",
+      "evidence": [
+        {
+          "url": "https://qwenlm.github.io/qwen-code-docs/en/blog/updates/weekly-update-2026-09-03/",
+          "quote": "Qwen Code shipped two stable releases this week — v0.22.3 and v0.23.0 — with 320+ PRs merged."
+        },
+        {
+          "url": "https://qwenlm.github.io/qwen-code-docs/en/blog/updates/weekly-update-2026-09-03/",
+          "quote": "Reports and documents the AI writes go straight into the chat as attachments — open them right from your phone."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-06-03",
+      "title": "NVIDIA PAIR：把独立推理请求分配给局域网内有空余资源的电脑",
+      "source": "NVIDIA 官方博客",
+      "sourceUrl": "https://blogs.nvidia.com/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark/",
+      "publishedAt": "2026-09-03",
+      "freshness": "72h",
+      "category": "本地 Agent",
+      "summary": "NVIDIA 介绍免费的开源 Personal AI Router（PAIR），可发现局域网内兼容电脑，并把独立推理请求分配给有剩余容量的机器。Beta 支持 Windows、macOS、Linux，可与 Ollama、LM Studio 配合使用。",
+      "whyItMatters": "本地 Agent 的可用性不仅由模型决定，还取决于安装、模型选择、资源调度和失败恢复。企业产品可评估首次成功任务时间、排队时间、云端回退条件及运维成本。",
+      "angle": "让 AI Agent 在自己的电脑上工作，产品经理需要解决哪些体验问题？",
+      "caveat": "官网日期为 9 月 3 日，精确发布时间 16:00:59 UTC 对应北京时间 9 月 4 日，处于近 72 小时。PAIR 分配的是独立请求，不等于合并多机显存运行一个超大模型。官方另述的 RTX Spark Windows 设备计划 10 月推出，不能写为已经上市；性能数字未在本轮实测。",
+      "evidence": [
+        {
+          "url": "https://blogs.nvidia.com/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark/",
+          "quote": "PAIR automatically discovers compatible PCs on a local network and routes independent inference requests to whichever system has capacity."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-06-04",
+      "title": "Lyria 3.5 进入 Gemini 与 API，音乐生成突出模板和使用场景",
+      "source": "Google 官方博客",
+      "sourceUrl": "https://blog.google/innovation-and-ai/products/gemini-app/better-tracks-lyria-gemini/",
+      "publishedAt": "2026-09-04",
+      "freshness": "72h",
+      "category": "多模态产品",
+      "summary": "Google 宣布 Lyria 3.5 在 Gemini app 与 Gemini API 提供。用户可选或描述曲风、选择人声或纯音乐、套用模板及选择曲目长度；官方以视频配乐、品牌短曲和个性铃声说明使用场景。",
+      "whyItMatters": "生成能力被包装成模板、参数和具体任务后，用户更容易知道从哪里开始、怎样调整，以及结果可以拿去做什么。适合研究创作产品的输入设计与分发入口。",
+      "angle": "AI 音乐产品怎样走出“生成一首歌”：从 Lyria 3.5 看场景化设计。",
+      "caveat": "“更有表现力”“更高保真”为厂商描述，公告没有证明付费转化提升。本条不推断无限免费、所有地区可用或任意商用；额度、权利与商用条件需另查具体服务条款。",
+      "evidence": [
+        {
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/better-tracks-lyria-gemini/",
+          "quote": "Lyria 3.5, our best-sounding music generation model, is now available in the Gemini app and the Gemini API."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-06-05",
+      "title": "GPT-6 Astra 与 Responses 更新：长任务可以异步用工具、中途补充要求",
+      "source": "OpenAI 官方更新日志与开发指南",
+      "sourceUrl": "https://developers.openai.com/api/docs/changelog",
+      "publishedAt": "2026-09-03",
+      "freshness": "7d",
+      "category": "长任务协作",
+      "summary": "OpenAI 于 9 月 3 日发布 GPT-6 Astra，并在 Responses API 中提供异步工具调用和执行中追加要求的能力。模型等待外部工具时可继续独立工作，开发者也可通过 WebSocket 在响应过程中追加用户约束；本条合并同一轮发布，避免重复计为两条新闻。",
+      "whyItMatters": "研究、报表与办公 Agent 可从一次提交后等待结果，发展为过程中持续协作。产品评估要关注完整任务成功率、人工介入次数、重试成本和已执行动作如何向用户解释。",
+      "angle": "长任务 AI 如何让用户保持控制？把异步执行、中途改需求和结果验收放进同一套流程。",
+      "caveat": "作为最近 7 天的重要补充收录，不能写成今天发布。中途追加指令仅支持 Astra 与 Responses WebSocket；不会撤销已执行动作、取消已启动工具或改写已返回内容。工具仍由开发者应用执行和管理；厂商能力表述不等于独立业务评测。",
+      "evidence": [
+        {
+          "url": "https://developers.openai.com/api/docs/guides/latest-model",
+          "quote": "GPT-6 Astra can continue reasoning, call other tools, or answer independent parts of a request while your application runs a tool."
+        },
+        {
+          "url": "https://developers.openai.com/api/docs/guides/steering",
+          "quote": "Mid-turn steering lets users add requirements or change direction without waiting for a response to finish."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-06-06",
+      "title": "Gemini 3.8 Flash：模型优惠单价与实际任务成本要一起看",
+      "source": "Google 官方发布公告",
+      "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "publishedAt": "2026-09-02",
+      "freshness": "7d",
+      "category": "产品成本",
+      "summary": "Gemini 3.8 Flash 面向编码、Agent 与多步推理。公告给出的导入价是每百万输入 token 0.75 美元、输出 3.75 美元；优惠于 2026 年 12 月 31 日到期，2027 年 1 月 1 日起分别为 1.50 和 7.50 美元。官方同时说明复杂任务和较高推理强度可能消耗更多 token。",
+      "whyItMatters": "成本预算应同时考虑单价、token 用量、重试次数、成功率和人工复核。适合与 07 的缓存降价一起写成“一次成功任务”的成本拆解，并区分优惠期与常态成本。",
+      "angle": "模型单价便宜，AI 产品就更赚钱吗？算清一次成功任务的真实成本。",
+      "caveat": "价格来自公告，实际调用前需复核账户、模型和生效日期。基准及成本效益描述属于发布方信息，不承诺你的业务成功率。Flash Cyber 通过 Fairwind Program 面向获准防御方，不是所有开发者立即可用的通用版本。",
+      "evidence": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/#footnote-source-1",
+          "quote": "Introductory price expires on December 31, 2026."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-06-07",
+      "title": "Claude Fable 5.1 缓存读取降价，长任务需要重新测算成本结构",
+      "source": "Anthropic 官方公告与 Newsroom",
+      "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "publishedAt": "2026-09-01",
+      "freshness": "7d",
+      "category": "产品成本",
+      "summary": "Anthropic 发布 Claude Fable 5.1 与通过可信访问计划提供的 Mythos 5.1。Fable 5.1 缓存读取价格下降 75%，至每百万 token 0.25 美元；其他输入与输出单价仍为每百万 token 10 和 50 美元。",
+      "whyItMatters": "工具调用密集、上下文重复的 Agent，需要单独记录缓存命中和上下文复用。可把“没有缓存、正常命中、长上下文反复重试”三种情形纳入同一成本表，避免只比较表面输入输出价。",
+      "angle": "长任务 Agent 怎样省钱：从缓存命中到任务编排，哪些成本值得产品经理跟踪？",
+      "caveat": "日期由官方 Newsroom 核验。厂商按自身 2026 年 8 月使用样本估计典型任务总成本约下降 25%、高 Agent 使用等任务最高约 45%；这些是特定样本估算，不能推广为所有产品的收益保证。Mythos 访问受限。",
+      "evidence": [
+        {
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "quote": "Cache reads now cost 75% less, or $0.25 per million tokens."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-06-08",
+      "title": "Qwen3.8-Max-0902 更新：企业任务能力变化需要用自己的任务集验证",
+      "source": "Qwen 官方公告 / 阿里云模型文档",
+      "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen3-8-max",
+      "publishedAt": "2026-09-02",
+      "freshness": "7d",
+      "category": "模型评估",
+      "summary": "Qwen 官方宣布 Qwen3.8-Max-0902 快照，保留 1M 上下文并针对 Coding、Cowork 继续后训练。阿里云文档确认其图像、文本、视频输入与文本输出能力，以及函数调用、结构化输出和缓存支持。",
+      "whyItMatters": "同系列的新快照也可能改变工具使用、输出格式、任务成功率与成本。产品升级前应固定版本，以真实任务集做对照，并保留回退条件。",
+      "angle": "模型升级后，AI 产品经理该重新验证哪五件事？",
+      "caveat": "发布时间依据 Qwen 官方 9 月 2 日公告；能力改善是厂商自报，本期未进行独立评测。公告价格与阿里云新加坡区域相符，北京区域另有价格，不能混用；没有据此认定开放权重。",
+      "evidence": [
+        {
+          "url": "https://x.com/Alibaba_Qwen/status/2094968708288680276",
+          "quote": "Further post trained on Coding & Cowork, Qwen3.8-Max-0902 now delivers stronger performance across complex enterprise tasks, scientific research, and long horizon workflows."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

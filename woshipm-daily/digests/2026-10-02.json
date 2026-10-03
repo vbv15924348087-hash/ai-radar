@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-02",
+  "generatedAt": "2026-10-02T20:19:33+08:00",
+  "windowStart": "2026-10-01T20:01:37.323+08:00",
+  "title": "Agent 开始操作桌面并执行可审查流程，模型速度与开放范围成为产品决策",
+  "intro": "以北京时间 2026-10-02 20:01:37 为资讯纳入截止，本期从已打开并核对原文的材料中精选 8 条：6 条位于严格 24 小时窗口，2 条明确标为 72 小时补充。重点关注 Copilot 桌面操作与动态工作流、Astra Ultrafast 模式、消费级 AI 眼镜、中国 Coding Agent 的审批增量，以及受限开放的 Gemini 4 Argon。事实摘要依据一手来源；产品意义和写作角度为独立分析。",
+  "coverageNotes": [
+    "严格窗口为北京时间 2026-10-01 20:01:37 至 2026-10-02 20:01:37；72 小时补充起点为 2026-09-29 20:01:37。检索和文件生成在截止后继续进行，但主列表只纳入能确认截止前已发布的原文。",
+    "已对照 9 月 30 日、10 月 1 日及此前简报的来源链接和事件：本期 GitHub 桌面操作、动态工作流不同于已报道的 HydraFusion 模型路由；Qwen Code 仅记录相对昨日 nightly 新增的审批操作和执行轨迹，不重复报道 A2A 与工作区 Agent。",
+    "OpenAI 官方 RSS 列出严格窗口内的两篇文章，但官网正文分别返回 403 或未得到可读响应，故未依据 RSS 摘要编写主列表事实。AnySearch 本地 CLI 的版本完整性仍有疑点，本期未运行；通过官方 RSS、新闻页、GitHub Release/PR、arXiv 页面与 Atom 记录核验，动态产品站和部分中国厂商入口仍有覆盖缺口。",
+    "NVIDIA 的最高 8 倍 token 生成速度为厂商表述，未见该页面独立测试方法；Meta 的 Muse 眼镜 Agent 属未来开放；Qwen Code 为 nightly 预发布；Anthropic/Barclays 的使用量为企业和厂商自述；ScholarCatalyst 为未经同行评审的 arXiv v1 预印本。",
+    "推荐写作方向：一是桌面 Agent 如何通过逐应用授权与恢复机制进入旧软件流程；二是将固定代码步骤、Agent 判断和人工检查点组合成可复用的动态工作流；三是限量开放的新模型如何同时设计输出预算、价格预期与用户准入。推荐不等于用户已选题。"
+  ],
+  "items": [
+    {
+      "id": "2026-10-02-01",
+      "title": "GitHub Copilot 桌面操作进入公开预览，可跨 macOS 与 Windows 应用执行流程",
+      "source": "GitHub Changelog",
+      "sourceUrl": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
+      "publishedAt": "2026-10-01",
+      "freshness": "24h",
+      "category": "桌面 Agent 与权限设计",
+      "summary": "GitHub 宣布在 Copilot CLI 和 Copilot 应用中公开预览 computer use，支持 macOS 和 Windows。Copilot 可以读取可访问的应用内容及视觉上下文，点击、输入、滚动并跨桌面应用完成任务，包括没有 API、CLI 或 MCP 接口的旧软件。用户须在控制应用前批准，可检查或重置常驻许可；组织设置也可禁用该能力。",
+      "whyItMatters": "桌面 Agent 让产品能够覆盖 GUI-only 的业务流程，但“能点击”只是入口。产品经理应设计逐应用授权、敏感动作确认、执行状态展示、失败回退和可追溯记录，并用真实跨应用任务验收，而不是仅看单次演示能否操作成功。",
+      "angle": "桌面 Agent 从演示走向业务流程：逐应用授权、跨应用状态与失败恢复怎么设计？",
+      "caveat": "GitHub 官方 RSS 发布时间为 2026-10-01T19:11:26Z，即北京时间 10 月 2 日 03:11:26，位于严格窗口。功能仍为 public preview；macOS 还需要系统辅助使用和屏幕录制权限，公告未承诺 Linux 支持。",
+      "evidence": [
+        {
+          "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
+          "quote": "Computer use is now available in public preview in GitHub Copilot CLI and the GitHub Copilot app on macOS and Windows."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps",
+          "quote": "Copilot asks for approval before controlling an app, and you can review or reset apps that you have chosen to always allow."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-10-02-02",
+      "title": "GitHub Copilot 动态工作流开放预览：用代码固定步骤，让 Agent 并行处理并在检查点暂停",
+      "source": "GitHub Changelog",
+      "sourceUrl": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app",
+      "publishedAt": "2026-10-01",
+      "freshness": "24h",
+      "category": "Agent 流程编排",
+      "summary": "GitHub 将动态工作流提供给 Copilot CLI、Copilot 应用和 SDK。开发者可用代码定义固定步骤、串并行 Agent 任务、结构化结果传递、互相核验及人工检查点；工作流位于 Copilot extension 内。所有 Copilot 计划均可使用，应用端无需额外设置，CLI 需启用 experimental。",
+      "whyItMatters": "复杂 Agent 流程需要把可重复的操作交给确定性代码，把分析判断留给 Agent，并清楚定义暂停、复核和重试位置。产品团队可围绕结果一致性、人工接管次数、复跑成功率与任务总成本做验收，而不只衡量单轮回答质量。",
+      "angle": "Agent 工作流如何兼顾确定性与灵活性：代码步骤、并行判断和人工检查点的产品设计",
+      "caveat": "官方 RSS 时间为 2026-10-01T16:30:10Z，即北京时间 10 月 2 日 00:30:10，位于严格窗口。功能为 public preview，CLI 端需 experimental 开关；与 10 月 1 日报道的 HydraFusion 多模型路由是不同能力。",
+      "evidence": [
+        {
+          "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app",
+          "quote": "A dynamic workflow is a program that defines how a task is carried out."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app",
+          "quote": "The steps, when to involve agents, and how to use their results are all defined in code, while agents handle the parts that need analysis or judgment."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-10-02-03",
+      "title": "NVIDIA 公布 GPT-6 Astra Ultrafast：强调生成速度，实际任务收益仍待测",
+      "source": "NVIDIA Blog",
+      "sourceUrl": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
+      "publishedAt": "2026-10-01",
+      "freshness": "24h",
+      "category": "模型模式与延迟",
+      "summary": "NVIDIA 宣布 GPT-6 Astra Ultrafast 已通过 OpenAI API 提供，并向符合条件的 ChatGPT Work 和 Codex 用户开放。官方称其 token 生成速度最高可达 Astra Standard 模式的 8 倍，定位于对响应速度敏感的 Agent 工具调用循环。",
+      "whyItMatters": "更快的 token 输出未必等于更快完成业务任务。产品经理应把模型质量、首 token 等待、工具调用次数、并行度、端到端完成时间和每个成功任务的费用放在同一组测试中，按场景决定是否采用高速模式。",
+      "angle": "模型快 8 倍，任务会快多少？产品经理如何评测高速推理模式的真实价值",
+      "caveat": "官方 RSS 发布时间为 2026-10-01T23:44:13Z，即北京时间 10 月 2 日 07:44:13，位于严格窗口。最高 8 倍是 NVIDIA 和合作方说法，页面未给可独立复现的任务和对照参数，也未列具体价格；ChatGPT Work 与 Codex 的开放对象有限定。",
+      "evidence": [
+        {
+          "url": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
+          "quote": "Ultrafast offers up to 8x faster token generation than the Astra Standard mode."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-10-02-04",
+      "title": "Meta 在印度开售 Ray-Ban Meta Gen 3，眼镜上的 Muse Agent 仍待上线",
+      "source": "Meta Newsroom",
+      "sourceUrl": "https://about.fb.com/news/2026/10/announcing-ranveer-singh-as-brand-ambassador-for-ray-ban-and-ray-ban-meta-in-india-along-with-exciting-new-updates-to-our-ai-glasses/",
+      "publishedAt": "2026-10-01",
+      "freshness": "24h",
+      "category": "消费级 AI 眼镜",
+      "summary": "Meta 宣布 Ray-Ban Meta Gen 3 已在印度开售，起价 INR 44,300。公告同时预告 Meta Audio 和 Muse：Muse 将结合眼前场景行动，减少用户逐项描述环境的需要，但该 Agent 功能计划在未来数月上线。",
+      "whyItMatters": "眼镜类产品把输入从键盘和语音描述延伸到持续的环境上下文。产品经理应关注何时采集视觉信息、如何提示周围人、哪些动作需要二次授权，以及系统误读场景时怎样停下和纠正。",
+      "angle": "AI 眼镜从看懂场景到代人行动：环境感知与动作授权如何划界？",
+      "caveat": "Meta 官方 RSS 时间为 2026-10-01T14:16:04Z，即北京时间 22:16:04，位于严格窗口。Gen 3 当前公告确认的是印度市场销售；Muse 为未来数月计划，Meta Audio 也未公布具体上线日，不能表述为现已可用。",
+      "evidence": [
+        {
+          "url": "https://about.fb.com/news/2026/10/announcing-ranveer-singh-as-brand-ambassador-for-ray-ban-and-ray-ban-meta-in-india-along-with-exciting-new-updates-to-our-ai-glasses/",
+          "quote": "Muse can also act on what you’re looking at, so you won’t have to describe what’s in front of you."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-10-02-05",
+      "title": "Qwen Code nightly 补上托管 Agent 审批操作与执行轨迹视图",
+      "source": "Qwen Code 官方 GitHub Release 与 PR",
+      "sourceUrl": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7-nightly.20261001.a7deb01bcb",
+      "publishedAt": "2026-10-01",
+      "freshness": "24h",
+      "category": "中国 Coding Agent 与人工审批",
+      "summary": "Qwen Code 的新 nightly 预发布增加托管 Agent 的持久化审批操作，在 Managed 面板显示并回答待决工具调用，还加入可折叠的执行轨迹瀑布图。官方 PR 说明仅 Session 创建者可处理支持 Actions 的 Workspace Session 审批，允许或拒绝工具调用，并在轨迹视图中按轮次查看并行活动。",
+      "whyItMatters": "长任务 Agent 等待人工授权时，用户需要看见待决动作、保有身份边界，并在失败后有可靠的重试路径。产品团队可观察审批发现率、重复响应处理、人工恢复时间与查找失败步骤的耗时。",
+      "angle": "长任务 Agent 工作台怎样把审批与执行轨迹放在同一处？",
+      "caveat": "官方 GitHub Release 发布时间为 2026-10-01T22:01:32Z，即北京时间 10 月 2 日 06:01:32，位于严格窗口。它是 nightly 预发布，非稳定版普遍开放；审批只适用于声明支持 Actions 的 Workspace Session。相较昨日简报的 A2A 和工作区 Agent，本条只记录审批与轨迹视图的新功能。",
+      "evidence": [
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7-nightly.20261001.a7deb01bcb",
+          "quote": "feat(managed-agent): Serve durable permission Actions (D6b)"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7-nightly.20261001.a7deb01bcb",
+          "quote": "feat(web-shell): show and answer Hosted tool approvals in the Managed panel"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7-nightly.20261001.a7deb01bcb",
+          "quote": "feat(web-shell): add a collapsible trajectory waterfall"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-10-02-06",
+      "title": "Gemini 4 Argon 先向受信任网络防御团队开放，百万输出与价格仍属未来计划",
+      "source": "Google DeepMind Blog",
+      "sourceUrl": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+      "publishedAt": "2026-09-30",
+      "freshness": "72h",
+      "category": "前沿模型开放与定价",
+      "summary": "Google DeepMind 宣布 Gemini 4 Argon 正通过 Fairwind Program 分阶段提供给一组受信任的网络安全防御者，后续计划扩展到开发者、企业和消费者。官方页面描述最高 100 万 token 输出，并给出未来公开时拟采用的每百万输入 token 2 美元、输出 token 10 美元及缓存输入折扣信息。",
+      "whyItMatters": "超长输出和长时程工作流可能改变 Agent 的任务拆分方式，但也扩大单次请求的预算和检查成本。产品经理应在真正开放前预设输出上限、停止条件、任务级费用提示和人工复核，并把申请资格与未来价格区分清楚。",
+      "angle": "百万 token 输出的 Agent 怎样设计预算、停止条件和分阶段准入？",
+      "caveat": "官方 RSS 时间为 2026-09-30T20:01:45Z，即北京时间 10 月 1 日 04:01:45，属于 72 小时补充，不是今日严格 24 小时。当前仅向受信任防御团队分阶段开放；页面所列价格是未来将推出时的预告，并非本期已生效的公众 API 价格。性能和内部案例均为 Google 自述。",
+      "evidence": [
+        {
+          "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+          "quote": "Gemini 4 Argon, which is rolling out to a set of trusted cyber defenders through our Fairwind Program."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-10-02-07",
+      "title": "Anthropic 与 Barclays 扩大 Claude 银行业部署，披露内部知识与邮件处理规模",
+      "source": "Anthropic Newsroom",
+      "sourceUrl": "https://www.anthropic.com/news/barclays-scales-claude",
+      "publishedAt": "2026-10-01",
+      "freshness": "72h",
+      "category": "受监管企业 AI 落地",
+      "summary": "Anthropic 与 Barclays 公布其内部知识助手已有 1.6 万多名员工使用、累计处理超过 100 万次搜索，另有面向 Global Markets 的邮件平台每日处理约 12 万封邮件。Barclays 计划到 2027 年让大部分工程师使用 Claude。",
+      "whyItMatters": "这提供了受监管企业把 AI 放进知识查找、邮件分类和工程工作的不同切入口。产品经理可借此拆解用户群、任务频率、审核路径和可衡量的服务质量，但需要自行收集准确率、人工节省和风险事件数据。",
+      "angle": "银行内部 AI 如何从搜索扩展到邮件与工程：选择流程、审核点和指标的方法",
+      "caveat": "官方页面只标注 2026-10-01，没有精确时刻，按工作台规则仅列为 72 小时补充。规模数据为 Anthropic 和 Barclays 自述，未披露独立准确率或对照试验；2027 年工程师覆盖是计划，不是当前已完成状态。",
+      "evidence": [
+        {
+          "url": "https://www.anthropic.com/news/barclays-scales-claude",
+          "quote": "Claude now helps 16,000 Barclays’ colleagues find answers for customers, sorts 120,000 emails a day, and will be in the hands of most Barclays engineers by 2027."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-10-02-08",
+      "title": "ScholarCatalyst 预印本：研究检索的关键是候选覆盖，Agent 搜索未胜过向量检索",
+      "source": "arXiv 预印本",
+      "sourceUrl": "https://arxiv.org/abs/2610.02202",
+      "publishedAt": "2026-10-01",
+      "freshness": "24h",
+      "category": "AI 检索与评测研究",
+      "summary": "《ScholarCatalyst》用 184 位论文主要作者对 207 篇近期计算机科学论文的判断，评估系统能否找到真正可能启发研究的先前工作，而非仅找主题相似的文章。在作者测试中，Agent 搜索的 Recall@20 为 0.42，未超过作为工具使用的向量检索器的 0.48；论文认为未被搜索过程召回的关键候选，后续推理也无法补救。",
+      "whyItMatters": "知识搜索和研究助手产品应把相关来源的候选覆盖率作为独立指标，而非只看最终回答是否流畅。产品团队可让领域专家标注哪些资料真实改变了决策，并分别评估召回、证据选择和总结质量。",
+      "angle": "为什么更会推理的搜索 Agent 仍会漏资料：研究助手如何设计候选覆盖率指标？",
+      "caveat": "arXiv v1 于 2026-10-01T17:59:47Z 首次提交，即北京时间 10 月 2 日 01:59:47，处于严格窗口。该论文尚未经同行评审；样本限于 2025—2026 年计算机科学论文，标签来自作者事后判断，分领域覆盖不均，不能直接外推所有企业知识库。",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2610.02202",
+          "quote": "Agentic search does no better than embedding retrieval (0.42 vs. 0.48 Recall@20) despite calling that same retriever as a tool."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

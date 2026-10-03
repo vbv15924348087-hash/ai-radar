@@ -1,0 +1,244 @@
+{
+  "date": "2026-09-29",
+  "generatedAt": "2026-09-29T23:15:57.485+08:00",
+  "windowStart": "2026-09-28T23:15:57.485+08:00",
+  "title": "AI 产品进入任务成本与执行控制阶段：更快模型、业务连接器和可恢复 Agent 工作流",
+  "intro": "截至北京时间 2026-09-29 23:15，本期精选 8 条经官方原文核验、未被历史简报收录的 AI 资讯：6 条有精确时间并落在严格 24 小时窗口，2 条因官方只给日期而保守标为近 72 小时。今天的共同信号是，模型能力继续上升，但产品竞争正在转向每个任务的真实成本、业务上下文连接、执行前审批、推理档位、会话持久化与结果验证。推荐标记只供浏览参考，不会代替你的选题。",
+  "coverageNotes": [
+    "本期严格窗口为 2026-09-28T23:15:57.485+08:00 至 2026-09-29T23:15:57.485+08:00。Claude Sonnet 5.5、Meta Muse for Small Business、Grok 4.7 上线 Amazon Bedrock、Codex CLI 0.159.0、Qwen Code 0.24.7 与 AWS Nova Act 合成监控均有精确发布时间并落入该窗口。MiniMax 公告和 Microsoft Fabric 官方博客只给日期或无可靠时分，保守标为近 72 小时。",
+    "检索执行在指定截止后完成，但本期窗口固定在北京时间 23:15:57；只纳入可确认在截止前发布或已存在的材料。已与此前 19 期、160 条历史简报按来源 URL、标题、版本和实际事件核对，没有重复收录；GitHub Copilot CLI v1.0.89 稳定版因主要功能已在 9 月 28 日简报覆盖而排除。",
+    "已实际打开并核对 Anthropic、Meta、AWS、OpenAI Codex、Qwen Code、MiniMax 和 Microsoft 的官方发布页、版本日志或技术文章，并检查 OpenAI、Anthropic、Google/DeepMind、Microsoft、Meta、NVIDIA、阿里通义、DeepSeek、智谱、MiniMax、字节等公开入口。AnySearch 的 business 子域两次超时，部分动态站点和帮助中心仍有抓取限制，因此未收录不表示相关团队完全没有更新。",
+    "Anthropic、xAI/AWS、MiniMax、AWS Nova Act 与各产品 Release 中的速度、成本、准确率和能力描述均按厂商或项目维护者口径转述，未做独立复现。预览版、逐步开放、地区、账户、订阅档位、云区域、管理员策略以及 gated、private、managed 标记会限制实际可用范围。",
+    "推荐写作方向：一是模型单价不变时，如何用成功率、步骤数、时延和返工衡量每任务成本；二是连接器与业务上下文进入 AI Agent 后，如何设计发送、发布和支出前审批；三是 Coding Agent 如何从单机对话扩展为带记忆、工作区、会话恢复与审计的持续工作系统。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-29-01",
+      "title": "Anthropic 发布 Claude Sonnet 5.5：单价不变，官方称输出快 30% 以上",
+      "source": "Anthropic 官方模型发布页",
+      "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+      "publishedAt": "2026-09-28",
+      "freshness": "24h",
+      "category": "模型发布与任务经济性",
+      "summary": "Anthropic 发布 Claude Sonnet 5.5，把它定位为 Opus 5.5 的更快、低成本补充，适合范围明确的日常任务、修复缺陷以及文档、幻灯片和表格制作。每百万输入与输出 Token 仍为 2 美元和 10 美元；官方称输出速度提高 30% 以上，多数工作单任务成本最高降低 30%，原因是完成同一任务通常需要更少 Token。",
+      "whyItMatters": "模型采购不能只比较每百万 Token 单价。产品团队应按任务记录成功率、步骤数、首字与总时延、总 Token、人工返工和最终完成成本，再决定哪些任务默认走 Sonnet、哪些开放式高判断工作仍使用 Opus。",
+      "angle": "模型单价没有下降，为什么一次任务可以便宜 30%？建立每任务成本与复杂度路由的产品评估框架",
+      "caveat": "Anthropic 官方 X 帖时间为 2026-09-28T18:04:06.018Z，即北京时间 9 月 29 日 02:04:06，处于严格窗口。速度、成本与基准数字均来自 Anthropic 自测或其引用评估；“最高 30%”不适用于每个提示。Anthropic 仍将复杂、开放式且需持续判断的工作定位给 Opus 5.5。",
+      "evidence": [
+        {
+          "url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "quote": "Introducing Claude Sonnet 5.5, the second model in the Claude 5.5 family. It’s a clear upgrade over Claude Sonnet 5, runs 30%+ faster, and costs up to 30% less for most work."
+        },
+        {
+          "url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "quote": "Sonnet 5.5 is priced the same as Sonnet 5 at $2 per million input tokens, $10 per million output tokens, and $0.20 per million tokens for cache reads, but it typically needs far fewer tokens to do the same work."
+        },
+        {
+          "url": "https://www.anthropic.com/claude-sonnet-5-5",
+          "quote": "In our testing, it costs up to 30% less per task than its predecessor."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-29-02",
+      "title": "Meta 为小企业扩展 Muse：接入经营工具，并在发布、发送和支出前审批",
+      "source": "Meta Newsroom",
+      "sourceUrl": "https://about.fb.com/news/2026/09/introducing-muse-small-business/",
+      "publishedAt": "2026-09-29",
+      "freshness": "24h",
+      "category": "业务 Agent 与连接器",
+      "summary": "Meta 推出 Muse for Small Business 的新技能与连接器，可连接 Asana、Box、Canva、Dropbox、Figma、QuickBooks、Notion、Shopify、Slack、Stripe、Zoom，以及 Facebook 和 Instagram 商业账户。Muse 会利用品牌、店铺、账务与客户记录执行任务，同时规定任何发布、发送或支出都要先取得用户批准。",
+      "whyItMatters": "连接器让 Agent 从回答问题变成能跨系统执行经营任务，产品风险也从内容正确性扩展到外部副作用。产品经理需要为每种动作标记读取、草拟、发送、发布、付款等风险级别，并给审批页提供对象、金额、目标渠道、依据和撤销能力。",
+      "angle": "AI Agent 接入十多个经营工具后，怎样设计发送、发布和花钱前的审批合同？",
+      "caveat": "Meta 页面元数据给出的发布时间为 2026-09-29T09:30:04Z，即北京时间 17:30:04，处于严格窗口。Muse 基础产品目前面向美国和加拿大；连接器完整列表以应用设置为准，且更多连接器仍在规划中。免费范围、订阅档位和实际执行质量未在本页完整量化。",
+      "evidence": [
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-small-business/",
+          "quote": "You can now connect more tools you’re already using in a few clicks, including Asana, Box, Canva, Dropbox, Figma, Granola, HighLevel, Intuit QuickBooks, Klaviyo, Lovable, Notion, Shopify, Slack, Stripe, Zoom as well as your Facebook and Instagram business accounts, and Muse will start out already understanding your business."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-small-business/",
+          "quote": "You’re in control: nothing publishes, sends, or spends without your approval."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-muse-small-business/",
+          "quote": "Muse also supports custom connectors so you can plug in services we don’t support yet."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-29-03",
+      "title": "Grok 4.7 上线 Amazon Bedrock：500K 上下文、四档推理与跨区域路由",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
+      "publishedAt": "2026-09-28",
+      "freshness": "24h",
+      "category": "云模型平台与推理控制",
+      "summary": "AWS 宣布 Grok 4.7 进入 Amazon Bedrock，提供 500K Token 上下文、low 到 xhigh 四档推理、图像输入、工具调用，以及 Geo 和 Global 两类跨区域路由。开发者可通过 Responses、Chat Completions、InvokeModel 和 Converse API 调用，并按数据驻留、吞吐、成本与时延选择路由。",
+      "whyItMatters": "同一模型现在包含推理档位、API 形态和跨区域策略三个产品变量。团队应把任务风险、Token 消耗、端到端时延、数据驻留与故障转移写成路由规则，避免默认使用高推理档位或全球路由带来不可解释的成本和合规偏差。",
+      "angle": "云模型接入不只是选型号：如何联合设计推理档位、API 兼容与跨区域路由？",
+      "caveat": "AWS 页面元数据时间为 2026-09-28T14:13:16-08:00，即北京时间 9 月 29 日 06:13:16，处于严格窗口。模型能力与训练描述主要来自 xAI；具体区域、功能矩阵和参数需以 Bedrock 模型卡为准。Global 路由价格较低但地域控制更少，US Geo 路由用于美国数据驻留场景。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
+          "quote": "xAI’s Grok 4.7 is now available on Amazon Bedrock, adding a frontier model built for coding, long-running agents, and knowledge work to the Bedrock model catalog. It offers a 500K token context window and supports configurable reasoning effort at four levels: low, medium, high, and xhigh."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
+          "quote": "Grok 4.7 supports the Responses API, the Chat Completions API, InvokeModel and the Converse API."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
+          "quote": "With Grok 4.7 in Amazon Bedrock, you get a 500K token context window, four reasoning effort levels, image input, tool calling, and Geo and Global cross-Region routing."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-29-04",
+      "title": "Codex CLI 0.159.0 支持在回复与长任务中即时转向，并加强 Windows 与凭证目录保护",
+      "source": "OpenAI Codex 官方 GitHub Release",
+      "sourceUrl": "https://github.com/openai/codex/releases/tag/rust-v0.159.0",
+      "publishedAt": "2026-09-29",
+      "freshness": "24h",
+      "category": "Coding Agent 交互与运行安全",
+      "summary": "Codex CLI 0.159.0 新增可选 instant_interrupt，可在模型回复或长时间 Code Mode 调用进行中用新输入调整方向。该版本还抑制 Windows 上 MCP 服务、Code Mode host 与管道命令的多余控制台窗口，默认保护可写根目录内的 .aws 目录，并改进 Mermaid 原生渲染。",
+      "whyItMatters": "长任务中的即时转向能减少用户等待错误方案跑完，但产品还要明确被中断步骤是否完成、哪些副作用已经发生、后续从哪里续跑。Windows 进程体验和凭证目录保护也应进入跨平台 Agent 验收，而不是只测试答案质量。",
+      "angle": "Coding Agent 支持中途改指令后，产品如何处理取消边界、已发生副作用和可恢复执行？",
+      "caveat": "GitHub Release 发布时间为 2026-09-29T08:05:42Z，即北京时间 16:05:42，处于严格窗口。instant_interrupt 是 opt-in；发布说明只证明功能进入该版本，不代表所有宿主产品已默认启用。`.aws` 保护针对沙箱可写根目录，不能代替完整的密钥管理。",
+      "evidence": [
+        {
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0",
+          "quote": "Opt-in `instant_interrupt` lets new input steer Codex during model responses or long-running code-mode calls."
+        },
+        {
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0",
+          "quote": "Windows launches avoid stray console windows for MCP servers, code-mode hosts, and piped commands; restrictive launchers can fall back to embedded mode."
+        },
+        {
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0",
+          "quote": "Approved commands retain explicit filesystem denials, and `.aws` directories are protected by default under writable roots."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-29-05",
+      "title": "Qwen Code 0.24.7 增加 AI 提交、可选 Worktree 与持久化托管会话能力",
+      "source": "Qwen Code 官方 GitHub Release",
+      "sourceUrl": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7",
+      "publishedAt": "2026-09-29",
+      "freshness": "24h",
+      "category": "Coding Agent 工作区与持续会话",
+      "summary": "Qwen Code 0.24.7 新增 /commit，由 AI 起草提交信息，并为分支会话加入可选 Worktree。版本记录还包含结构化按需记忆召回、工作区绑定会话、会话查询与事件回放、重启后恢复 Workspace holder，以及 Hosted Workspace 文件和 Shell 回合等持续运行基础。",
+      "whyItMatters": "Coding Agent 正从单次本地会话扩展为可持续的工作系统。产品经理需要把工作区隔离、会话所有权、记忆来源、执行回执、冷恢复、跨设备控制和提交前复核作为同一条状态机设计，并为每一步保留可审计证据。",
+      "angle": "从聊天窗口到持续工作系统：Coding Agent 为什么需要 Worktree、结构化记忆、托管会话和恢复机制？",
+      "caveat": "GitHub Release 发布时间为 2026-09-29T14:02:21Z，即北京时间 22:02:21，处于严格窗口。Release 的 Highlights 为空，变更列表很长；多项 Hosted、managed、private、gated 或 opt-in 功能不应解释为所有普通 CLI 用户已经默认可用。本条只总结与工作区、记忆和持续会话直接相关的能力。",
+      "evidence": [
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7",
+          "quote": "feat(cli): add /commit slash command with AI-drafted commit messages"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7",
+          "quote": "feat(web-shell): support optional worktrees for branch sessions"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7",
+          "quote": "feat(memory): add structured on-demand recall"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.24.7",
+          "quote": "feat(managed-agent): Recover Workspace holders after trusted local reboot (W0e-3)"
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-29-06",
+      "title": "MiniMax 预告 M Plan 接替 Token Plan：老用户续订保留，停续后不能回购旧计划",
+      "source": "MiniMax API Docs",
+      "sourceUrl": "https://platform.minimax.io/docs/token-plan/announcements",
+      "publishedAt": "2026-09-29",
+      "freshness": "72h",
+      "category": "AI 订阅迁移与商业化",
+      "summary": "MiniMax 预告 M Plan 将接替 Token Plan，价格和文本用量额度保持不变，部分档位可用包含 H3 在内的完整模型阵容。Token Plan 停止新购；自动续费中的老用户可保留原计划或升级，但关闭或中断续费后不能重新购买旧计划。公告还提供 10 月 1 至 7 日 M3.1-Flash-Preview 不限量，以及 M Plan 上线至 10 月 14 日首月五折。",
+      "whyItMatters": "订阅迁移同时影响模型覆盖、价格锚点、老用户权利与活动流量。产品团队应分开跟踪原计划保留率、升级率、停续流失、活动期单位用户调用成本和活动后的付费留存，并在关闭自动续费前清楚提示不可逆影响。",
+      "angle": "AI 编程订阅从额度套餐迁移到分层模型权益时，如何设计老用户路径并评估限时不限量活动？",
+      "caveat": "官方页面标注公告日期为 2026-09-29，但没有首发时分；页面元数据只提供修改时间，因此保守标为近 72 小时。M Plan 确切上线日未公布，多项权益要等 MiniMax Code v3.1.0 发布后才可用，不能写成检索时已经全面生效。",
+      "evidence": [
+        {
+          "url": "https://platform.minimax.io/docs/token-plan/announcements",
+          "quote": "Token Plan will no longer be available for new purchases. Current subscribers with auto-renewal turned on will keep their existing plan unchanged, and they can upgrade to M Plan."
+        },
+        {
+          "url": "https://platform.minimax.io/docs/token-plan/announcements",
+          "quote": "If you turn off auto-renewal or auto-renewal is interrupted, you will no longer be able to purchase your existing Token Plan again."
+        },
+        {
+          "url": "https://platform.minimax.io/docs/token-plan/announcements",
+          "quote": "From October 1 to October 7, all subscribers get unlimited use of M3.1-Flash-Preview in MiniMax Code."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-29-07",
+      "title": "AWS 用 Nova Act 与 AgentCore 构建用户旅程合成监控",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/implementing-synthetic-monitoring-using-amazon-nova-act/",
+      "publishedAt": "2026-09-28",
+      "freshness": "24h",
+      "category": "Agent 测试与产品可观测性",
+      "summary": "AWS 给出一套 Agent 驱动的合成监控方案：Nova Act 依据截图和自然语言完成浏览器操作，AgentCore Runtime 与 Browser 提供隔离执行，EventBridge 定时触发，SNS 发送失败告警。方案面向登录、搜索、购物车和结账等关键旅程，并要求显式验证搜索结果、购物车内容与错误提示。",
+      "whyItMatters": "基础设施健康不等于用户能完成任务。产品团队可把关键旅程做成持续验收，同时把真实故障、Agent 定位失败、重试成功和误报分开统计；高价值路径、明确结果断言、隔离会话和成本预算比盲目扩大页面覆盖更重要。",
+      "angle": "Agent 能否成为产品旅程监控器？从路径选择、结果断言、误报重试到运行成本的实战框架",
+      "caveat": "AWS 页面元数据时间为 2026-09-28T07:56:32-08:00，即北京时间 9 月 28 日 23:56:32，处于严格窗口。这是技术教程和示例架构，不是新的托管监控产品。浏览器流程超过 90% 的准确率与典型六步流程 2 至 4 分钟均为 AWS 的早期案例或测试口径，需在自己的站点复测。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/implementing-synthetic-monitoring-using-amazon-nova-act/",
+          "quote": "Synthetic monitoring emulates real user journeys through automated transactions. Rather than waiting for customers to encounter problems, teams continuously validate critical workflows (logins, purchases, form submissions) on a scheduled basis."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/implementing-synthetic-monitoring-using-amazon-nova-act/",
+          "quote": "Teams should test on their own sites and design monitors with retry logic for cases where adaptation does not succeed."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/implementing-synthetic-monitoring-using-amazon-nova-act/",
+          "quote": "In testing, a typical six-step journey completes in 2 to 4 minutes depending on page load times."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-29-08",
+      "title": "Microsoft Fabric 把受治理的业务语义接入 Copilot，并预览跨组织上下文共享",
+      "source": "The Official Microsoft Blog",
+      "sourceUrl": "https://blogs.microsoft.com/blog/2026/09/28/new-microsoft-data-innovations-unlock-what-only-your-business-knows/",
+      "publishedAt": "2026-09-28",
+      "freshness": "72h",
+      "category": "企业数据语义与受控 Agent",
+      "summary": "Microsoft 宣布 Fabric IQ 在 Copilot Chat 与 Cowork 一般可用，让回答基于 Power BI 语义模型、指标、关系和业务定义，并沿用现有权限与治理。同一公告还介绍预览版 IQ Sharing，可跨组织共享数据及其业务语境，以及 Agentic Data Engineering：工程师定义结果和边界，Agent 在范围内计划、执行、验证和迭代。",
+      "whyItMatters": "企业 AI 答案经常出错在指标口径和权限，而不只是模型推理。产品经理需要把语义模型、字段解释、访问控制、跨组织共享范围和 Agent 操作边界视为可配置产品资产，并用报表一致率、越权拦截和结果验证率评估效果。",
+      "angle": "企业 AI 为什么总和报表对不上？从语义层、权限继承到有边界的数据 Agent 设计",
+      "caveat": "Microsoft 官方博客只标 2026-09-28，没有可靠的精确时刻，故按近 72 小时收录。Fabric IQ 在 Copilot Chat 与 Cowork 的状态为一般可用；IQ Sharing 明确是预览，Agentic Data Engineering 的完整可用阶段、任务范围和验证指标未在文章中明确，不能写成已可无人值守处理生产数据工程。",
+      "evidence": [
+        {
+          "url": "https://blogs.microsoft.com/blog/2026/09/28/new-microsoft-data-innovations-unlock-what-only-your-business-knows/",
+          "quote": "Fabric IQ brings governed business context into Copilot, grounding experiences in the Power BI semantic models, metrics, relationships and business definitions organizations already trust."
+        },
+        {
+          "url": "https://blogs.microsoft.com/blog/2026/09/28/new-microsoft-data-innovations-unlock-what-only-your-business-knows/",
+          "quote": "IQ Sharing in Fabric, now in preview as part of Fabric IQ, breaks down company boundaries by enabling organizations to securely share data and the business context that gives it meaning, while maintaining governance over the underlying assets."
+        },
+        {
+          "url": "https://blogs.microsoft.com/blog/2026/09/28/new-microsoft-data-innovations-unlock-what-only-your-business-knows/",
+          "quote": "Engineers define the outcome and set the boundaries. Inside those limits, the agent plans and executes the work, validates the results and refines the approach."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

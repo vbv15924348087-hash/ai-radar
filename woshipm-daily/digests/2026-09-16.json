@@ -1,0 +1,241 @@
+{
+  "date": "2026-09-16",
+  "generatedAt": "2026-09-16T20:01:05+08:00",
+  "windowStart": "2026-09-15T20:01:05+08:00",
+  "title": "AI 产品进入系统化竞争：实时语音、分层订阅、Agent 控制与长期安全同时前移",
+  "intro": "截至北京时间 2026-09-16 20:01，本期精选 8 条未被此前简报收录的一手 AI 资讯，全部严格落在最近 24 小时。今天最值得产品经理关注的不是单一模型分数，而是 AI 产品正在形成完整系统：语音模型一边对话一边调用工具，平台用分层订阅承接不同用户价值，多 Agent 工具把预算与授权写进执行链，研究则提醒团队重新审视 Skill 市场准入、Coding Agent 排名和长期记忆污染。推荐标记只供浏览参考，不会自动代替你的选题。",
+  "coverageNotes": [
+    "本期于北京时间 2026-09-16 20:01 完成复核，严格窗口为 2026-09-15T20:01:05+08:00 至 2026-09-16T20:01:05+08:00。8 条均由官方 RSS、页面 JSON-LD、GitHub Release 时间或 arXiv v1 时间确认落在窗口内。",
+    "已与截至 2026-09-15 的 9 期、73 条历史简报按标题、URL 和事件去重。Qwen Code v0.23.5-preview.0 相比昨日收录的 v0.23.4，新增的是共享 token 预算、子 Agent 预算准入和工作流授权绑定，并非重复描述旧功能。",
+    "中国侧在严格窗口内只有 Qwen Code 一条达到收录强度。已核对 Qwen/百炼、DeepSeek、Moonshot/Kimi、智谱、MiniMax、腾讯混元、豆包和百度的官方发布入口；没有用日期不明或缺少正式变更说明的内容补足数量。",
+    "国际产品侧收录 Google、Meta、GitHub 与 AWS 四条。OpenAI 官方 RSS 严格窗口内无新条目；Anthropic 近期重新浮出的威胁报告已在 9 月 12 日简报收录；Microsoft AI 官方 Feed 没有同窗口新条目。NVIDIA 同窗口有 AI Factory 与 Earth-2 更新，但相较入选材料对 AI 产品经理的直接可操作性更弱。",
+    "Gemini 与 Meta 的性能、订阅规模和功能数量为厂商自报；企业开放范围、实际额度、价格和生产失败率仍需按地区、账户与正式文档核对。GitHub Copilot 的仓库属性建议仍处于公开预览，AWS 缓存节省比例依赖命中率、TTL 与请求结构。",
+    "三项研究都来自 arXiv：Agent Skill 治理论文是 APSEC 2026 已接收但尚非 camera-ready 的版本；Coding Agent 排名论文是 ADMA 2026 已接收的 camera-ready 版本；长时多 Agent 压测为未同行评审预印本。研究结论不能直接外推到所有模型、插件市场或生产环境。"
+  ],
+  "items": [
+    {
+      "id": "2026-09-16-01",
+      "title": "Gemini 3.8 Live 与 Extended Thinking 上线：语音 Agent 可在对话不中断时执行后台工具",
+      "source": "Google DeepMind / Google Blog",
+      "sourceUrl": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+      "publishedAt": "2026-09-15",
+      "freshness": "24h",
+      "category": "实时语音 Agent",
+      "summary": "Google 发布 Gemini 3.8 Live 与 Gemini 3.8 Live Extended Thinking。Live 支持近实时视觉输入、97 种语言的会话中自动切换，并可在保持对话的同时执行工具与 API；Extended Thinking 面向复杂多步任务，可边推理边说话，并通过口头确认与进度播报保持用户知情。两款模型当天进入 Gemini API 与 Google AI Studio；企业版为私有预览，消费者和 Workspace 的开放范围因模型与订阅层级而异。",
+      "whyItMatters": "语音 Agent 的产品验收需要覆盖打断恢复、后台任务进度、工具完成率、语言切换、视觉上下文延迟和失败接管。后台执行期间仍要让用户看见任务状态，因此需要明确“已接收、执行中、等待外部系统、完成或失败”等状态，并提供取消入口。",
+      "angle": "语音 Agent 进入复杂任务后，产品经理如何设计不中断对话、后台执行、实时进度和人工接管？",
+      "caveat": "官方 RSS 时间为 2026-09-15T17:05:57Z，即北京时间 9 月 16 日 01:05:57。82.6、68.6% 和 35.1% 等基准数字为 Google 自报，正文没有完整测试配置、置信区间或真实生产失败率。Workspace、Gemini Enterprise 与 Customer Experience 的开放范围不同，多项能力仍是私有预览或即将推出；文章未列出具体 API 单价。",
+      "evidence": [
+        {
+          "url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+          "quote": "Gemini 3.8 Live processes visual inputs in near real-time, enriching conversations with context for more helpful responses."
+        },
+        {
+          "url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+          "quote": "It executes tools and API calls in the background while continuing the conversation, so the model can acknowledge requests and keep chatting while tasks finish in the background."
+        },
+        {
+          "url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+          "quote": "For tasks that require deeper reasoning, 3.8 Live Extended Thinking reasons and speaks simultaneously."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-16-02",
+      "title": "Qwen Code v0.23.5 Preview 把 token 预算、子 Agent 准入与工作流授权绑定到执行链",
+      "source": "Qwen Code 官方 GitHub Release",
+      "sourceUrl": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.5-preview.0",
+      "publishedAt": "2026-09-16",
+      "freshness": "24h",
+      "category": "多 Agent 预算与工作流权限",
+      "summary": "Qwen Code v0.23.5-preview.0 允许用 +Nk 指令给一次工作流共享 token 预算，并按预算决定 ACP 子 Agent 是否获准启动；保存的 workflow 可以按名字执行，授权同时绑定脚本内容。版本还补充嵌套 workflow 与 Agent dispatch 的关联标识、来源引用跨恢复保留、Goal 生命周期指标，以及 session 级 web search 次数上限。",
+      "whyItMatters": "长任务与多 Agent 系统需要同时控制总预算、并发扩张和可执行权限。共享预算与子 Agent 准入可阻止任务树无界增长；把授权绑定到脚本内容，可降低同名工作流内容变化后仍沿用旧授权的风险。产品侧应展示预算消耗、拒绝启动原因、子任务归属和脚本变更后的重新授权状态。",
+      "angle": "多 Agent 产品如何把 token 预算、子 Agent 准入和工作流授权做成一套可审计控制面？",
+      "caveat": "GitHub Release 时间为 2026-09-16T08:54:15Z，即北京时间 16:54:15。这是 prerelease，不是 Qwen 模型能力发布；release notes 是 PR 级变更清单，未提供吞吐、成本节省、安全性或生产规模数据。预算含义、超限行为、授权绑定与回滚方式仍需按正式版文档和自己的工作负载验证。",
+      "evidence": [
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.5-preview.0",
+          "quote": "feat(workflows): share a per-turn token budget from a +Nk directive"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.5-preview.0",
+          "quote": "feat(serve): add budget-based ACP child admission"
+        },
+        {
+          "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.23.5-preview.0",
+          "quote": "feat(core): run saved workflows by name and pin workflow grants to script content"
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-16-03",
+      "title": "Meta One 全球推出：把 AI 使用额度、社交表达和商业 Agent 打包成分层订阅",
+      "source": "Meta Newsroom",
+      "sourceUrl": "https://about.fb.com/news/2026/09/introducing-meta-one-subscription-service-more-features-ai/",
+      "publishedAt": "2026-09-15",
+      "freshness": "24h",
+      "category": "AI 商业化与订阅设计",
+      "summary": "Meta 推出 Meta One，覆盖 Instagram、Facebook、WhatsApp 与 Meta AI，并称首发超过 50 项功能、已有 1500 万订阅和试用。Core 与 Premium 面向个人和 AI 重度用户，增加 Muse 图像和视频生成、Restyle 等使用量；创作者与企业套餐增加 Meta Business Agent 容量和经营工具。单产品计划月费 2.99 美元起，个人组合 7.99 美元起，创作者与企业组合 14.99 美元起，免费核心体验继续保留。",
+      "whyItMatters": "这是把高算力 AI 用量与既有高频产品权益组合销售的分层方案。产品经理需要确定免费层保留的核心任务、付费层按更多用量还是新增结果定价，以及个人、创作者与企业各自的价值指标。同时应公开实际额度、限流和升级触发条件，让用户能比较各档价值。",
+      "angle": "AI 产品订阅怎样从单一会员变成个人、创作者与企业分层，并把算力用量变成可理解的价值？",
+      "caveat": "页面时间为 2026-09-15T15:00:59Z，即北京时间 23:00:59。Meta 自报“超过 50 项功能”和“1500 万订阅和试用”，未拆分付费订阅、试用、留存或 AI 功能的独立贡献。页面只写更高或更多用量，没有给出各档明确生成额度或 Business Agent 响应上限；价格与可用性会因地区、应用和账户而异。",
+      "evidence": [
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-meta-one-subscription-service-more-features-ai/",
+          "quote": "We’re launching with more than 50 features on Instagram, Facebook, WhatsApp, and Meta AI, and will expand to Edits, AI glasses, and more over time."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-meta-one-subscription-service-more-features-ai/",
+          "quote": "Meta One plans are now available globally and start at just $2.99 a month for single products, $7.99 a month for individual bundles, and $14.99 a month for creator and business bundles."
+        },
+        {
+          "url": "https://about.fb.com/news/2026/09/introducing-meta-one-subscription-service-more-features-ai/",
+          "quote": "Plans, benefits, pricing, and availability may vary by region, by app, and by account."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-16-04",
+      "title": "GitHub Copilot 开始建议仓库治理属性：AI 从写代码进入规则作用域配置",
+      "source": "GitHub Changelog",
+      "sourceUrl": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
+      "publishedAt": "2026-09-15",
+      "freshness": "24h",
+      "category": "AI 治理辅助",
+      "summary": "GitHub Copilot 现可在企业或组织管理员创建仓库 custom property 时建议允许值，例如为 FedRAMP 多选属性建议合规相关值，为 internet-facing 单选属性建议 yes 或 no。Custom properties 可作为 ruleset 的仓库作用域。功能面向 Copilot Business 与 Copilot Enterprise，处于公开预览；企业和组织 owner 可通过 Copilot policy 控制开关。",
+      "whyItMatters": "AI 开始辅助定义治理元数据，而这些元数据会影响规则覆盖范围。产品应把建议来源、人工审核、批量应用前预览、值变更影响和回滚放进同一流程，并监控属性缺失与命名漂移；接受建议不能自动等同于组织合规判断。",
+      "angle": "当 AI 开始建议合规和治理标签，产品经理如何防止错误分类扩大到 ruleset、权限和安全策略？",
+      "caveat": "页面时间为 2026-09-15T19:07:47Z，即北京时间 9 月 16 日 03:07:47。功能仍为 public preview，仅适用于 Copilot Business 与 Enterprise。官方没有说明建议依据、准确率、支持的治理领域、是否读取私有仓库内容或错误建议的评测结果；管理员仍需结合本组织控制框架审核允许值。",
+      "evidence": [
+        {
+          "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
+          "quote": "GitHub Copilot can now suggest allowed values when you create a custom property for repositories in your organization. This feature is in public preview for GitHub Copilot Business and Copilot Enterprise plans."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
+          "quote": "Custom properties let enterprise and organization admins attach governance metadata to repositories, which you can then use to target repositories with rulesets."
+        },
+        {
+          "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
+          "quote": "Enterprise and organization owners can now configure the Repository custom property suggestions Copilot policy to control feature availability."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-16-05",
+      "title": "Amazon Bedrock 给长上下文和 Agent 工具定义加 Prompt Cache：省钱前先算命中率与 TTL",
+      "source": "AWS Machine Learning Blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/optimizing-cost-and-latency-with-amazon-bedrock-prompt-caching/",
+      "publishedAt": "2026-09-15",
+      "freshness": "24h",
+      "category": "LLM 成本与延迟工程",
+      "summary": "AWS 给出 Bedrock prompt caching 的六类实现：消息内容、系统提示词、工具定义、混合 TTL、租户隔离与 LangChain。Converse API 通过 cachePoint 缓存前缀；条目按 AWS 账户和 Region 隔离，默认 TTL 为 5 分钟，部分模型支持 1 小时，不同模型有最低 token 门槛。官方计价示例中缓存读取 token 比标准输入低 90%，缓存写入高 25%，1 小时缓存写入为标准输入的 2 倍。",
+      "whyItMatters": "缓存收益取决于重复上下文比例、访问间隔、命中率、写入成本与租户隔离。产品成本看板应分开记录 cache write 与 read token、命中率、过期重写、首 token 延迟、Region 路由和每次成功任务成本；Agent 工具 schema 与长系统提示词尤其适合按稳定前缀评估。",
+      "angle": "Prompt Cache 为什么需要命中率、TTL、租户边界和成功任务成本共同决策？",
+      "caveat": "官方 RSS 时间为 2026-09-15T16:18:19Z，即北京时间 9 月 16 日 00:18:19。“最高降低 90%”指缓存读取 token 相对标准输入的单价，并非整次请求或总成本；AWS 的 10 次查询示例净节省约 75%，且假设后续请求都在 TTL 内。小文档在少量迭代下首 token 延迟改善可能不明显；支持模型、最低 token 与价格需按实时文档和账户区域复核。",
+      "evidence": [
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/optimizing-cost-and-latency-with-amazon-bedrock-prompt-caching/",
+          "quote": "When you cache parts of your conversation context (system prompts, documents, tool definitions), Amazon Bedrock reads the cached tokens on subsequent requests instead of reprocessing them."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/optimizing-cost-and-latency-with-amazon-bedrock-prompt-caching/",
+          "quote": "Cache entries are scoped to individual AWS accounts and AWS Regions."
+        },
+        {
+          "url": "https://aws.amazon.com/blogs/machine-learning/optimizing-cost-and-latency-with-amazon-bedrock-prompt-caching/",
+          "quote": "For workloads with repeated context, the savings reach approximately 75 percent on input token costs."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-16-06",
+      "title": "Agent Skill 市场热潮退去：85.06% 可读 Skill 带权限证据，单一扫描器难以承担准入",
+      "source": "arXiv / APSEC 2026 已接收版本",
+      "sourceUrl": "https://arxiv.org/abs/2609.17274",
+      "publishedAt": "2026-09-15",
+      "freshness": "24h",
+      "category": "Agent Skill 市场治理",
+      "summary": "论文分析 OpenClaw Git 历史、GitHub issue 与 PR，以及三份 ClawHub 快照。三款扫描器共同覆盖的 61,990 个 Skill 中，有 23,702 个结论不一致；人工裁决后，加权灵敏度仅为 21.67%—61.06%。77.86% 的 Skill 没有星标或评论，85.06% 的可读 Skill 带有 shell、网络、凭证、文件或进程权限证据。",
+      "whyItMatters": "Skill 商店准入不能只看下载量、星标或单一扫描分数。产品需要公开权限清单和多扫描器分歧，安排人工抽检，并建立版本追踪、风险复查与下架机制。权限变化还应触发重新授权，让用户知道 Skill 更新后新增了哪些能力。",
+      "angle": "Agent Skill 商店如何设计插件权限、自动扫描和人工审核的三层准入机制？",
+      "caveat": "arXiv v1 时间为 2026-09-15T14:50:27Z，即北京时间 22:50:27。这是 APSEC 2026 已接收版本，尚非 camera-ready；研究对象集中于 OpenClaw 与 ClawHub，不能直接外推所有 Agent 插件市场。扫描器灵敏度依赖人工裁决参考集与研究定义，不代表所有真实攻击的检出率。",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2609.17274",
+          "quote": "Human scrutiny did not stay: 77.86% have zero stars and zero comments, while 85.06% of the readable skills carry privilege evidence."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.17274",
+          "quote": "And automated cleanup is not ready: the three security scanners disagreed on 23,702 of the 61,990 skills they all cover."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.17274",
+          "quote": "After human adjudication, weighted scanner sensitivity against the reference standard ranged from 21.67% to 61.06%."
+        }
+      ],
+      "recommended": true
+    },
+    {
+      "id": "2026-09-16-07",
+      "title": "Coding Agent 排行榜已难排出前后：模型与 scaffold 应作为一个系统验收",
+      "source": "arXiv / ADMA 2026 已接收论文",
+      "sourceUrl": "https://arxiv.org/abs/2609.17394",
+      "publishedAt": "2026-09-15",
+      "freshness": "24h",
+      "category": "Coding Agent 评测",
+      "summary": "作者审计 254 个 SWE-bench 提交。Verified 前两名都解决 396/500 个实例；前十名共有 285 个共同成功和 51 个共同失败。同一模型搭配不同 scaffold 的成绩范围最高相差 29.8 个百分点，高于前 30 名之间 8.8 个百分点的总分差；29 对相邻名次均未通过 α=0.05 的精确配对 McNemar 检验。",
+      "whyItMatters": "选型时不能把很小的排行榜差距当作确定能力排序。团队需要记录模型与 scaffold 的完整组合，在自有任务集上进行配对比较，并估算得到可区分结论所需的样本量、实例预算和重复运行成本。",
+      "angle": "为什么 Coding Agent 选型不能只看 SWE-bench 总分？",
+      "caveat": "arXiv v1 时间为 2026-09-15T16:29:12Z，即北京时间 9 月 16 日 00:29:12。论文已被 ADMA 2026 Responsible Data Intelligence 专场接收并标为 camera-ready，但分析属于对公开提交的观察性审计，没有重新运行模型，也不能识别 scaffold 的因果作用。",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2609.17394",
+          "quote": "Scores also depend on the evaluated model-scaffold pair: observed within-model scaffold ranges reach 29.8 percentage points, compared with the 8.8-point spread of the top thirty."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.17394",
+          "quote": "Exact paired McNemar tests separate none of the 29 adjacent Verified top-thirty pairs at alpha=0.05"
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.17394",
+          "quote": "The results motivate reporting comparison-set-specific resolution and model-scaffold provenance instead of interpreting small aggregate gaps as established rank differences."
+        }
+      ],
+      "recommended": false
+    },
+    {
+      "id": "2026-09-16-08",
+      "title": "长时多 Agent 压测：识别威胁不等于阻断，污染可在 46 小时后继续触发",
+      "source": "arXiv 预印本",
+      "sourceUrl": "https://arxiv.org/abs/2609.17320",
+      "publishedAt": "2026-09-15",
+      "freshness": "24h",
+      "category": "长时 Agent 安全",
+      "summary": "研究运行 8 个平行世界，每个世界 10 个 Agent，持续 16 天，共产生超过 85 万次 LLM 调用和近 500 亿 token。面对间接提示注入、错误信息和私有记忆暴露三类压力事件，没有一个世界全部通过；部分系统识别出威胁后仍继续交互、写入持久记忆，并在最长 46 小时后采取行动。",
+      "whyItMatters": "Agent 安全验收需要覆盖长时状态、记忆污染、工具副作用、阻断和恢复。单轮回答安全或成功检测告警，不能证明系统已经控制风险。产品应记录威胁进入、传播、写入、调用工具和清理的完整链路，并验证中断后是否仍会再次触发。",
+      "angle": "为什么长任务 Agent 的安全指标必须从检测率升级为阻断、清理与恢复？",
+      "caveat": "arXiv v1 时间为 2026-09-15T15:27:58Z，即北京时间 23:27:58。这是未同行评审预印本，仅测试 8 个世界、一个实验环境和三类压力事件，不能外推所有模型或生产场景。不同世界由不同模型驱动，具体差异需要结合论文实验设置阅读。",
+      "evidence": [
+        {
+          "url": "https://arxiv.org/abs/2609.17320",
+          "quote": "No evaluated world achieved full resilience across all three events."
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.17320",
+          "quote": "Detection did not ensure containment"
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.17320",
+          "quote": "writing it into their own persistent memory, and acting on it up to 46 hours later."
+        }
+      ],
+      "recommended": false
+    }
+  ]
+}

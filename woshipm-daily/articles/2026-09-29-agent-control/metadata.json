@@ -1,0 +1,18 @@
+{
+  "title": "AI Agent 开始替商家做事，产品经理该怎样设计“可控执行”？",
+  "status": "draft_for_review",
+  "createdAt": "2026-09-30T18:06:51+08:00",
+  "selectionDate": "2026-09-29",
+  "selectedBy": "user_delegated_angle_choice_in_chat",
+  "sourceIds": [
+    "2026-09-29-02",
+    "2026-09-29-04",
+    "2026-09-29-05"
+  ],
+  "sourceDigest": "../../digests/2026-09-29.json",
+  "articleFile": "article.md",
+  "angle": "跨工具 Agent 的控制权设计：动作级授权、执行前确认、执行中转向和重启后恢复",
+  "sourceRecheckedAt": "2026-09-30T18:06:51+08:00",
+  "publicationStatus": "not_submitted",
+  "examples": "商家促销任务和审批界面均为假设设计示例；没有声称实测或用户经历。"
+}

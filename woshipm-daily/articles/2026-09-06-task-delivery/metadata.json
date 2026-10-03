@@ -1,0 +1,68 @@
+{
+  "title": "让 AI 稳定交付可用结果，产品经理该补上哪四项设计？",
+  "createdAt": "2026-09-06T17:14:04+08:00",
+  "status": "deleted_from_platform",
+  "publicationStatus": "deleted_from_platform",
+  "selectionDate": "2026-09-06",
+  "selectedIds": [
+    "2026-09-06-01",
+    "2026-09-06-05",
+    "2026-09-06-08"
+  ],
+  "selectionSavedAt": "2026-09-06T09:05:26.998Z",
+  "sourceDigest": "../../digests/2026-09-06.json",
+  "articleFile": "article.md",
+  "hanCharacters": 2953,
+  "articleSha256": "6A2FEAD092A6B1F12EACC67D316FE234BACAABED9D1D11399B082E2E2B6CC0C2",
+  "angle": "用假设电商素材助手串联执行能力、过程交互和模型更新，提出交付规格、变更状态、升级回归和合格交付成本四项产品设计。",
+  "evidenceFiles": [
+    "evidence/comfyui.md",
+    "evidence/openai.md",
+    "evidence/qwen.md"
+  ],
+  "sourcesRecheckedAt": "2026-09-06T17:06:47+08:00 — 2026-09-06T17:09:44+08:00",
+  "verification": {
+    "selectionMatches": true,
+    "primarySourcesReopened": true,
+    "independentArticleReview": "通过：官方事实与应用建议区分明确；假设案例标注充分；70%、90%、900/90=10元的指标和算式一致。",
+    "empiricalModelTesting": false,
+    "examples": "电商素材助手为设计示例；成本数据为演示假设。"
+  },
+  "publication": {
+    "platform": "人人都是产品经理",
+    "account": "汪仔8087",
+    "accountUrl": "https://www.woshipm.com/u/1686742",
+    "articleId": "6460440",
+    "editUrl": "https://www.woshipm.com/writing?pid=6460440",
+    "previewUrl": "https://www.woshipm.com/?p=6460440&preview=true",
+    "publicUrl": null,
+    "draftVerifiedAt": "2026-09-06T09:28:56.345Z",
+    "submittedAt": "2026-09-07T20:12:52+08:00",
+    "agreementConfirmationRequired": [],
+    "formatVerified": {
+      "headings": 5,
+      "tables": 2,
+      "sourceLinks": 7
+    },
+    "evidenceFile": "evidence/publication-resubmitted-2026-09-07.txt",
+    "statusVerifiedAt": "2026-09-07T20:25:52+08:00",
+    "agreementConfirmation": {
+      "userResponse": "同意",
+      "appliesToArticleId": "6460440",
+      "confirmed": true
+    },
+    "platformMessage": "作品提交成功；运营小妹将在24小时内审核稿件，请耐心等待。",
+    "managementUrl": "https://www.woshipm.com/me/posts/",
+    "resubmittedAt": "2026-09-07T20:12:52+08:00",
+    "previousPlatformFeedback": "作品与平台定位不符，无法发布；编辑回复：平台不接受纯AI生成内容，请补充个人观点。",
+    "previewStartsWithEditorReply": true,
+    "resubmitBlockedBy": "平台提示：每天投稿最多3次，谢谢合作。",
+    "followUpAutomationId": "ai",
+    "deletionRequestedAt": "2026-09-07T20:43:18+08:00",
+    "deletionRequestAnswerId": "221653",
+    "deletionRequestUrl": "https://wen.woshipm.com/answer/detail/tomd1d.html",
+    "deletionVerifiedAt": "2026-09-08T20:21:48+08:00",
+    "deletionVerification": "“我的文章”页面显示全部文章 0 篇，6460440 已从账号文章列表消失。",
+    "doNotResubmit": true
+  }
+}
