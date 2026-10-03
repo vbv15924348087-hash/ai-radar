@@ -6,6 +6,11 @@ export interface ProviderStatus { name: string; configured: boolean; development
 
 export async function api<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(path, { ...options, headers: { "Content-Type": "application/json", ...options?.headers } });
+  if (response.status === 401 && typeof window !== "undefined" && window.location.pathname !== "/unlock") {
+    window.location.assign(`/unlock?next=${encodeURIComponent(window.location.pathname + window.location.search)}`);
+    throw new Error("请先解锁云端工作区");
+  }
+  if (!response.headers.get("content-type")?.includes("application/json")) throw new Error("服务未返回 API 数据，请检查部署或访问权限");
   const body = await response.json();
   if (!response.ok) throw new Error(typeof body.error === "string" ? body.error : `请求失败 (${response.status})`);
   return body as T;

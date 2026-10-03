@@ -16,33 +16,33 @@ export class SourceSyncService {
     private readonly semantic?: SemanticDeduplicator) {}
 
   async sync(options: SyncOptions = {}): Promise<SyncRun[]> {
-    const selected = options.sourceId ? [this.repository.getSource(options.sourceId)] : this.repository.listSources().filter(source => source.enabled);
+    const selected = options.sourceId ? [await this.repository.getSource(options.sourceId)] : (await this.repository.listSources()).filter(source => source.enabled);
     if (selected.some(source => !source)) throw new Error("来源不存在");
     const owner = randomUUID();
-    if (!this.repository.acquireLock(owner)) throw new SyncBusyError("已有同步正在运行，请稍后查看结果");
+    if (!await this.repository.acquireLock(owner)) throw new SyncBusyError("已有同步正在运行，请稍后查看结果");
     try {
       const runs: SyncRun[] = [];
       for (const source of selected) if (source) {
-        this.repository.renewLock(owner);
+        await this.repository.renewLock(owner);
         runs.push(await this.syncSource(source, options.retry ?? false, owner));
       }
       return runs;
-    } finally { this.repository.releaseLock(owner); }
+    } finally { await this.repository.releaseLock(owner); }
   }
 
   private async syncSource(source: Source, retry: boolean, owner: string): Promise<SyncRun> {
     const run: SyncRun = { id: randomUUID(), sourceId: source.id, state: "processing", startedAt: new Date().toISOString(),
       finishedAt: null, durationMs: 0, discovered: 0, fetched: 0, duplicates: 0, analyzed: 0, failed: 0, aiDurationMs: 0, errors: [] };
     const started = performance.now();
-    const previous = this.repository.listRuns(100).find(entry => entry.sourceId === source.id);
+    const previous = (await this.repository.listRuns(100)).find(entry => entry.sourceId === source.id);
     const processed = new Set<string>();
-    this.repository.saveRun(run);
+    await this.repository.saveRun(run);
     try {
       if (retry) {
-        for (const content of this.repository.retryableContents(source.id, this.provider.name !== "development")) {
+        for (const content of await this.repository.retryableContents(source.id, this.provider.name !== "development")) {
           await this.processOne(run, () => this.processExisting(content, run));
           processed.add(content.id);
-          this.repository.renewLock(owner);
+          await this.repository.renewLock(owner);
         }
       }
       if (!retry || previous?.errors.some(error => !error.contentItemId)) {
@@ -50,18 +50,18 @@ export class SourceSyncService {
         if (!adapter) throw new StageError("discover", new Error(`未配置 ${source.type} Adapter`));
         const rawItems = await stage("discover", () => adapter.discover(source));
         run.discovered = rawItems.length;
-        this.repository.saveRun(run);
+        await this.repository.saveRun(run);
         for (const raw of rawItems) {
           await this.processOne(run, () => this.ingestRaw(raw, source, adapter, run, processed), raw.externalId);
-          this.repository.renewLock(owner);
+          await this.repository.renewLock(owner);
         }
       }
-    } catch (error) { this.recordFailure(run, error); }
+    } catch (error) { await this.recordFailure(run, error); }
     run.state = run.failed ? "failed" : "completed";
     run.finishedAt = new Date().toISOString();
     run.durationMs = Math.round(performance.now() - started);
-    this.repository.saveRun(run);
-    this.repository.markSourceChecked(source.id, run.errors[0]?.error ?? null);
+    await this.repository.saveRun(run);
+    await this.repository.markSourceChecked(source.id, run.errors[0]?.error ?? null);
     // Logs intentionally contain counts and stages, never raw content or credentials.
     console.info(JSON.stringify({ event: "source_sync", sourceId: source.id, runId: run.id, state: run.state,
       durationMs: run.durationMs, discovered: run.discovered, fetched: run.fetched, duplicates: run.duplicates,
@@ -84,10 +84,10 @@ export class SourceSyncService {
   private async processExisting(content: ContentItem, run: SyncRun) {
     const started = performance.now();
     try {
-      await analyzeContent(this.repository, this.provider, content, this.repository.listTopics());
+      await analyzeContent(this.repository, this.provider, content, await this.repository.listTopics());
       run.analyzed++;
     } catch (error) {
-      const failed = this.repository.getContent(content.id);
+      const failed = await this.repository.getContent(content.id);
       const failure = this.toFailure(error, failed?.attempts ?? content.attempts + 1);
       failure.contentItemId = content.id;
       failure.externalId = content.externalId;
@@ -95,8 +95,8 @@ export class SourceSyncService {
     } finally { run.aiDurationMs += Math.round(performance.now() - started); }
   }
   private async processOne(run: SyncRun, action: () => Promise<void>, externalId?: string) {
-    try { await action(); } catch (error) { this.recordFailure(run, error, externalId); }
-    this.repository.saveRun(run);
+    try { await action(); } catch (error) { await this.recordFailure(run, error, externalId); }
+    await this.repository.saveRun(run);
   }
   private toFailure(error: unknown, attempts = 1): ProcessingFailure {
     const message = (error instanceof Error ? error.message : "未知错误").slice(0, 600);
@@ -106,10 +106,10 @@ export class SourceSyncService {
     return { stage: error instanceof StageError ? error.stage : "discover", error: message,
       retryable, attempts, timestamp: new Date().toISOString() };
   }
-  private recordFailure(run: SyncRun, error: unknown, externalId?: string) {
+  private async recordFailure(run: SyncRun, error: unknown, externalId?: string) {
     const failure = error instanceof Error && "failure" in error ? error.failure as ProcessingFailure : this.toFailure(error);
     if (!failure.contentItemId) {
-      const previous = this.repository.listRuns(100).find(entry => entry.sourceId === run.sourceId && entry.id !== run.id);
+      const previous = (await this.repository.listRuns(100)).find(entry => entry.sourceId === run.sourceId && entry.id !== run.id);
       const priorFailure = previous?.errors.find(entry => entry.stage === failure.stage && entry.externalId === externalId);
       failure.attempts = (priorFailure?.attempts ?? 0) + 1;
     }

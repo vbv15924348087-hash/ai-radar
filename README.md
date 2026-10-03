@@ -22,7 +22,7 @@ Copy-Item .env.example .env.local  # 首次配置；已有文件时直接编辑�
 npm run dev
 ```
 
-打开 http://127.0.0.1:3000 。生产模式使用 `npm run build` 后 `npm start`。服务器仅绑定本机地址，v0.1 是单用户本地应用，没有公网部署或多租户认证。
+打开 http://127.0.0.1:3000 。生产模式使用 `npm run build` 后 `npm start`。本地模式仅绑定本机地址；Vercel 云端模式使用 Turso 持久数据库与单用户访问口令，配置步骤见 [Vercel 部署与数据迁移](docs/vercel-deployment.md)。
 
 先在「信息源」添加来源（或点击官方预设），点击单源/全部同步，再在 Today 查看按分数排序的今日处理结果。首次启动只预置六个可编辑的研究主题，不插入虚构新闻。Today 按处理日期收录，条目仍明确显示原始发布日期；历史数据位于 Library。
 

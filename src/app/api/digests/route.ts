@@ -1,6 +1,6 @@
 import { createDigestStore } from "@/infrastructure/digests/store";
-import { endpoint } from "../http";
+import { dataEndpoint } from "../http";
 
 export function GET(request: Request) {
-  return endpoint(request, async () => ({ digests: await createDigestStore().listDigests() }));
+  return dataEndpoint(request, async () => ({ digests: await createDigestStore().listDigests() }));
 }

@@ -4,6 +4,8 @@ import { dirname, join, resolve } from "node:path";
 import { z } from "zod";
 import type { DailyDigest, DigestIndexItem, DigestSelection } from "@/domain/digest";
 import { validatePublicUrl } from "@/infrastructure/http/public-http";
+import { createCloudDigestStore } from "./cloud-store";
+import { cloudDatabaseConfigured, isCloudDeployment } from "@/infrastructure/deployment";
 
 export const digestDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "日期须为 YYYY-MM-DD").refine(value => {
   const date = new Date(`${value}T00:00:00.000Z`);
@@ -57,7 +59,7 @@ export const digestSelectionInputSchema = z.object({
   angle: z.string().trim().max(4000),
 }).strict();
 export type DigestSelectionInput = z.infer<typeof digestSelectionInputSchema>;
-const selectionSchema: z.ZodType<DigestSelection> = digestSelectionInputSchema.extend({
+export const selectionSchema: z.ZodType<DigestSelection> = digestSelectionInputSchema.extend({
   date: digestDateSchema,
   updatedAt: instantSchema.nullable(),
 }).strict();
@@ -107,7 +109,7 @@ async function atomicWrite(filename: string, value: unknown): Promise<void> {
 }
 
 /** Digests are replaceable research; selections are a separate record of the user's intent. */
-export function createDigestStore(digestsDirectory = join(process.cwd(), "woshipm-daily", "digests")) {
+export function createLocalDigestStore(digestsDirectory = join(process.cwd(), "woshipm-daily", "digests")) {
   const digestDirectory = resolve(digestsDirectory);
   const selectionDirectory = join(dirname(digestDirectory), "selections");
 
@@ -165,4 +167,11 @@ export function createDigestStore(digestsDirectory = join(process.cwd(), "woship
   }
 
   return { listDigests, readDigest, readSelection, readDigestWithSelection, writeDigest, saveSelection };
+}
+
+export function createDigestStore(digestsDirectory?: string) {
+  if (digestsDirectory !== undefined) return createLocalDigestStore(digestsDirectory);
+  if (cloudDatabaseConfigured()) return createCloudDigestStore();
+  if (isCloudDeployment()) throw new Error("云端持久数据库尚未连接，请配置 TURSO_DATABASE_URL 和 TURSO_AUTH_TOKEN");
+  return createLocalDigestStore();
 }

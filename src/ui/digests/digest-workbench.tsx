@@ -36,7 +36,7 @@ export function DigestWorkbench() {
 }
 
 function DigestEdition({ date, revision, initialDraft, onDraftChange, onBusyChange }: { date: string; revision: number; initialDraft?: SelectionDraft; onDraftChange: (draft: SelectionDraft) => void; onBusyChange: (value: boolean) => void }) {
-  const resource = useResource<{ digest: DailyDigest; selection: DigestSelection }>(`/api/digests/${date}`);
+  const resource = useResource<{ digest: DailyDigest; selection: DigestSelection; storage?: "cloud" | "local" }>(`/api/digests/${date}`);
   const [selectedIds, setSelectedIds] = useState<string[]>(initialDraft?.selectedIds ?? []);
   const [angle, setAngle] = useState(initialDraft?.angle ?? "");
   const [initialized, setInitialized] = useState(!!initialDraft);
@@ -64,7 +64,10 @@ function DigestEdition({ date, revision, initialDraft, onDraftChange, onBusyChan
   const missing = selectedIds.filter(id => !digest.items.some(item => item.id === id));
   const freshCount = digest.items.filter(item => item.freshness === "24h").length;
   const recommendedCount = digest.items.filter(item => item.recommended).length;
-  const request = `请根据我在 AI Radar 保存的 ${date} 选题 ${selected.map(item => item.id).join("、")}，核对最新原文后总结成一篇有原创分析的 AI 产品实战文章。${angle.trim() ? `写作方向：${angle.trim()}。` : ""}请先读取 woshipm-daily/selections/${date}.json 和对应日期的简报。`;
+  const selectionLocation = resource.data?.storage === "cloud"
+    ? `请先从已登录的 AI Radar 云端工作区读取 /api/digests/${date} 返回的简报和 selection（${typeof window !== "undefined" ? window.location.origin : ""}）。`
+    : `请先读取 woshipm-daily/selections/${date}.json 和对应日期的简报。`;
+  const request = `请根据我在 AI Radar 保存的 ${date} 选题 ${selected.map(item => item.id).join("、")}，核对最新原文后总结成一篇有原创分析的 AI 产品实战文章。${angle.trim() ? `写作方向：${angle.trim()}。` : ""}${selectionLocation}`;
   function toggle(id: string) {
     const next = selectedIds.includes(id) ? selectedIds.filter(value => value !== id) : [...selectedIds, id];
     setSelectedIds(next); onDraftChange({ selectedIds: next, angle, saved: false });

@@ -11,10 +11,10 @@ async function main() {
   const database = resolve(`.qa/live-${Date.now()}.sqlite`);
   const services = createServices(database);
   try {
-    const source = services.repository.addSource(sourceInputSchema.parse({ name: "OpenAI News", type: "RSS", urlOrIdentifier: "https://openai.com/news/rss.xml" }));
+    const source = await services.repository.addSource(sourceInputSchema.parse({ name: "OpenAI News", type: "RSS", urlOrIdentifier: "https://openai.com/news/rss.xml" }));
     const first = await services.sync.sync({ sourceId: source.id });
     const second = await services.sync.sync({ sourceId: source.id });
-    const feed = services.repository.feed({ limit: 10 });
+    const feed = await services.repository.feed({ limit: 10 });
     if (!feed.items.length || first[0].analyzed < 1 || second[0].duplicates < 1 || second[0].analyzed !== 0 || first[0].failed || second[0].failed) {
       throw new Error(`Live smoke did not pass: ${JSON.stringify({ first, second, total: feed.total })}`);
     }

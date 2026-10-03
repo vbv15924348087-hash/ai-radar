@@ -4,11 +4,11 @@ const flagsSchema = z.object({ favorite: z.boolean().optional(), read: z.boolean
 export function GET(request: Request, context: RouteContext) {
   return endpoint(request, async ({ repository }) => {
     const { id } = await context.params;
-    const item = repository.getItem(id);
+    const item = await repository.getItem(id);
     if (!item) throw new HttpError(404, "情报不存在");
-    return { item, observations: repository.observations(id) };
+    return { item, observations: await repository.observations(id) };
   });
 }
 export function PATCH(request: Request, context: RouteContext) {
-  return endpoint(request, async ({ repository }) => { repository.updateItem((await context.params).id, await jsonBody(request, flagsSchema)); return { ok: true }; });
+  return endpoint(request, async ({ repository }) => { await repository.updateItem((await context.params).id, await jsonBody(request, flagsSchema)); return { ok: true }; });
 }

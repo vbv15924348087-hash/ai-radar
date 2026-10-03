@@ -1,0 +1,8 @@
+.env*
+!.env.example
+.qa/
+.qa-*
+data/
+woshipm-daily/selections/
+woshipm-daily/articles/
+woshipm-daily/deletions/

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Archive, Bookmark, CircleHelp, Compass, FlaskConical, Keyboard, Layers3, Newspaper, Radar, Radio } from "lucide-react";
 import { Suspense, useState, type ReactNode } from "react";
 import { Dialog } from "./dialog";
+import { useResource } from "./api";
 
 const navigation = [
   { href: "/briefings", label: "每日精选", icon: Newspaper },
@@ -29,17 +30,19 @@ function Navigation() {
 export function WorkspaceShell({ children }: { children: ReactNode }) {
   const [help, setHelp] = useState(false);
   const pathname = usePathname();
+  const session = useResource<{ cloud: boolean; authenticated: boolean; accessMode: string }>("/api/session");
   if (pathname === "/agent-lab" || pathname.startsWith("/agent-lab/")) {
     return <main id="main-content">{children}</main>;
   }
   return <div className="workspace">
     <aside className="sidebar">
-      <Link href="/" className="brand" aria-label="AI Radar 首页"><span className="brand-emblem"><Radar size={24} strokeWidth={1.7} /></span><span className="brand-wordmark"><strong>AI RADAR</strong><small>INTELLIGENCE / LOCAL</small></span></Link>
+      <Link href="/" className="brand" aria-label="AI Radar 首页"><span className="brand-emblem"><Radar size={24} strokeWidth={1.7} /></span><span className="brand-wordmark"><strong>AI RADAR</strong><small>INTELLIGENCE / {session.data?.cloud ? "CLOUD" : "LOCAL"}</small></span></Link>
       <div className="workspace-label"><span>个人工作区</span><span>SYS / 01</span></div>
       <Suspense fallback={<div className="nav-placeholder" />}><Navigation /></Suspense>
       <div className="sidebar-bottom">
         <button className="nav-link help-link" aria-label="使用帮助" onClick={() => setHelp(true)}><CircleHelp size={16} /><span>使用帮助</span><Keyboard size={14} /></button>
-        <div className="sidebar-footer"><span className="status-dot" />本地工作区<span>v0.1</span></div>
+        {session.data?.cloud && !session.data.authenticated && <Link className="nav-link" href="/unlock"><CircleHelp size={16} /><span>解锁云端工作区</span></Link>}
+        <div className="sidebar-footer"><span className="status-dot" />{session.data?.cloud ? "云端工作区" : "本地工作区"}<span>v0.1</span></div>
       </div>
     </aside>
     <div className="main-shell"><main id="main-content">{children}</main></div>
@@ -56,4 +59,3 @@ export function WorkspaceShell({ children }: { children: ReactNode }) {
     </Dialog>}
   </div>;
 }
-

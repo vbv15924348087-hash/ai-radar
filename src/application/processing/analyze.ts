@@ -16,7 +16,7 @@ export async function stage<T>(name: PipelineStage, action: () => T | Promise<T>
 }
 
 export async function analyzeContent(repository: RadarRepository, provider: AIProvider, content: ContentItem, topics: Topic[]) {
-  const processing = repository.transitionContent(content.id, "processing");
+  const processing = await repository.transitionContent(content.id, "processing");
   try {
     const matches = await stage("classify", () => matchTopics(`${content.title}\n${content.normalizedContent}`, topics));
     const start = performance.now();
@@ -28,7 +28,7 @@ export async function analyzeContent(repository: RadarRepository, provider: AIPr
       createdAt: new Date().toISOString(), favorite: false, read: false }));
     return { aiDurationMs };
   } catch (error) {
-    repository.transitionContent(content.id, "failed", error instanceof Error ? error.message : "分析失败");
+    await repository.transitionContent(content.id, "failed", error instanceof Error ? error.message : "分析失败");
     throw error;
   }
 }

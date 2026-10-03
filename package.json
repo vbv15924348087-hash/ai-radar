@@ -8,13 +8,16 @@
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "vitest run --pool=forks --execArgv=--expose-gc",
     "sync": "tsx scripts/sync.ts",
     "digest:import": "tsx scripts/import-digest.ts",
+    "digest:publish": "tsx scripts/publish-digest.ts",
+    "cloud:migrate": "tsx scripts/cloud-migrate.ts",
     "scheduler": "tsx scripts/scheduler.ts",
     "smoke:live": "tsx scripts/live-smoke.ts"
   },
   "dependencies": {
+    "@libsql/client": "^0.18.0",
     "better-sqlite3": "^12.6.2",
     "drizzle-orm": "^0.45.1",
     "fast-xml-parser": "^5.3.8",

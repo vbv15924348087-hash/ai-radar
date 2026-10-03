@@ -23,18 +23,18 @@ export async function deduplicateContent(repository: RadarRepository, draft: Con
   if (!draft.title.trim() || !draft.externalId || !draft.normalizedContent.trim()) throw new Error("来源内容缺少标题、标识或正文");
   const canonicalUrl = canonicalizeUrl(draft.url);
   const fingerprint = contentFingerprint(draft);
-  let existing = repository.findDuplicate(draft, canonicalUrl, fingerprint);
+  let existing = await repository.findDuplicate(draft, canonicalUrl, fingerprint);
   if (!existing && semantic) {
     const id = await semantic.findSimilar(draft);
-    if (id) existing = repository.getContent(id);
+    if (id) existing = await repository.getContent(id);
   }
   if (existing) {
-    repository.observe(existing.id, draft);
+    await repository.observe(existing.id, draft);
     return { content: existing, duplicate: true };
   }
   const content: ContentItem = { ...draft, id: randomUUID(), canonicalUrl, fingerprint,
     state: "pending", attempts: 0, error: null, eventId: null };
-  repository.insertContent(content);
-  repository.observe(content.id, draft);
+  await repository.insertContent(content);
+  await repository.observe(content.id, draft);
   return { content, duplicate: false };
 }
